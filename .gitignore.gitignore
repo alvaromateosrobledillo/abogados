@@ -1,0 +1,39 @@
+# Archivo de configuración
+wp-config.php
+
+# Directorios de caché
+wp-content/cache/
+
+# Archivos de logs y depuración
+wp-content/debug.log
+wp-content/plugins/*/logs/
+wp-content/themes/*/logs/
+
+# Archivos de backup y exportación
+wp-content/backup*
+wp-content/export*
+
+# Directorios de uploads (opcional)
+wp-content/uploads/
+
+# Archivos temporales del sistema
+.tmp
+.temp
+.htaccess
+node_modules/
+wp-content/themes/Homent/asset/dist/
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de copia de seguridad del editor
+*.bak
+*.swp
+*.swo
+
+# Otros archivos y directorios
+wp-content/plugins/*/*/*.tmp
+wp-content/themes/*/*/*.tmp
+
+
+wp-content/plugins/
