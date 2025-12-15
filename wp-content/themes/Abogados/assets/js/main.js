@@ -4,15 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!toggle || !mobileNav) return;
 
+  const setNavState = (open) => {
+    mobileNav.classList.toggle('hidden', !open);
+    document.body.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  };
+
   toggle.addEventListener('click', () => {
-    mobileNav.classList.toggle('hidden');
-    document.body.classList.toggle('nav-open');
+    const isOpen = mobileNav.classList.contains('hidden');
+    setNavState(isOpen);
   });
 
   mobileNav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      mobileNav.classList.add('hidden');
-      document.body.classList.remove('nav-open');
+      setNavState(false);
     });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      setNavState(false);
+    }
   });
 });
