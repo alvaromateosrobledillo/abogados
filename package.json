@@ -1,7 +1,17 @@
 {
-  "dependencies": {
+  "name": "abogados-theme",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "postcss ./wp-content/themes/Abogados/assets/css/tailwind.css -o ./wp-content/themes/Abogados/assets/css/tailwind.build.css --watch",
+    "build": "NODE_ENV=production postcss ./wp-content/themes/Abogados/assets/css/tailwind.css -o ./wp-content/themes/Abogados/assets/css/tailwind.build.css"
+  },
+  "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.17",
+    "postcss-cli": "^11.0.1"
   }
 }
+
+

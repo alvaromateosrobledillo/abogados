@@ -87,16 +87,9 @@ add_filter('script_loader_tag', 'abogados_script_loader_tag', 10, 3);
 
 function abogados_assets() {
     wp_enqueue_style(
-        'abogados-fonts',
-        'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap',
-        array(),
-        null
-    );
-
-    wp_enqueue_style(
         'abogados-style',
         get_stylesheet_uri(),
-        array('abogados-fonts'),
+        array(),
         '1.0'
     );
 
@@ -105,7 +98,7 @@ function abogados_assets() {
         wp_enqueue_style(
             'abogados-tailwind',
             get_template_directory_uri() . '/assets/css/tailwind.build.css',
-            array('abogados-fonts'),
+            array(),
             filemtime($tailwind_path)
         );
     }

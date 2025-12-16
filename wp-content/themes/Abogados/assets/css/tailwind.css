@@ -88,6 +88,7 @@
   font-display: swap;
 }
 
-:root {
-  --font-sans: "Noyh", "Manrope", "Helvetica Neue", sans-serif;
+html, body {
+  font-family: "Noyh", system-ui, sans-serif;
 }
+
