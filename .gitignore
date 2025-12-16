@@ -1,0 +1,57 @@
+# =========================
+# WordPress core / config
+# =========================
+wp-config.php
+
+# =========================
+# Uploads y contenido dinámico
+# =========================
+wp-content/uploads/
+wp-content/cache/
+wp-content/backup*
+wp-content/export*
+
+# =========================
+# Plugins y themes (logs, tmp)
+# =========================
+wp-content/plugins/*/logs/
+wp-content/themes/*/logs/
+wp-content/plugins/**/*.tmp
+wp-content/themes/**/*.tmp
+
+# =========================
+# Node / Tailwind
+# =========================
+node_modules/
+dist/
+build/
+*.map
+
+# Si el build de Tailwind es generado
+wp-content/themes/**/assets/css/tailwind.build.css
+
+# =========================
+# Archivos ZIP / exports
+# =========================
+*.zip
+
+# =========================
+# Logs y debug
+# =========================
+wp-content/debug.log
+*.log
+
+# =========================
+# Sistema operativo / editor
+# =========================
+.DS_Store
+Thumbs.db
+*.bak
+*.swp
+*.swo
+
+# =========================
+# Temporales
+# =========================
+.tmp
+.temp

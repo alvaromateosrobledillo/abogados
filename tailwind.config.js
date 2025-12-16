@@ -6,8 +6,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Manrope', 'Helvetica Neue', 'sans-serif'],
-      serif: ['Cormorant Garamond', 'Times New Roman', 'serif'],
+      sans: ['Noyh', 'system-ui', 'sans-serif'],
+      serif: ['Noyh', 'system-ui', 'sans-serif'],
     },
     extend: {
       colors: {

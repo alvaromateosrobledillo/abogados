@@ -92,3 +92,7 @@ html, body {
   font-family: "Noyh", system-ui, sans-serif;
 }
 
+:root {
+  --font-sans: "Noyh", system-ui, sans-serif;
+  --font-serif: "Noyh", system-ui, sans-serif;
+}
