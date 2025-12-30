@@ -25,7 +25,7 @@ add_action('after_setup_theme', 'abogados_setup');
  * Keep the custom logo aligned and sized consistently.
  */
 function abogados_custom_logo_html($html) {
-    $html = str_replace('class="custom-logo"', 'class="custom-logo h-12 w-auto"', $html);
+    $html = str_replace('class="custom-logo"', 'class="custom-logo h-12 md:h-[52px] lg:h-16 w-auto"', $html);
     $html = str_replace('class="custom-logo-link"', 'class="custom-logo-link inline-flex items-center"', $html);
 
     return $html;

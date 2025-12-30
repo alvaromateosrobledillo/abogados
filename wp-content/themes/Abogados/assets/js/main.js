@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!toggle || !mobileNav) return;
 
-  const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
+  const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
   const setNavState = (open) => {
     // En desktop el nav siempre visible
