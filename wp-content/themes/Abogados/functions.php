@@ -103,11 +103,14 @@ function abogados_assets() {
         );
     }
 
+    $js_path = get_template_directory() . '/assets/js/main.js';
+    $js_version = file_exists($js_path) ? filemtime($js_path) : '1.0';
+
     wp_enqueue_script(
         'abogados-js',
         get_template_directory_uri() . '/assets/js/main.js',
         array(),
-        '1.0',
+        $js_version,
         true
     );
 }

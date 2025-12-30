@@ -54,3 +54,80 @@ document.addEventListener('DOMContentLoaded', () => {
   // Init
   setNavState(false);
 });
+
+const modalRootSelector = '[data-modal-root]';
+
+const updateBodyLock = () => {
+  const hasOpenModal = document.querySelector(`${modalRootSelector}.flex`);
+  document.body.classList.toggle('overflow-hidden', Boolean(hasOpenModal));
+};
+
+const openModal = (modal) => {
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  modal.setAttribute('aria-hidden', 'false');
+  updateBodyLock();
+};
+
+const closeModal = (modal) => {
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  modal.setAttribute('aria-hidden', 'true');
+  updateBodyLock();
+};
+
+document.addEventListener('click', (e) => {
+  const openBtn = e.target.closest('[data-modal]');
+  const closeBtn = e.target.closest('[data-close]');
+  const backdrop = e.target.closest('[data-modal-backdrop]');
+
+  if (openBtn) {
+    const modal = document.getElementById(openBtn.dataset.modal);
+    if (modal) openModal(modal);
+    return;
+  }
+
+  if (closeBtn) {
+    const modal = closeBtn.closest(modalRootSelector);
+    if (modal) closeModal(modal);
+    return;
+  }
+
+  if (backdrop && backdrop === e.target) {
+    closeModal(backdrop);
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  document.querySelectorAll(modalRootSelector).forEach(closeModal);
+});
+
+const toggleAccordionItem = (trigger, open) => {
+  const panelId = trigger.getAttribute('aria-controls');
+  const panel = panelId ? document.getElementById(panelId) : null;
+  const icon = trigger.querySelector('[data-accordion-icon]');
+
+  trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (icon) icon.classList.toggle('rotate-180', open);
+  if (panel) panel.classList.toggle('hidden', !open);
+};
+
+document.addEventListener('click', (e) => {
+  const trigger = e.target.closest('[data-accordion-trigger]');
+  if (!trigger) return;
+
+  const accordion = trigger.closest('[data-accordion]');
+  if (!accordion) return;
+
+  const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+  if (accordion.dataset.accordion === 'single') {
+    accordion.querySelectorAll('[data-accordion-trigger]').forEach((item) => {
+      toggleAccordionItem(item, item === trigger ? !isOpen : false);
+    });
+    return;
+  }
+
+  toggleAccordionItem(trigger, !isOpen);
+});

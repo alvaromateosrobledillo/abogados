@@ -9,14 +9,14 @@
 <body <?php body_class('bg-[#f7f6f2] text-slate-900 antialiased font-sans scroll-smooth'); ?>>
 <?php wp_body_open(); ?>
 
-<header id="inicio" class="w-full sticky top-0 z-50 bg-[#f7f6f2]/95 backdrop-blur border-b border-[#e6e3da]">
+<header id="inicio" class="w-full sticky top-0 z-50 bg-[#fbfbf7]/95 backdrop-blur border-b border-[#e6e3da] shadow-[0_6px_20px_rgba(0,0,0,0.04)]">
   <div class="max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="flex flex-wrap items-center justify-between gap-4 py-5">
+    <div class="flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 py-4">
 
       <!-- LOGO -->
       <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 flex-shrink-0">
         <?php if (has_custom_logo()) : ?>
-          <span class="inline-flex items-center [&_img]:h-[46px] [&_img]:w-auto [&_img]:max-w-none">
+          <span class="inline-flex items-center [&_img]:h-[42px] [&_img]:w-auto [&_img]:max-w-none">
             <?php the_custom_logo(); ?>
           </span>
           <span class="sr-only"><?php echo esc_html(get_bloginfo('name')); ?></span>
@@ -37,15 +37,6 @@
           <span class="opacity-60">|</span>
           <a class="hover:text-[#58683d] transition" href="#">EN</a>
         </div>
-
-        <!-- CTA (siempre visible desde sm, como tu estilo) -->
-        <a href="#contacto"
-           class="hidden sm:inline-flex items-center justify-center h-10 px-5
-                  bg-[#4a5530] text-white text-[14px] font-semibold
-                  shadow-[0_8px_18px_rgba(83,95,53,0.22)]
-                  hover:bg-[#3f4928] transition">
-          Contactar
-        </a>
 
         <!-- Hamburguesa (solo móvil/tablet) -->
         <button type="button"
@@ -77,34 +68,28 @@
           // MÓVIL: caja con borde y fondo suave (Flowbite-like)
           // DESKTOP: transparente, horizontal, centrado y con aire (como la imagen)
           'menu_class'        => 'font-medium flex flex-col p-4 mt-4 border border-[#e2dfd5] bg-[#efeee8]
-                                 lg:mt-0 lg:flex-row lg:space-x-10 lg:p-0 lg:border-0 lg:bg-transparent',
+                                 lg:mt-0 lg:flex-row lg:items-center lg:space-x-8 lg:p-0 lg:border-0 lg:bg-transparent lg:text-[13px] lg:tracking-[0.08em]',
 
           'li_class'          => 'list-none',
 
           // Links móvil: bloque con padding
           // Links desktop: limpio, sin caja
-          'link_class'        => 'block py-2 px-3 text-[#3f3f39] hover:text-[#58683d] transition
-                                 hover:bg-[#e8e6dd] lg:hover:bg-transparent lg:px-0 lg:py-0',
+          'link_class'        => 'block py-2 px-3 text-[#3f3f39] transition
+                                 hover:text-[#58683d] hover:bg-[#e8e6dd]
+                                 lg:relative lg:px-0 lg:py-0 lg:text-[#4b4d45] lg:hover:bg-transparent
+                                 lg:after:content-[\'\'] lg:after:absolute lg:after:left-0 lg:after:-bottom-2 lg:after:h-px lg:after:w-full lg:after:bg-[#58683d] lg:after:opacity-0 lg:after:transition-opacity lg:hover:after:opacity-100',
 
-          'link_active_class' => 'text-[#58683d]',
+          'link_active_class' => 'text-[#58683d] lg:after:opacity-100',
         ]);
         ?>
 
-        <!-- Idiomas + CTA dentro del menú móvil (solo móvil) -->
+        <!-- Idiomas dentro del menú móvil (solo móvil) -->
         <div class="lg:hidden mt-4 px-4 pb-4 border-t border-[#e2dfd5] pt-4">
           <div class="flex items-center gap-2 text-[12px] tracking-[0.18em] uppercase text-[#6b6e64]">
             <a class="hover:text-[#58683d] transition" href="#">ES</a>
             <span class="opacity-60">|</span>
             <a class="hover:text-[#58683d] transition" href="#">EN</a>
           </div>
-
-          <a class="mt-4 inline-flex items-center justify-center w-full h-11 px-5
-                    bg-[#4a5530] text-white text-[14px] font-semibold
-                    shadow-[0_8px_18px_rgba(83,95,53,0.22)]
-                    hover:bg-[#3f4928] transition"
-             href="#contacto">
-            Contactar
-          </a>
         </div>
 
       </nav>
