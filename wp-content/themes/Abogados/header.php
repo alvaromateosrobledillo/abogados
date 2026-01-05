@@ -11,7 +11,7 @@
 
 <header id="inicio" class="w-full sticky top-0 z-50 bg-[#fbfbf7]/95 backdrop-blur border-b border-[#e6e3da] shadow-[0_6px_20px_rgba(0,0,0,0.04)]">
   <div class="max-w-screen-2xl mx-auto px-6 sm:px-10 lg:px-14">
-    <div class="flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 md:gap-5 lg:gap-6 py-5  px-3 lg:px-14">
+    <div class="flex flex-wrap min-[1200px]:flex-nowrap items-center justify-between gap-4 md:gap-5 lg:gap-6 py-5  px-3 lg:px-14">
 
       <!-- LOGO -->
       <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 md:gap-4 flex-shrink-0">
@@ -22,17 +22,17 @@
           <span class="sr-only"><?php echo esc_html(get_bloginfo('name')); ?></span>
         <?php else : ?>
           <span class="leading-tight">
-            <span class="block text-[16px] md:text-[17px] lg:text-[19px] font-semibold tracking-[0.18em] uppercase text-[#58683d]">MBI Abogados</span>
+            <span class="block text-[16px] md:text-[16px] lg:text-[17px] font-semibold tracking-[0.18em] uppercase text-[#58683d]">MBI Abogados</span>
             <span class="block text-[12px] md:text-[12px] lg:text-[14px] uppercase tracking-[0.22em] text-[#5d5f55]">Marín | Besada | Iglesias</span>
           </span>
         <?php endif; ?>
       </a>
 
       <!-- DERECHA (idiomas + botón + hamburguesa) -->
-      <div class="inline-flex items-center gap-4 md:gap-5 lg:gap-6 md:order-2">
+      <div class="inline-flex items-center gap-4 md:gap-5 lg:gap-6 order-2">
 
         <!-- Idiomas (solo desktop, como la imagen) -->
-        <div class="hidden lg:flex items-center gap-2 text-[13px] tracking-[0.18em] uppercase text-[#6b6e64]">
+        <div class="hidden min-[1200px]:flex items-center gap-2 text-[13px] tracking-[0.18em] uppercase text-[#6b6e64]">
           <a class="hover:text-[#58683d] transition" href="#">ES</a>
           <span class="opacity-60">|</span>
           <a class="hover:text-[#58683d] transition" href="#">EN</a>
@@ -40,7 +40,7 @@
 
         <!-- Hamburguesa (solo móvil) -->
         <button type="button"
-          class="menu-toggle inline-flex items-center justify-center w-11 h-11 md:hidden
+          class="menu-toggle inline-flex items-center justify-center w-11 h-11 min-[1200px]:hidden
                  border border-[#d9d6cc] bg-white shadow-sm
                  hover:bg-[#f2f1ec] focus:outline-none focus:ring-2 focus:ring-[#c7c1b1]"
           aria-controls="mobileNav"
@@ -56,7 +56,7 @@
 
       <!-- MENU (PC: centrado / Móvil: colapsable tipo Flowbite) -->
       <nav id="mobileNav"
-           class="hidden w-full md:flex md:w-auto md:order-1 md:flex-1 md:justify-center"
+           class="hidden w-full order-3 min-[1200px]:flex min-[1200px]:w-auto min-[1200px]:order-1 min-[1200px]:flex-1 min-[1200px]:justify-center"
            aria-label="<?php esc_attr_e('Menú principal', 'abogados'); ?>">
 
         <?php
@@ -68,7 +68,7 @@
           // MÓVIL: caja con borde y fondo suave (Flowbite-like)
           // DESKTOP: transparente, horizontal, centrado y con aire (como la imagen)
           'menu_class'        => 'font-normal flex flex-col p-5 mt-5 border border-[#e2dfd5] bg-[#efeee8] text-[17px]
-                                 md:mt-0 md:flex-row md:items-center md:space-x-10 md:p-0 md:border-0 md:bg-transparent md:text-[24px] md:tracking-[0.35px] md:leading-[20px]',
+                                 min-[1200px]:mt-0 min-[1200px]:flex-row min-[1200px]:items-center min-[1200px]:space-x-10 min-[1200px]:p-0 min-[1200px]:border-0 min-[1200px]:bg-transparent min-[1200px]:text-[20px] min-[1200px]:tracking-[0.2px] min-[1200px]:leading-[22px]',
 
           'li_class'          => 'list-none',
 
@@ -76,15 +76,15 @@
           // Links desktop: limpio, sin caja
           'link_class'        => 'block py-3 px-4 text-[#3f3f39] transition
                                  hover:text-[#58683d] hover:bg-[#e8e6dd]
-                                 md:relative md:px-5 md:py-0 md:text-[color:var(--id-preview-660-c-0-baf-d-4014-e-24-b-737-d-82-e-411-b-242-d-lovable-app-cod-gray,var(--color-grey-8,#141414))] md:hover:bg-transparent
-                                 md:after:content-[\'\'] md:after:absolute md:after:left-0 md:after:-bottom-2 md:after:h-px md:after:w-full md:after:bg-[#58683d] md:after:opacity-0 md:after:transition-opacity md:hover:after:opacity-100',
+                                 min-[1200px]:relative min-[1200px]:px-4 min-[1200px]:py-0 min-[1200px]:text-[color:var(--id-preview-660-c-0-baf-d-4014-e-24-b-737-d-82-e-411-b-242-d-lovable-app-cod-gray,var(--color-grey-8,#141414))] min-[1200px]:hover:bg-transparent
+                                 min-[1200px]:after:content-[\'\'] min-[1200px]:after:absolute min-[1200px]:after:left-0 min-[1200px]:after:-bottom-2 min-[1200px]:after:h-px min-[1200px]:after:w-full min-[1200px]:after:bg-[#58683d] min-[1200px]:after:opacity-0 min-[1200px]:after:transition-opacity min-[1200px]:hover:after:opacity-100',
 
-          'link_active_class' => 'text-[#58683d] md:after:opacity-100',
+          'link_active_class' => 'text-[#58683d] min-[1200px]:after:opacity-100',
         ]);
         ?>
 
         <!-- Idiomas dentro del menú móvil (solo móvil) -->
-        <div class="md:hidden mt-5 px-5 pb-5 border-t border-[#e2dfd5] pt-5">
+        <div class="min-[1200px]:hidden mt-5 px-5 pb-5 border-t border-[#e2dfd5] pt-5">
           <div class="flex items-center gap-2 text-[13px] tracking-[0.18em] uppercase text-[#6b6e64]">
             <a class="hover:text-[#58683d] transition" href="#">ES</a>
             <span class="opacity-60">|</span>
