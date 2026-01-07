@@ -1,60 +1,100 @@
+// ======================================================
+// DOM READY
+// ======================================================
 document.addEventListener('DOMContentLoaded', () => {
+
+  // ======================================================
+  // MENÚ MÓVIL (hamburguesa)
+  // ======================================================
   const toggle = document.querySelector('.menu-toggle');
   const mobileNav = document.getElementById('mobileNav');
 
-  if (!toggle || !mobileNav) return;
+  if (toggle && mobileNav) {
+    const isDesktop = () => window.matchMedia('(min-width: 1200px)').matches;
 
-  const isDesktop = () => window.matchMedia('(min-width: 1200px)').matches;
+    const setNavState = (open) => {
+      if (isDesktop()) {
+        mobileNav.classList.remove('hidden');
+        document.body.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        return;
+      }
 
-  const setNavState = (open) => {
-    // En desktop el nav siempre visible
-    if (isDesktop()) {
-      mobileNav.classList.remove('hidden');
-      document.body.classList.remove('nav-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      return;
-    }
+      mobileNav.classList.toggle('hidden', !open);
+      document.body.classList.toggle('nav-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
 
-    mobileNav.classList.toggle('hidden', !open);
-    document.body.classList.toggle('nav-open', open);
-    toggle.setAttribute('aria-expanded', String(open));
-  };
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      setNavState(open);
+    });
 
-  // Toggle click
-  toggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const open = toggle.getAttribute('aria-expanded') !== 'true';
-    setNavState(open);
+    mobileNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setNavState(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setNavState(false);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (isDesktop()) return;
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      if (!open) return;
+
+      if (!mobileNav.contains(e.target) && !toggle.contains(e.target)) {
+        setNavState(false);
+      }
+    });
+
+    window.addEventListener('resize', () => setNavState(false));
+    setNavState(false);
+  }
+
+  // ======================================================
+  // HEADER – ANIMACIÓN DE ENTRADA (SAFE PARA STICKY)
+  // ======================================================
+  const headerInner = document.querySelector('[data-header-inner]');
+  if (headerInner) {
+    requestAnimationFrame(() => {
+      headerInner.classList.remove('opacity-0', '-translate-y-3');
+    });
+  }
+
+  // ======================================================
+  // HEADER – STAGGER LOGO + LINKS
+  // ======================================================
+  const headerItems = document.querySelectorAll('[data-header-item]');
+  headerItems.forEach((item, index) => {
+    setTimeout(() => {
+      item.classList.remove('opacity-0', 'translate-y-2');
+      item.setAttribute('data-visible', 'true');
+    }, 120 + index * 70);
   });
-
-  // Cerrar al click en link
-  mobileNav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => setNavState(false));
-  });
-
-  // ESC
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') setNavState(false);
-  });
-
-  // Click fuera
-  document.addEventListener('click', (e) => {
-    if (isDesktop()) return;
-    const open = toggle.getAttribute('aria-expanded') === 'true';
-    if (!open) return;
-
-    if (!mobileNav.contains(e.target) && !toggle.contains(e.target)) {
-      setNavState(false);
-    }
-  });
-
-  // Resize sync
-  window.addEventListener('resize', () => setNavState(false));
-
-  // Init
-  setNavState(false);
 });
 
+
+// ======================================================
+// HEADER – REACCIÓN AL SCROLL (SOMBRA)
+// ======================================================
+(() => {
+  const header = document.querySelector('[data-header]');
+  if (!header) return;
+
+  window.addEventListener('scroll', () => {
+    header.classList.toggle(
+      'shadow-[0_10px_30px_rgba(0,0,0,0.08)]',
+      window.scrollY > 40
+    );
+  });
+})();
+
+
+// ======================================================
+// MODALES
+// ======================================================
 const modalRootSelector = '[data-modal-root]';
 
 const updateBodyLock = () => {
@@ -99,10 +139,15 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key !== 'Escape') return;
-  document.querySelectorAll(modalRootSelector).forEach(closeModal);
+  if (e.key === 'Escape') {
+    document.querySelectorAll(modalRootSelector).forEach(closeModal);
+  }
 });
 
+
+// ======================================================
+// ACORDEÓN
+// ======================================================
 const toggleAccordionItem = (trigger, open) => {
   const panelId = trigger.getAttribute('aria-controls');
   const panel = panelId ? document.getElementById(panelId) : null;
