@@ -96,3 +96,54 @@ html, body {
   --font-sans: "Noyh", system-ui, sans-serif;
   --font-serif: "Noyh", system-ui, sans-serif;
 }
+
+@layer components {
+  .page-shell {
+    max-width: 92rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .page-shell {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .page-shell {
+      padding-left: 4.25rem;
+      padding-right: 4.25rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .page-shell {
+      padding-left: 5.25rem;
+      padding-right: 5.25rem;
+    }
+  }
+}
+
+@layer base {
+  main p {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  @media (min-width: 640px) {
+    main p {
+      font-size: 19px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    main p {
+      font-size: 20px;
+    }
+  }
+}
