@@ -4,7 +4,7 @@
 
     <div class="page-shell py-14">
 
-        <div class="grid gap-10 lg:grid-cols-[1.7fr_0.7fr_0.7fr]">
+        <div class="grid gap-10 sm:grid-cols-[1.7fr_0.7fr_0.7fr]">
 
             <!-- BLOQUE LOGO -->
             <div
@@ -17,13 +17,13 @@
                     alt="MBI Abogados"
                     loading="lazy">
 
-                <p class="max-w-md text-[18px] text-[#d4d4c9]">
+                <p class=" text-[clamp(13px,1.5vw,20px)] leading-[1.25] text-[#d4d4c9]">
                     La experiencia que orienta. El criterio que inspira confianza.
                 </p>
 
                 <a
                     class="inline-flex items-center justify-center w-10 h-10
-                           border border-[#6a754f] text-[#d4d4c9]
+                           border border-[#6a754f] text-[#ffffff]
                            hover:border-[#8a9472] transition"
                     href="#inicio"
                     aria-label="LinkedIn">
@@ -36,16 +36,15 @@
                 data-footer-col
                 class="opacity-0 translate-y-8 transition-all duration-700">
 
-                <h4 class="text-[12px] uppercase tracking-[0.24em] text-white mb-4">
+                <h4 class="text-[clamp(10px,1.1vw,15px)] uppercase tracking-[0.2em] leading-[1.4] text-white mb-4">
                     Enlaces
                 </h4>
 
-                <ul class="space-y-3 text-[14px] text-[#989a9c]">
-                    <li><a class="hover:text-white transition" href="#inicio">Inicio</a></li>
-                    <li><a class="hover:text-white transition" href="#quienes-somos">Quiénes Somos</a></li>
-                    <li><a class="hover:text-white transition" href="#servicios">Servicios</a></li>
-                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/filosofia')); ?>">Filosofía</a></li>
-                    <li><a class="hover:text-white transition" href="#contacto">Contacto</a></li>
+                <ul class="space-y-3 text-[clamp(10px,1.3vw,15px)] leading-[1.6] text-[#989a9c]">
+                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#hero')); ?>">Inicio</a></li>
+                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#quienes-somos')); ?>">Quiénes Somos</a></li>
+                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#servicios')); ?>">Servicios</a></li>
+                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#contacto')); ?>">Contacto</a></li>
                 </ul>
             </div>
 
@@ -54,11 +53,11 @@
                 data-footer-col
                 class="opacity-0 translate-y-8 transition-all duration-700">
 
-                <h4 class="text-[12px] uppercase tracking-[0.24em] text-white mb-4">
+                <h4 class="text-[clamp(11px,1.1vw,17px)] uppercase tracking-[0.2em] leading-[1.4] text-white mb-4">
                     Contacto
                 </h4>
 
-                <ul class="space-y-3 text-[14px] text-[#989a9c]">
+                <ul class="space-y-3 text-[clamp(11px,1.3vw,15px)] leading-[1.6] text-[#989a9c]">
                     <li>Calle Recoletos 19</li>
                     <li>28001 Madrid, España</li>
                     <li>
@@ -76,18 +75,30 @@
         </div>
 
         <!-- BARRA INFERIOR -->
+        <?php
+        $legal_page = get_page_by_title('Aviso Legal');
+        $legal_url = $legal_page ? get_permalink($legal_page) : home_url('/aviso-legal');
+        $privacy_url = get_privacy_policy_url();
+        if (empty($privacy_url)) {
+            $privacy_page = get_page_by_title('Política de Privacidad');
+            $privacy_url = $privacy_page ? get_permalink($privacy_page) : home_url('/politica-de-privacidad');
+        }
+        $cookies_page = get_page_by_title('Política de Cookies');
+        $cookies_url = $cookies_page ? get_permalink($cookies_page) : home_url('/politica-de-cookies');
+        ?>
+
         <div
             data-footer-bottom
             class="mt-10 border-t border-white/10 pt-5
                    flex flex-col sm:flex-row
                    items-center justify-between gap-4
-                   text-[12px] text-[#9da091]
+                   text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#ffffff]
                    opacity-0 translate-y-4 transition-all duration-700">
 
             <div class="flex flex-wrap items-center gap-6">
-                <a class="hover:text-white transition" href="#inicio">Aviso Legal</a>
-                <a class="hover:text-white transition" href="#inicio">Política de Privacidad</a>
-                <a class="hover:text-white transition" href="#inicio">Política de Cookies</a>
+                <a class="hover:text-white transition" href="<?php echo esc_url($legal_url); ?>">Aviso Legal</a>
+                <a class="hover:text-white transition" href="<?php echo esc_url($privacy_url); ?>">Política de Privacidad</a>
+                <a class="hover:text-white transition" href="<?php echo esc_url($cookies_url); ?>">Política de Cookies</a>
             </div>
 
             <span>© 2025 MBI Abogados. Todos los derechos reservados.</span>
@@ -97,4 +108,5 @@
 
 <?php wp_footer(); ?>
 </body>
+
 </html>

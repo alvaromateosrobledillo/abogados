@@ -31,7 +31,7 @@
                     type="video/mp4" />
             </video>
 
-            <div class="absolute inset-0 bg-[rgba(18,18,17,0.60)]"></div>
+            <div class="absolute inset-0 bg-[rgba(18,18,17,0.45)]"></div>
         </div>
 
         <!-- CONTENIDO -->
@@ -41,7 +41,7 @@
 
             <?php if ($pretitle = get_field('hero_pretitle')) : ?>
                 <p data-hero-item
-                    class="uppercase tracking-[0.24em] text-[20px] sm:text-[24px] lg:text-[30px]
+                    class="uppercase tracking-[0.2em] text-[clamp(14px,1.4vw,32px)] leading-[1.4]
                 font-medium text-white/95 opacity-0 translate-y-3 transition-all duration-700">
                     <?php echo esc_html($pretitle); ?>
                 </p>
@@ -49,9 +49,8 @@
 
             <?php if ($title = get_field('hero_title')) : ?>
                 <h1 data-hero-item
-                    class=" text-[44px] sm:text-[56px] lg:text-[68px]
-                 leading-[1.04] sm:leading-[1.02] lg:leading-[1.01]
-                 tracking-[-0.01em] lg:tracking-[-0.015em]
+                    class="text-[clamp(46px,4.5vw,82px)]
+                 leading-[1.05] tracking-[-0.02em]
                  text-balance text-white p-0
                  opacity-0 translate-y-4 transition-all duration-700">
                     <?php echo esc_html($title); ?>
@@ -60,10 +59,9 @@
 
             <?php if ($subtitle = get_field('hero_subtitle')) : ?>
                 <h2 data-hero-item
-                    class="-mt-1 text-[44px] sm:text-[56px] lg:text-[68px]
-                 leading-[1.04] sm:leading-[1.02] lg:leading-[1.01]
-                 tracking-[-0.01em] lg:tracking-[-0.015em]
-                 text-balance  text-[#7f8762]
+                    class="-mt-1 text-[clamp(46px,4.5vw,82px)]
+                 leading-[1.05] tracking-[-0.02em]
+                 text-balance text-[#7f8762]
                  opacity-0 translate-y-4 transition-all duration-700 p-0">
                     <?php echo esc_html($subtitle); ?>
                 </h2>
@@ -71,10 +69,11 @@
 
             <?php if ($desc = get_field('hero_description')) : ?>
                 <p data-hero-item
-                    class="max-w-2xl text-[19px] sm:text-[20px]
-                text-white/90 opacity-0 translate-y-3 transition-all duration-700">
+                    class="max-w-2xl text-[clamp(15px,1.5vw,22px)] leading-[1.25]
+          text-white/90 opacity-0 translate-y-3 transition-all duration-700">
                     <?php echo esc_html($desc); ?>
                 </p>
+
             <?php endif; ?>
 
             <!-- CTAs -->
@@ -110,7 +109,7 @@
                 data-hero-scroll
                 class="absolute bottom-10 left-1/2 -translate-x-1/2
            flex flex-col items-center gap-2
-           text-[12px] uppercase tracking-[0.28em]
+           text-[clamp(11px,1.1vw,17px)] uppercase tracking-[0.2em] leading-[1.4]
            text-white/70 hover:text-white transition
            opacity-0">
 
@@ -151,18 +150,20 @@
             data-about-block>
 
             <?php if ($pretitle = get_field('about_pretitle')) : ?>
-                <p
-                    class="uppercase tracking-[0.22em] text-[16px] sm:text-[18px] font-medium text-[#535F35]
+                <h2
+                    class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)]
+ leading-[1.4] font-medium text-[#535F35]
                opacity-0 translate-y-3 transition-all duration-700"
                     data-about-item>
                     <?php echo esc_html($pretitle); ?>
-                </p>
+                </h2>
             <?php endif; ?>
 
             <?php if ($title = get_field('about_title')) : ?>
                 <h2
-                    class="mt-6 text-[32px] sm:text-[38px] lg:text-[42px] leading-[1.35]
-               font-normal text-[#141414] text-balance
+                    class="mt-6 text-[clamp(26px,2.8vw,48px)]
+               leading-[1.1] tracking-[-0.01em]
+               font-normal text-[#141414]
                opacity-0 translate-y-3 transition-all duration-700"
                     data-about-item>
                     <?php echo esc_html($title); ?>
@@ -176,9 +177,9 @@
 
             <?php if ($about_text = get_field('about_text')) : ?>
                 <div
-                    class="mt-7 text-[#3d3f36] text-[19px] sm:text-[20px]
-               leading-relaxed
-                prose-p:my-3 prose-strong:text-[#4d5a34]
+                    class="mt-5 text-[#3d3f36] prose prose-base md:prose-lg lg:prose-xl leading-[1.25] [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25]
+                prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15]
+                prose-strong:text-[#4d5a34]
                 prose-strong:font-normal
                 opacity-0 translate-y-4 transition-all duration-700"
                     data-about-item>
@@ -194,8 +195,8 @@
            opacity-0 translate-y-8 transition-all duration-700"
             data-about-bottom>
 
-            <div class="page-shell flex flex-col lg:grid
-                lg:grid-cols-[1.1fr_0.9fr] items-center gap-8">
+            <div class="page-shell flex flex-col md:grid
+                md:grid-cols-[1.1fr_0.9fr] items-center gap-8">
 
                 <!-- TEXTO -->
                 <div
@@ -205,13 +206,13 @@
 
                     <div>
                         <?php if ($claim1 = get_field('about_claim_1')) : ?>
-                            <h3 class="text-[28px] sm:text-[30px] font-normal text-[#141414]">
+                            <h2 class="text-[clamp(26px,2.8vw,48px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">
                                 <?php echo esc_html($claim1); ?>
-                            </h3>
+                            </h2>
                         <?php endif; ?>
 
                         <?php if ($claim2 = get_field('about_claim_2')) : ?>
-                            <p class="text-[28px] sm:text-[30px] italic font-normal text-[#4d5a34] -mt-1">
+                            <p class="text-[clamp(26px,2.8vw,48px)] leading-[1.2] tracking-[-0.01em] italic font-normal text-[#4d5a34] -mt-1">
                                 <?php echo esc_html($claim2); ?>
                             </p>
                         <?php endif; ?>
@@ -220,10 +221,10 @@
                     </div>
 
                     <?php if ($content = get_field('about_paragraphs')) : ?>
-                        <div class="prose prose-p:my-3
+                        <div class="prose prose-base md:prose-lg lg:prose-xl [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25]
+    prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15]
     prose-strong:font-semibold prose-strong:text-[#4d5a34]
-    prose-p:leading-relaxed
-    text-[#3d3f36] text-[19px] sm:text-[20px]
+    text-[#3d3f36]
     max-w-2xl">
                             <?php echo wp_kses_post($content); ?>
                         </div>
@@ -287,7 +288,8 @@
             <?php if ($pre = get_field('commitment_pretitle')) : ?>
                 <p
                     data-commitment-item
-                    class="uppercase tracking-[0.34em] text-[13px] sm:text-[14px]
+                    class="uppercase tracking-[0.2em]  text-[clamp(15px,1.5vw,22px)]
+leading-[1.4]
                font-normal text-white
                opacity-0 translate-y-4 transition-all duration-500">
                     <?php echo esc_html($pre); ?>
@@ -297,8 +299,8 @@
             <?php if ($title = get_field('commitment_title')) : ?>
                 <h2
                     data-commitment-item
-                    class="mt-6 text-[32px] sm:text-[38px] lg:text-[42px]
-               leading-[1.2] font-normal text-white
+                    class="mt-6 text-[clamp(26px,2.8vw,48px)]
+               leading-[1.1] tracking-[-0.01em] font-normal text-white
                opacity-0 translate-y-4 transition-all duration-500">
                     <?php echo esc_html($title); ?>
                 </h2>
@@ -307,8 +309,8 @@
             <?php if ($subtitle = get_field('commitment_subtitle')) : ?>
                 <h3
                     data-commitment-item
-                    class="text-[30px] sm:text-[36px] lg:text-[40px]
-               leading-[1.2] italic font-normal text-[#859263]
+                    class="text-[clamp(24px,2.6vw,46px)]
+               leading-[1.2] tracking-[-0.01em] italic font-normal text-[#859263]
                opacity-0 translate-y-4 transition-all duration-500">
                     <?php echo esc_html($subtitle); ?>
                 </h3>
@@ -323,8 +325,8 @@
             <?php if ($text1 = get_field('commitment_text_1')) : ?>
                 <div
                     data-commitment-item
-                    class="mt-8 mx-auto   text-white
-               text-[19px] sm:text-[23px] leading-relaxed
+                    class="mt-8 mx-auto max-w-6xl text-white
+               text-[clamp(17px,1.8vw,26px)] leading-[1.25] [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25]
                [&_p]:mb-6
                opacity-0 translate-y-6 transition-all duration-500">
                     <?php echo wp_kses_post($text1); ?>
@@ -334,8 +336,8 @@
             <?php if ($text2 = get_field('commitment_text_2')) : ?>
                 <div
                     data-commitment-item
-                    class="mt-7 mx-auto  text-[#859263]
-               text-[19px] sm:text-[23px] leading-relaxed
+                    class="mt-7 mx-auto max-w-6xl text-[#859263]
+              [&_p]:text-[clamp(15px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(17px,1.8vw,26px)] [&_p]:leading-[1.25]
                [&_p]:mb-6
                opacity-0 translate-y-6 transition-all duration-500">
                     <?php echo wp_kses_post($text2); ?>
@@ -360,14 +362,14 @@
                 <?php foreach ($boxes as $i => [$icon, $text, $span]) : ?>
                     <div
                         data-commitment-box
-                        class="flex items-center gap-3 border border-[#D1D4D6]
-                 px-6 sm:px-10 lg:px-[58px]
-                 py-5 sm:py-6 text-[17px] sm:text-[18px]
-                 font-normal text-white text-left min-h-[80px]
+                        class="flex items-center justify-center gap-2 border border-[#D1D4D6]
+                 px-4 sm:px-6 lg:px-8
+                 py-3 sm:py-4 text-[clamp(15px,1.75vw,24px)] leading-[1.25]
+                 font-normal text-white text-center min-h-[64px]
                  <?php echo $span; ?>
                  opacity-0 translate-y-6 transition-all duration-500">
 
-                        <img class="h-5 w-5 shrink-0"
+                        <img class="h-4 w-4 shrink-0"
                             src="<?php echo get_template_directory_uri(); ?>/assets/img/<?php echo $icon; ?>"
                             alt="" aria-hidden="true">
                         <?php echo $text; ?>
@@ -391,12 +393,13 @@
                 <div
                     data-team-title
                     class="text-center opacity-0 translate-y-6 transition-all duration-500">
-                    <p class="uppercase tracking-[0.34em] text-[13px] sm:text-[14px] font-normal text-[#7a8464]">
+                    <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)]
+leading-[1.4] font-normal text-[#7a8464]">
                         Socios
                     </p>
                 </div>
 
-                <div class="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="grid gap-4 sm:gap-5 sm:grid-cols-2  md:grid-cols-4 lg:grid-cols-4">
                     <?php $i = 0;
                     while (have_rows('partners')) : the_row();
                         $i++;
@@ -408,9 +411,7 @@
 
                         <article
                             data-team-card
-                            class="group relative overflow-hidden border border-[#e2dfd5] bg-black
-                   shadow-[0_22px_50px_rgba(0,0,0,0.22)]
-                   opacity-0 translate-y-8 transition-all duration-500">
+                            class="group relative overflow-hidden border border-[#e2dfd5] bg-black shadow-[0_22px_50px_rgba(0,0,0,0.22)] opacity-0 translate-y-8 transition-all duration-500 origin-bottom hover:-translate-y-1 hover:scale-[1.02]">
 
                             <div class="w-full aspect-[1/1] sm:aspect-[2/3]">
                                 <?php if ($image) : ?>
@@ -425,18 +426,22 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
 
                             <div class="absolute bottom-0 left-0 right-0 p-4 text-left">
-                                <h3 class="text-[18px] font-normal text-[#b7be9b] leading-tight">
+                                <h3 class="text-[clamp(15px,1.5vw,22px)] leading-[1.2] font-normal text-[#b7be9b]">
                                     <?php echo esc_html($name); ?>
                                 </h3>
-                                <p class="mt-1 text-[12px] uppercase tracking-[0.12em] text-white/80">
+                                <p class="mt-1 text-[clamp(11px,1.1vw,17px)] uppercase tracking-[0.2em] leading-[1.4] text-white/80">
                                     <?php echo esc_html($role); ?>
                                 </p>
                                 <button
                                     type="button"
                                     data-modal="partner-modal-<?php echo $i; ?>"
-                                    class="mt-2 inline-flex items-center gap-2 text-[12px]
+                                    class="mt-2 inline-flex items-center gap-2 text-[clamp(13px,1.3vw,18px)] leading-[1.6]
                        font-normal text-[#d1d7bd]
-                       border border-[#9aa27a] px-3 py-1.5">
+                       border border-[#9aa27a] px-3 py-1.5
+                       opacity-0 translate-y-1 pointer-events-none
+                       transition-all duration-300 ease-out
+                       group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto
+                       hover:-translate-y-0.5 hover:border-[#b5baa6] hover:bg-white/10 hover:text-white">
                                     Conoce más
                                 </button>
                             </div>
@@ -472,13 +477,13 @@
                                     </div>
                                 <?php endif; ?>
 
-                                <h3 class="text-[22px] font-normal text-[#58683d]">
+                                <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#58683d]">
                                     <?php echo esc_html($name); ?>
                                 </h3>
-                                <p class="text-[17px] text-[#4f5047] mb-4">
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047] mb-4">
                                     <?php echo esc_html($role); ?>
                                 </p>
-                                <div class="text-[18px] leading-relaxed text-[#3d3f36] text-left">
+                                <div class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25] text-[#3d3f36] text-left">
                                     <?php echo wp_kses_post($bio); ?>
                                 </div>
                             </div>
@@ -493,13 +498,13 @@
 
                 <div
                     data-team-title
-                    class="pt-3 text-center opacity-0 translate-y-6 transition-all duration-500">
-                    <p class="uppercase tracking-[0.34em] text-[13px] sm:text-[14px] font-normal text-[#7a8464]">
+                    class="pt-4 text-center opacity-0 translate-y-6 transition-all duration-500">
+                    <p class="uppercase tracking-[0.2em] text-[clamp(11px,1.1vw,17px)] leading-[1.4] font-normal text-[#7a8464]">
                         Equipo
                     </p>
                 </div>
 
-                <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-3">
                     <?php $j = 0;
                     while (have_rows('team_members')) : the_row();
                         $j++;
@@ -522,18 +527,23 @@
                                 </div>
                             <?php endif; ?>
 
-                            <div class="mt-[-28px] bg-[#e3e4db] px-5 pt-8 pb-5">
-                                <h3 class="text-[18px] font-normal text-[#58683d]">
+                            <div class="mt-[-55px] bg-[#e3e4db] px-5 pb-5 transition-all duration-300 ease-out
+                       group-hover:pt-9 group-hover:pb-7 group-hover:shadow-[0_10px_24px_rgba(0,0,0,0.12)]">
+                                <h3 class="text-[clamp(15px,1.5vw,22px)] leading-[1.2] font-normal text-[#58683d] pt-16">
                                     <?php echo esc_html($name); ?>
                                 </h3>
-                                <p class="mt-1 text-[15px] text-[#4f5047]">
+                                <p class="mt-1 text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047]">
                                     <?php echo esc_html($role); ?>
                                 </p>
                                 <button
                                     type="button"
                                     data-modal="team-modal-<?php echo $j; ?>"
-                                    class="mt-2 text-[13px] text-[#58683d]
-                       border border-[#b5baa6] px-3 py-1">
+                                    class="mt-2 inline-flex items-center text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#58683d]
+                       border border-[#b5baa6] px-3 py-1
+                       opacity-0 translate-y-2 pointer-events-none
+                       transition-all duration-300 ease-out
+                       group-hover:opacity-100 group-hover:-translate-y-1 group-hover:pointer-events-auto
+                       hover:-translate-y-0.5 hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a]">
                                     Conoce más
                                 </button>
                             </div>
@@ -569,9 +579,9 @@
                                     </div>
                                 <?php endif; ?>
 
-                                <h3 class="text-[22px] text-[#58683d]"><?php echo esc_html($name); ?></h3>
-                                <p class="text-[17px] text-[#4f5047] mb-4"><?php echo esc_html($role); ?></p>
-                                <div class="text-[18px] text-[#3d3f36] text-left">
+                                <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] text-[#58683d]"><?php echo esc_html($name); ?></h3>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047] mb-4"><?php echo esc_html($role); ?></p>
+                                <div class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25] text-[#3d3f36] text-left">
                                     <?php echo wp_kses_post($bio); ?>
                                 </div>
                             </div>
@@ -598,7 +608,7 @@
 
             <img
                 class="h-full w-full object-cover object-center"
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/edificio.png"
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/transforma.png"
                 alt="Fondo arquitectónico" />
 
             <div class="absolute inset-0 bg-[#0d0d0d]/75"></div>
@@ -617,17 +627,16 @@
 
                 <h2
                     data-transform-item
-                    class="text-[26px] sm:text-[32px] lg:text-[36px]
-                       leading-snug font-normal italic text-balance text-white
+                    class="text-[clamp(26px,2.8vw,52px)]
+                       leading-[1.1] tracking-[-0.01em] font-normal italic text-balance text-white
                        opacity-0 translate-y-4 transition-all duration-700">
-                    Transformamos el Derecho desde la cercanía, el rigor y la visión estratégica.
-                </h2>
+                     Transformamos por Ayudamos a nuestros clientes desde la cercanía, el rigor y la visión estratégica. </h2>
 
                 <p
                     data-transform-item
                     class="mt-6 mx-auto max-w-3xl
-                       text-[17px] sm:text-[18px] lg:text-[19px]
-                       leading-relaxed text-white/90 font-normal
+                       text-[clamp(15px,1.5vw,22px)] leading-[1.25]
+                       text-white/90 font-normal
                        opacity-0 translate-y-4 transition-all duration-700">
                     En MBI Abogados ofrecemos asesoramiento jurídico con visión estratégica,
                     claridad constante y dedicación personal. Lo esencial bien hecho.
@@ -639,7 +648,7 @@
                     href="#contacto"
                     class="mt-8 inline-flex items-center justify-center
                        h-11 min-w-[170px] px-9
-                       bg-[#7f8762] text-white text-[16px] font-normal
+                       bg-[#7f8762] text-white text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-normal
                        shadow-[0_16px_36px_rgba(0,0,0,0.38)]
                        hover:bg-[#6f7a56] transition
                        opacity-0 translate-y-4">
@@ -652,7 +661,7 @@
     <section
         id="servicios"
         data-section="services"
-        class="bg-[#f7f6f2] py-16 lg:py-20">
+        class="py-16 lg:py-20 bg-white">
 
         <div class="page-shell space-y-10 sm:space-y-12">
 
@@ -660,7 +669,7 @@
             <div
                 data-services-title
                 class="text-center opacity-0 translate-y-6 transition-all duration-700">
-                <p class="uppercase tracking-[0.32em] text-[15px] sm:text-[16px]
+                <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)]leading-[1.4]
                       font-normal text-[#7a8464]">
                     Servicios
                 </p>
@@ -677,14 +686,14 @@
             ];
             ?>
 
-            <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div class="grid gap-10 md:grid-cols-[1.05fr_0.95fr] lg:items-start">
 
                 <!-- COLUMNA IZQUIERDA -->
                 <div
                     data-services-left
                     class="space-y-4 opacity-0 translate-y-8 transition-all duration-700">
 
-                    <h2 class="text-[34px] sm:text-[40px] leading-tight font-normal text-[#34362f]">
+                    <h2 class="text-[clamp(26px,2.8vw,52px)] leading-[1.1] tracking-[-0.01em] font-normal text-[#34362f]">
                         Soluciones jurídicas
                         <span class="italic text-[#6a7352]">
                             sencillas, sólidas y personalizadas
@@ -693,10 +702,12 @@
 
                     <span class="block w-10 h-px bg-[#b9bbab]"></span>
 
-                    <p class="text-[17px] sm:text-[18px] leading-relaxed text-[#4c4e47]">
-                        En MBI Abogados convertimos complejidad jurídica en decisiones claras.
-                        Priorizamos, aterrizamos escenarios y acompañamos la ejecución con criterio
-                        y responsabilidad. Lo esencial bien hecho. Lo complejo bien pensado.
+                    <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#4c4e47]">
+                        En MBI Abogados convertimos complejidad jurídica en decisiones claras.Priorizamos, aterrizamos escenarios y acompañamos la ejecución con criterio y responsabilidad.
+                        <br>
+                        Lo esencial bien hecho. Lo complejo bien pensado.
+                        Pensamos como abogados. Actuamos como aliados.
+
                     </p>
 
                     <div
@@ -717,12 +728,12 @@
                     data-services-right
                     class="space-y-4 lg:pt-1 opacity-0 translate-y-8 transition-all duration-700">
 
-                    <p class="text-[16px] sm:text-[18px] text-[#5b5d55]">
+                    <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#5b5d55] pb-5">
                         Nos especializamos en áreas donde la experiencia marca la diferencia:
                     </p>
 
                     <?php if (have_rows('services')) : ?>
-                        <div class="space-y-2" data-accordion="single">
+                        <div class="space-y-4" data-accordion="single">
 
                             <?php $i = 0;
                             while (have_rows('services')) : the_row();
@@ -751,7 +762,7 @@
                                                 alt=""
                                                 aria-hidden="true">
 
-                                            <span class="text-[18px] sm:text-[19px] font-normal text-[#3f423b]">
+                                            <span class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] font-normal text-[#3f423b]">
                                                 <?php echo esc_html($title); ?>
                                             </span>
                                         </span>
@@ -769,9 +780,9 @@
                                     <div
                                         id="service-panel-<?php echo $i; ?>"
                                         class="border-t border-[#d4d5c8]
-                                           px-6 pb-5 pt-3
-                                           text-[17px] sm:text-[18px]
-                                           leading-relaxed text-[#4b4d45]
+                                           px-6 pb-5 pt-4
+                                           text-[clamp(13px,1.5vw,18px)] leading-[1.25] [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25]
+                                           text-[#4b4d45]
                                            hidden"
                                         data-accordion-panel>
 
@@ -804,7 +815,7 @@
                 class="text-center space-y-3 mb-12
              opacity-0 translate-y-6 transition-all duration-700">
 
-                <h2 class="text-[38px] sm:text-[44px] font-serif font-normal text-[#3f3f39]">
+                <h2 class="text-[clamp(26px,2.8vw,52px)] leading-[1.1] tracking-[-0.01em] font-normal">
                     Estamos cerca
                 </h2>
 
@@ -813,12 +824,12 @@
                     class="inline-block h-px w-16 bg-[#859263]
                opacity-0 scale-x-0 origin-center transition-all duration-700"></span>
 
-                <p class="text-[16px] sm:text-[17px] text-[#4f5047]">
+                <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] font-light">
                     Cada cliente importa. Cada caso merece una respuesta a su medida.
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-start">
+            <div class="grid md:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-start">
 
                 <!-- COLUMNA IZQUIERDA -->
                 <div
@@ -855,9 +866,9 @@
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-1">
-                                <p class="text-[15px] sm:text-[16px] font-medium text-[#6a754f]">Dirección</p>
-                                <p class="text-[15px] sm:text-[16px]">Calle Recoletos 19</p>
-                                <p class="text-[15px] sm:text-[16px]">28001 Madrid, España</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]">Dirección</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]">Calle Recoletos 19</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]">28001 Madrid, España</p>
                             </div>
                         </div>
 
@@ -872,10 +883,10 @@
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-1">
-                                <p class="text-[15px] sm:text-[16px] font-medium text-[#6a754f]">Teléfono</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]">Teléfono</p>
                                 <a
                                     href="tel:+34912345678"
-                                    class="text-[15px] sm:text-[16px] hover:text-[#58683d] transition">
+                                    class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] hover:text-[#58683d] transition">
                                     +34 91 234 56 78
                                 </a>
                             </div>
@@ -892,8 +903,8 @@
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-1">
-                                <p class="text-[15px] sm:text-[16px] font-medium text-[#6a754f]">Horario</p>
-                                <p class="text-[15px] sm:text-[16px]">L–V · 9:00 a 17:30</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]">Horario</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]">L–V · 9:00 a 17:30</p>
                             </div>
                         </div>
 
@@ -908,10 +919,10 @@
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-1">
-                                <p class="text-[15px] sm:text-[16px] font-medium text-[#6a754f]">Email</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]">Email</p>
                                 <a
                                     href="mailto:info@mbiabogados.com"
-                                    class="text-[15px] sm:text-[16px] hover:text-[#58683d] transition">
+                                    class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] hover:text-[#58683d] transition">
                                     info@mbiabogados.com
                                 </a>
                             </div>
@@ -928,10 +939,10 @@
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-1">
-                                <p class="text-[15px] sm:text-[16px] font-medium text-[#6a754f]">LinkedIn</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]">LinkedIn</p>
                                 <a
                                     href="#inicio"
-                                    class="text-[15px] sm:text-[16px] hover:text-[#58683d] transition">
+                                    class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] hover:text-[#58683d] transition">
                                     MBI Abogados
                                 </a>
                             </div>
@@ -947,37 +958,61 @@
                opacity-0 translate-y-8 transition-all duration-700">
 
                     <div class="space-y-2">
-                        <h3 class="text-[24px] font-normal text-[#3f3f39]">Escríbenos</h3>
-                        <p class="text-[16px] text-[#4a4b44]">Estamos aquí para escucharte.</p>
+                        <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#3f3f39]">Escríbenos</h3>
+                        <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#4a4b44]">Estamos aquí para escucharte.</p>
                     </div>
 
                     <!-- FORMULARIO -->
                     <form class="space-y-4">
-                        <input
-                            class="w-full border border-[#d8d4c8] px-3 py-3 text-[16px]"
-                            type="text"
-                            placeholder="Nombre completo"
-                            autocomplete="name"
-                            required>
+                        <label class="relative block">
+                            <span class="absolute -top-2 left-3 bg-white px-1 text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#6a754f]">
+                                Nombre completo
+                            </span>
+                            <input
+                                class="w-full border border-[#d8d4c8] bg-white px-4 py-3 text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#3f3f39]
+                       shadow-[0_2px_6px_rgba(0,0,0,0.08)]
+                       focus:border-[#596636] focus:ring-2 focus:ring-[#c7c1b1] focus:outline-none"
+                                type="text"
+                                autocomplete="name"
+                                required>
+                        </label>
 
-                        <input
-                            class="w-full border border-[#d8d4c8] px-3 py-3 text-[16px]"
-                            type="email"
-                            placeholder="Correo electrónico"
-                            autocomplete="email"
-                            required>
+                        <label class="relative block">
+                            <span class="absolute -top-2 left-3 bg-white px-1 text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#6a754f]">
+                                Correo electrónico
+                            </span>
+                            <input
+                                class="w-full border border-[#d8d4c8] bg-white px-4 py-3 text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#3f3f39]
+                       shadow-[0_2px_6px_rgba(0,0,0,0.08)]
+                       focus:border-[#596636] focus:ring-2 focus:ring-[#c7c1b1] focus:outline-none"
+                                type="email"
+                                autocomplete="email"
+                                required>
+                        </label>
 
-                        <input
-                            class="w-full border border-[#d8d4c8] px-3 py-3 text-[16px]"
-                            type="tel"
-                            placeholder="Teléfono"
-                            autocomplete="tel">
+                        <label class="relative block">
+                            <span class="absolute -top-2 left-3 bg-white px-1 text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#6a754f]">
+                                Teléfono
+                            </span>
+                            <input
+                                class="w-full border border-[#d8d4c8] bg-white px-4 py-3 text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#3f3f39]
+                       shadow-[0_2px_6px_rgba(0,0,0,0.08)]
+                       focus:border-[#596636] focus:ring-2 focus:ring-[#c7c1b1] focus:outline-none"
+                                type="tel"
+                                autocomplete="tel">
+                        </label>
 
-                        <textarea
-                            class="w-full border border-[#d8d4c8] px-3 py-3 text-[16px]"
-                            rows="5"
-                            placeholder="Escribe tu consulta"
-                            required></textarea>
+                        <label class="relative block">
+                            <span class="absolute -top-2 left-3 bg-white px-1 text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#6a754f]">
+                                Escribe tu consulta
+                            </span>
+                            <textarea
+                                class="w-full border border-[#d8d4c8] bg-white px-4 py-3 text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#3f3f39]
+                       shadow-[0_2px_6px_rgba(0,0,0,0.08)]
+                       focus:border-[#596636] focus:ring-2 focus:ring-[#c7c1b1] focus:outline-none"
+                                rows="5"
+                                required></textarea>
+                        </label>
 
                         <button
                             type="submit"

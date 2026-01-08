@@ -88,7 +88,8 @@
   font-display: swap;
 }
 
-html, body {
+html,
+body {
   font-family: "Noyh", system-ui, sans-serif;
 }
 
@@ -111,6 +112,13 @@ html, body {
     .page-shell {
       padding-left: 2.5rem;
       padding-right: 2.5rem;
+    }
+  }
+
+  @media (min-width: 920px) {
+    .page-shell {
+      padding-left: 4.25rem;
+      padding-right: 4.25rem;
     }
   }
 
