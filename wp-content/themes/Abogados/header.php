@@ -64,9 +64,32 @@
               class="hidden min-[1200px]:flex items-center gap-2
                       text-[16px] tracking-[0.2em] uppercase text-[#6b6e64]
                       opacity-0 translate-y-2 transition-all duration-500">
-              <a class="hover:text-[#58683d] transition" href="#">ES</a>
-              <span class="opacity-60">|</span>
-              <a class="hover:text-[#58683d] transition" href="#">EN</a>
+              <?php if (function_exists('pll_the_languages')) : ?>
+                <?php
+                $languages = pll_the_languages(['raw' => 1]);
+                $total = is_array($languages) ? count($languages) : 0;
+                $index = 0;
+                ?>
+                <?php foreach ($languages as $lang) : ?>
+                  <?php
+                  $index++;
+                  $lang_class = 'hover:text-[#58683d] transition';
+                  if (!empty($lang['current_lang'])) {
+                    $lang_class .= ' text-[#58683d]';
+                  }
+                  ?>
+                  <a class="<?php echo esc_attr($lang_class); ?>" href="<?php echo esc_url($lang['url']); ?>"<?php echo !empty($lang['current_lang']) ? ' aria-current="page"' : ''; ?>>
+                    <?php echo esc_html(strtoupper($lang['slug'])); ?>
+                  </a>
+                  <?php if ($index < $total) : ?>
+                    <span class="opacity-60">|</span>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              <?php else : ?>
+                <a class="hover:text-[#58683d] transition" href="#">ES</a>
+                <span class="opacity-60">|</span>
+                <a class="hover:text-[#58683d] transition" href="#">EN</a>
+              <?php endif; ?>
             </div>
 
             <!-- Hamburguesa -->
@@ -127,22 +150,43 @@
             ?>
             <div class="min-[1200px]:hidden flex flex-col font-light text-[18px]
                         tracking-[0.12em] uppercase">
-              <a class="font-light block py-3 px-4 text-[#3f3f39] transition-all duration-300
+              <?php if (function_exists('pll_the_languages')) : ?>
+                <?php
+                $languages = pll_the_languages(['raw' => 1]);
+                ?>
+                <?php foreach ($languages as $lang) : ?>
+                  <?php
+                  $lang_class = 'font-light block py-3 px-4 text-[#3f3f39] transition-all duration-300';
+                  $lang_class .= ' hover:text-[#58683d] hover:-translate-y-0.5 relative';
+                  $lang_class .= ' after:content-[\'\'] after:absolute after:left-4 after:right-4';
+                  $lang_class .= ' after:-bottom-1 after:h-px after:bg-[#58683d] after:opacity-0 after:transition-opacity';
+                  $lang_class .= ' hover:after:opacity-100';
+                  if (!empty($lang['current_lang'])) {
+                    $lang_class .= ' text-[#58683d]';
+                  }
+                  ?>
+                  <a class="<?php echo esc_attr($lang_class); ?>" href="<?php echo esc_url($lang['url']); ?>"<?php echo !empty($lang['current_lang']) ? ' aria-current="page"' : ''; ?>>
+                    <?php echo esc_html(strtoupper($lang['slug'])); ?>
+                  </a>
+                <?php endforeach; ?>
+              <?php else : ?>
+                <a class="font-light block py-3 px-4 text-[#3f3f39] transition-all duration-300
                         hover:text-[#58683d] hover:-translate-y-0.5
                         relative
                         after:content-[\'\'] after:absolute after:left-4 after:right-4
                         after:-bottom-1 after:h-px after:bg-[#58683d]
                         after:opacity-0 after:transition-opacity
                         hover:after:opacity-100"
-                href="#">ES</a>
-              <a class="font-light block py-3 px-4 text-[#3f3f39] transition-all duration-300
+                  href="#">ES</a>
+                <a class="font-light block py-3 px-4 text-[#3f3f39] transition-all duration-300
                         hover:text-[#58683d] hover:-translate-y-0.5
                         relative
                         after:content-[\'\'] after:absolute after:left-4 after:right-4
                         after:-bottom-1 after:h-px after:bg-[#58683d]
                         after:opacity-0 after:transition-opacity
                         hover:after:opacity-100"
-                href="#">EN</a>
+                  href="#">EN</a>
+              <?php endif; ?>
             </div>
           </nav>
 

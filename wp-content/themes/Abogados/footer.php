@@ -14,11 +14,11 @@
                 <img
                     class="block h-20 w-auto"
                     src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/MBI%20Abogados.png'); ?>"
-                    alt="MBI Abogados"
+                    alt="<?php echo esc_attr(nd_translate('MBI Abogados', 'MBI Abogados')); ?>"
                     loading="lazy">
 
                 <p class=" text-[clamp(13px,1.5vw,20px)] leading-[1.25] text-[#d4d4c9]">
-                    La experiencia que orienta. El criterio que inspira confianza.
+                    <?php echo esc_html(nd_translate('La experiencia que orienta. El criterio que inspira confianza.', 'Experience that guides. The judgment that inspires trust.')); ?>
                 </p>
 
                 <a
@@ -37,14 +37,14 @@
                 class="opacity-0 translate-y-8 transition-all duration-700">
 
                 <h4 class="text-[clamp(10px,1.1vw,15px)] uppercase tracking-[0.2em] leading-[1.4] text-white mb-4">
-                    Enlaces
+                    <?php echo esc_html(nd_translate('Enlaces', 'Links')); ?>
                 </h4>
 
                 <ul class="space-y-3 text-[clamp(10px,1.3vw,15px)] leading-[1.6] text-[#989a9c]">
-                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#hero')); ?>">Inicio</a></li>
-                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#quienes-somos')); ?>">Quiénes Somos</a></li>
-                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#servicios')); ?>">Servicios</a></li>
-                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#contacto')); ?>">Contacto</a></li>
+                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#hero')); ?>"><?php echo esc_html(nd_translate('Inicio', 'Home')); ?></a></li>
+                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#quienes-somos')); ?>"><?php echo esc_html(nd_translate('Quiénes Somos', 'About Us')); ?></a></li>
+                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#servicios')); ?>"><?php echo esc_html(nd_translate('Servicios', 'Services')); ?></a></li>
+                    <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#contacto')); ?>"><?php echo esc_html(nd_translate('Contacto', 'Contact')); ?></a></li>
                 </ul>
             </div>
 
@@ -54,12 +54,12 @@
                 class="opacity-0 translate-y-8 transition-all duration-700">
 
                 <h4 class="text-[clamp(11px,1.1vw,17px)] uppercase tracking-[0.2em] leading-[1.4] text-white mb-4">
-                    Contacto
+                    <?php echo esc_html(nd_translate('Contacto', 'Contact')); ?>
                 </h4>
 
                 <ul class="space-y-3 text-[clamp(11px,1.3vw,15px)] leading-[1.6] text-[#989a9c]">
-                    <li>Calle Recoletos 19</li>
-                    <li>28001 Madrid, España</li>
+                    <li><?php echo esc_html(nd_translate('Calle Recoletos 19', 'Calle Recoletos 19')); ?></li>
+                    <li><?php echo esc_html(nd_translate('28001 Madrid, España', '28001 Madrid, Spain')); ?></li>
                     <li>
                         <a class="hover:text-white transition" href="tel:+34912345678">
                             +34 91 234 56 78
@@ -96,12 +96,12 @@
                    opacity-0 translate-y-4 transition-all duration-700">
 
             <div class="flex flex-wrap items-center gap-6">
-                <a class="hover:text-white transition" href="<?php echo esc_url($legal_url); ?>">Aviso Legal</a>
-                <a class="hover:text-white transition" href="<?php echo esc_url($privacy_url); ?>">Política de Privacidad</a>
-                <a class="hover:text-white transition" href="<?php echo esc_url($cookies_url); ?>">Política de Cookies</a>
+                <a class="hover:text-white transition" href="<?php echo esc_url($legal_url); ?>"><?php echo esc_html(nd_translate('Aviso Legal', 'Legal Notice')); ?></a>
+                <a class="hover:text-white transition" href="<?php echo esc_url($privacy_url); ?>"><?php echo esc_html(nd_translate('Política de Privacidad', 'Privacy Policy')); ?></a>
+                <a class="hover:text-white transition" href="<?php echo esc_url($cookies_url); ?>"><?php echo esc_html(nd_translate('Política de Cookies', 'Cookie Policy')); ?></a>
             </div>
 
-            <span>© 2025 MBI Abogados. Todos los derechos reservados.</span>
+            <span><?php echo esc_html(nd_translate('© 2025 MBI Abogados. Todos los derechos reservados.', '© 2025 MBI Abogados. All rights reserved.')); ?></span>
         </div>
     </div>
 </footer>

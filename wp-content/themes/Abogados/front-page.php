@@ -151,8 +151,7 @@
 
             <?php if ($pretitle = get_field('about_pretitle')) : ?>
                 <h2
-                    class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)]
- leading-[1.4] font-medium text-[#535F35]
+                    class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)]leading-[1.4] font-medium text-[#535F35]
                opacity-0 translate-y-3 transition-all duration-700"
                     data-about-item>
                     <?php echo esc_html($pretitle); ?>
@@ -221,11 +220,7 @@
                     </div>
 
                     <?php if ($content = get_field('about_paragraphs')) : ?>
-                        <div class="prose prose-base md:prose-lg lg:prose-xl [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25]
-    prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15]
-    prose-strong:font-semibold prose-strong:text-[#4d5a34]
-    text-[#3d3f36]
-    max-w-2xl">
+                        <div class="prose prose-base md:prose-lg lg:prose-xl [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25]prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15]prose-strong:font-semibold prose-strong:text-[#4d5a34]text-[#3d3f36] max-w-2xl">
                             <?php echo wp_kses_post($content); ?>
                         </div>
                     <?php endif; ?>
@@ -274,7 +269,7 @@
                 <img
                     class="h-full w-full object-cover object-center opacity-55"
                     src="<?php echo get_template_directory_uri(); ?>/assets/img/edificio.png"
-                    alt="Fondo arquitectónico">
+                    alt="<?php echo esc_attr(nd_translate('Fondo arquitectónico', 'Architectural background')); ?>">
             <?php endif; ?>
             <div class="absolute inset-0 bg-[#141414D9]/85"></div>
         </div>
@@ -288,8 +283,7 @@
             <?php if ($pre = get_field('commitment_pretitle')) : ?>
                 <p
                     data-commitment-item
-                    class="uppercase tracking-[0.2em]  text-[clamp(15px,1.5vw,22px)]
-leading-[1.4]
+                    class="uppercase tracking-[0.2em]  text-[clamp(15px,1.5vw,22px)]leading-[1.4]
                font-normal text-white
                opacity-0 translate-y-4 transition-all duration-500">
                     <?php echo esc_html($pre); ?>
@@ -351,11 +345,11 @@ leading-[1.4]
 
                 <?php
                 $boxes = [
-                    ['user.svg', 'Trato directo con socios', 'lg:col-span-2'],
-                    ['lenguaje.svg', 'Lenguaje claro y accesible', 'lg:col-span-2'],
-                    ['especiali.svg', 'Alta especialización', 'lg:col-span-2'],
-                    ['compromiso.svg', 'Compromiso firme con cada cliente', 'lg:col-span-3'],
-                    ['agilidad.svg', 'Agilidad y estrategia', 'lg:col-span-3'],
+                    ['user.svg', nd_translate('Trato directo con socios', 'Direct access to the partners'), 'lg:col-span-2'],
+                    ['lenguaje.svg', nd_translate('Lenguaje claro y accesible', 'Clear, accessible language'), 'lg:col-span-2'],
+                    ['especiali.svg', nd_translate('Alta especialización', 'High specialization'), 'lg:col-span-2'],
+                    ['compromiso.svg', nd_translate('Compromiso firme con cada cliente', 'Firm commitment to each client'), 'lg:col-span-3'],
+                    ['agilidad.svg', nd_translate('Agilidad y estrategia', 'Agility and strategy'), 'lg:col-span-3'],
                 ];
                 ?>
 
@@ -394,7 +388,7 @@ leading-[1.4]
                     data-team-title
                     class="text-center opacity-0 translate-y-6 transition-all duration-500">
                     <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)]leading-[1.4] font-normal text-[#7a8464]">
-                        Socios
+                        <?php echo esc_html(nd_translate('Socios', 'Partners')); ?>
                     </p>
                 </div>
 
@@ -441,7 +435,7 @@ leading-[1.4]
                        transition-all duration-300 ease-out
                        group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto
                        hover:-translate-y-0.5 hover:border-[#b5baa6] hover:bg-white/10 hover:text-white">
-                                    Conoce más
+                                    <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
                                 </button>
                             </div>
                         </article>
@@ -491,7 +485,7 @@ leading-[1.4]
                     data-team-title
                     class="pt-4 text-center opacity-0 translate-y-6 transition-all duration-500">
                     <p class="uppercase tracking-[0.2em] text-[clamp(11px,1.1vw,17px)] leading-[1.4] font-normal text-[#7a8464]">
-                        Equipo
+                        <?php echo esc_html(nd_translate('Equipo', 'Team')); ?>
                     </p>
                 </div>
 
@@ -535,7 +529,7 @@ leading-[1.4]
                        transition-all duration-300 ease-out
                        group-hover:opacity-100 group-hover:-translate-y-1 group-hover:pointer-events-auto
                        hover:-translate-y-0.5 hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a]">
-                                    Conoce más
+                                    <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
                                 </button>
                             </div>
                         </article>
@@ -577,7 +571,6 @@ leading-[1.4]
         </div>
     </section>
 
-
     <section
         id="transformamos"
         data-section="transformamos"
@@ -593,7 +586,7 @@ leading-[1.4]
             <img
                 class="h-full w-full object-cover object-center"
                 src="<?php echo get_template_directory_uri(); ?>/assets/img/transforma.png"
-                alt="Fondo arquitectónico" />
+                alt="<?php echo esc_attr(nd_translate('Fondo arquitectónico', 'Architectural background')); ?>" />
 
             <div class="absolute inset-0 bg-[#0d0d0d]/75"></div>
         </div>
@@ -614,7 +607,8 @@ leading-[1.4]
                     class="text-[clamp(26px,2.8vw,52px)]
                        leading-[1.1] tracking-[-0.01em] font-normal italic text-balance text-white
                        opacity-0 translate-y-4 transition-all duration-700">
-                    Transformamos por Ayudamos a nuestros clientes desde la cercanía, el rigor y la visión estratégica. </h2>
+                    <?php echo esc_html(nd_translate('Transformamos por Ayudamos a nuestros clientes desde la cercanía, el rigor y la visión estratégica.', 'We transform by helping our clients with closeness, rigor, and strategic vision.')); ?>
+                </h2>
 
                 <p
                     data-transform-item
@@ -622,9 +616,7 @@ leading-[1.4]
                        text-[clamp(15px,1.5vw,22px)] leading-[1.25]
                        text-white/90 font-normal
                        opacity-0 translate-y-4 transition-all duration-700">
-                    En MBI Abogados ofrecemos asesoramiento jurídico con visión estratégica,
-                    claridad constante y dedicación personal. Lo esencial bien hecho.
-                    Lo complejo bien pensado.
+                    <?php echo esc_html(nd_translate('En MBI Abogados ofrecemos asesoramiento jurídico con visión estratégica, claridad constante y dedicación personal. Lo esencial bien hecho. Lo complejo bien pensado.', 'At MBI Abogados we offer legal advice with strategic vision, constant clarity, and personal dedication. The essentials done right. The complex well thought out.')); ?>
                 </p>
 
                 <a
@@ -636,7 +628,7 @@ leading-[1.4]
                        shadow-[0_16px_36px_rgba(0,0,0,0.38)]
                        hover:bg-[#6f7a56] transition
                        opacity-0 translate-y-4">
-                    Contacta
+                    <?php echo esc_html(nd_translate('Contacta', 'Contact')); ?>
                 </a>
             </div>
         </div>
@@ -655,7 +647,7 @@ leading-[1.4]
                 class="text-center opacity-0 translate-y-6 transition-all duration-700">
                 <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)]leading-[1.4]
                       font-normal text-[#7a8464]">
-                    Servicios
+                    <?php echo esc_html(nd_translate('Servicios', 'Services')); ?>
                 </p>
             </div>
 
@@ -678,19 +670,18 @@ leading-[1.4]
                     class="space-y-4 opacity-0 translate-y-8 transition-all duration-700">
 
                     <h2 class="text-[clamp(26px,2.8vw,52px)] leading-[1.1] tracking-[-0.01em] font-normal text-[#34362f]">
-                        Soluciones jurídicas
+                        <?php echo esc_html(nd_translate('Soluciones jurídicas', 'Legal solutions')); ?>
                         <span class="italic text-[#6a7352]">
-                            sencillas, sólidas y personalizadas
+                            <?php echo esc_html(nd_translate('sencillas, sólidas y personalizadas', 'straightforward, solid, and personalized')); ?>
                         </span>
                     </h2>
 
                     <span class="block w-10 h-px bg-[#b9bbab]"></span>
 
                     <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#4c4e47]">
-                        En MBI Abogados convertimos complejidad jurídica en decisiones claras.Priorizamos, aterrizamos escenarios y acompañamos la ejecución con criterio y responsabilidad.
+                        <?php echo esc_html(nd_translate('En MBI Abogados convertimos complejidad jurídica en decisiones claras. Priorizamos, aterrizamos escenarios y acompañamos la ejecución con criterio y responsabilidad.', 'At MBI Abogados we turn legal complexity into clear decisions. We prioritize, ground scenarios, and support execution with judgment and responsibility.')); ?>
                         <br>
-                        Lo esencial bien hecho. Lo complejo bien pensado.
-                        Pensamos como abogados. Actuamos como aliados.
+                        <?php echo esc_html(nd_translate('Lo esencial bien hecho. Lo complejo bien pensado. Pensamos como abogados. Actuamos como aliados.', 'The essentials done right. The complex well thought out. We think like lawyers. We act as allies.')); ?>
 
                     </p>
 
@@ -703,7 +694,7 @@ leading-[1.4]
                         <img
                             class="h-[200px] w-full object-cover sm:h-[220px] lg:h-[240px]"
                             src="<?php echo get_template_directory_uri(); ?>/assets/img/madrid.png"
-                            alt="Vista urbana de Madrid">
+                            alt="<?php echo esc_attr(nd_translate('Vista urbana de Madrid', 'Madrid city skyline')); ?>">
                     </div>
                 </div>
 
@@ -713,7 +704,7 @@ leading-[1.4]
                     class="space-y-4 lg:pt-1 opacity-0 translate-y-8 transition-all duration-700">
 
                     <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#5b5d55] pb-5">
-                        Nos especializamos en áreas donde la experiencia marca la diferencia:
+                        <?php echo esc_html(nd_translate('Nos especializamos en áreas donde la experiencia marca la diferencia:', 'We specialize in areas where experience makes the difference:')); ?>
                     </p>
 
                     <?php if (have_rows('services')) : ?>
@@ -784,8 +775,6 @@ leading-[1.4]
         </div>
     </section>
 
-
-
     <section
         id="contacto"
         data-section="contact"
@@ -800,7 +789,7 @@ leading-[1.4]
              opacity-0 translate-y-6 transition-all duration-700">
 
                 <h2 class="text-[clamp(26px,2.8vw,52px)] leading-[1.1] tracking-[-0.01em] font-normal">
-                    Estamos cerca
+                    <?php echo esc_html(nd_translate('Estamos cerca', 'We are nearby')); ?>
                 </h2>
 
                 <span
@@ -809,7 +798,7 @@ leading-[1.4]
                opacity-0 scale-x-0 origin-center transition-all duration-700"></span>
 
                 <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] font-light">
-                    Cada cliente importa. Cada caso merece una respuesta a su medida.
+                    <?php echo esc_html(nd_translate('Cada cliente importa. Cada caso merece una respuesta a su medida.', 'Every client matters. Every case deserves a tailored response.')); ?>
                 </p>
             </div>
 
@@ -828,7 +817,7 @@ leading-[1.4]
                  opacity-0 scale-[0.96] transition-all duration-700">
 
                         <iframe
-                            title="Mapa MBI Abogados"
+                            title="<?php echo esc_attr(nd_translate('Mapa MBI Abogados', 'MBI Abogados map')); ?>"
                             src="https://www.google.com/maps?q=Calle+Recoletos+19+Madrid&output=embed"
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"
@@ -850,9 +839,9 @@ leading-[1.4]
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-1">
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]">Dirección</p>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]">Calle Recoletos 19</p>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]">28001 Madrid, España</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Dirección', 'Address')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('Calle Recoletos 19', 'Calle Recoletos 19')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('28001 Madrid, España', '28001 Madrid, Spain')); ?></p>
                             </div>
                         </div>
 
@@ -867,7 +856,7 @@ leading-[1.4]
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-1">
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]">Teléfono</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Teléfono', 'Phone')); ?></p>
                                 <a
                                     href="tel:+34912345678"
                                     class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] hover:text-[#58683d] transition">
@@ -887,8 +876,8 @@ leading-[1.4]
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-1">
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]">Horario</p>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]">L–V · 9:00 a 17:30</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Horario', 'Hours')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('L–V · 9:00 a 17:30', 'Mon–Fri · 9:00 to 17:30')); ?></p>
                             </div>
                         </div>
 
@@ -903,7 +892,7 @@ leading-[1.4]
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-1">
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]">Email</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Email', 'Email')); ?></p>
                                 <a
                                     href="mailto:info@mbiabogados.com"
                                     class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] hover:text-[#58683d] transition">
@@ -923,7 +912,7 @@ leading-[1.4]
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-1">
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]">LinkedIn</p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('LinkedIn', 'LinkedIn')); ?></p>
                                 <a
                                     href="#inicio"
                                     class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] hover:text-[#58683d] transition">
@@ -942,15 +931,15 @@ leading-[1.4]
                opacity-0 translate-y-8 transition-all duration-700">
 
                     <div class="space-y-2">
-                        <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#3f3f39]">Escríbenos</h3>
-                        <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#4a4b44]">Estamos aquí para escucharte.</p>
+                        <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#3f3f39]"><?php echo esc_html(nd_translate('Escríbenos', 'Write to us')); ?></h3>
+                        <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#4a4b44]"><?php echo esc_html(nd_translate('Estamos aquí para escucharte.', 'We are here to listen to you.')); ?></p>
                     </div>
 
                     <!-- FORMULARIO -->
                     <form class="space-y-4">
                         <label class="relative block">
                             <span class="absolute -top-2 left-3 bg-white px-1 text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#6a754f]">
-                                Nombre completo
+                                <?php echo esc_html(nd_translate('Nombre completo', 'Full name')); ?>
                             </span>
                             <input
                                 class="w-full border border-[#d8d4c8] bg-white px-4 py-3 text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#3f3f39]
@@ -963,7 +952,7 @@ leading-[1.4]
 
                         <label class="relative block">
                             <span class="absolute -top-2 left-3 bg-white px-1 text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#6a754f]">
-                                Correo electrónico
+                                <?php echo esc_html(nd_translate('Correo electrónico', 'Email address')); ?>
                             </span>
                             <input
                                 class="w-full border border-[#d8d4c8] bg-white px-4 py-3 text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#3f3f39]
@@ -976,7 +965,7 @@ leading-[1.4]
 
                         <label class="relative block">
                             <span class="absolute -top-2 left-3 bg-white px-1 text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#6a754f]">
-                                Teléfono
+                                <?php echo esc_html(nd_translate('Teléfono', 'Phone')); ?>
                             </span>
                             <input
                                 class="w-full border border-[#d8d4c8] bg-white px-4 py-3 text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#3f3f39]
@@ -988,7 +977,7 @@ leading-[1.4]
 
                         <label class="relative block">
                             <span class="absolute -top-2 left-3 bg-white px-1 text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#6a754f]">
-                                Escribe tu consulta
+                                <?php echo esc_html(nd_translate('Escribe tu consulta', 'Write your inquiry')); ?>
                             </span>
                             <textarea
                                 class="w-full border border-[#d8d4c8] bg-white px-4 py-3 text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#3f3f39]
@@ -1005,7 +994,7 @@ leading-[1.4]
                    disabled:opacity-60 disabled:cursor-not-allowed"
                             data-submit-btn>
 
-                            <span data-submit-text>Enviar mensaje</span>
+                            <span data-submit-text><?php echo esc_html(nd_translate('Enviar mensaje', 'Send message')); ?></span>
 
                             <span
                                 data-submit-loader

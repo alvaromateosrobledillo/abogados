@@ -117,6 +117,28 @@ function abogados_assets() {
 add_action('wp_enqueue_scripts', 'abogados_assets');
 
 /**
+ * Simple ES/EN helper for template strings.
+ */
+if (!function_exists('nd_translate')) {
+    function nd_translate($es, $en) {
+        $lang = '';
+
+        if (function_exists('pll_current_language')) {
+            $lang = (string) pll_current_language('slug');
+        } elseif (defined('ICL_LANGUAGE_CODE')) {
+            $lang = (string) ICL_LANGUAGE_CODE;
+        } else {
+            $locale = function_exists('determine_locale') ? determine_locale() : get_locale();
+            $lang = is_string($locale) ? $locale : '';
+        }
+
+        $lang = strtolower(substr($lang, 0, 2));
+
+        return $lang === 'en' ? $en : $es;
+    }
+}
+
+/**
  * Utility: add classes to menu links and items via wp_nav_menu args.
  */
 function abogados_nav_link_class($atts, $item, $args) {
