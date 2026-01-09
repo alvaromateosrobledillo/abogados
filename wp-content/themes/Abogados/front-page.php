@@ -393,8 +393,7 @@ leading-[1.4]
                 <div
                     data-team-title
                     class="text-center opacity-0 translate-y-6 transition-all duration-500">
-                    <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)]
-leading-[1.4] font-normal text-[#7a8464]">
+                    <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)]leading-[1.4] font-normal text-[#7a8464]">
                         Socios
                     </p>
                 </div>
@@ -465,30 +464,22 @@ leading-[1.4] font-normal text-[#7a8464]">
                         data-modal-root
                         data-modal-backdrop>
 
-                        <div class="relative w-full max-w-xl bg-white p-8 shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
-                            <button class="absolute right-4 top-4 text-[#7a8464]" data-close>✕</button>
+                        <div class="relative w-full max-w-6xl max-h-[85vh] overflow-y-auto bg-white p-12 lg:p-16 shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
+                            <button class="absolute right-4 top-4 text-[#7a8464] text-xl" data-close>✕</button>
 
-                            <div class="text-center">
-                                <?php if ($image) : ?>
-                                    <div class="mx-auto mb-4 h-[120px] w-[120px] overflow-hidden rounded-full">
-                                        <img class="h-full w-full object-cover"
-                                            src="<?php echo esc_url($image['url']); ?>"
-                                            alt="<?php echo esc_attr($image['alt']); ?>">
-                                    </div>
-                                <?php endif; ?>
-
-                                <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#58683d]">
-                                    <?php echo esc_html($name); ?>
-                                </h3>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047] mb-4">
-                                    <?php echo esc_html($role); ?>
-                                </p>
-                                <div class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25] text-[#3d3f36] text-left">
+                            <div class="text-center space-y-6 p-8">
+                                <div class="text-[clamp(15px,1.4vw,20px)] leading-[1.6]
+                        [&_p]:mb-4
+                        [&_p]:text-[clamp(15px,1.4vw,20px)]
+                        [&_p]:leading-[1.6]
+                        text-[#3d3f36] text-left">
                                     <?php echo wp_kses_post($bio); ?>
                                 </div>
+
                             </div>
                         </div>
                     </div>
+
                 <?php endwhile; ?>
             <?php endif; ?>
 
@@ -558,7 +549,6 @@ leading-[1.4] font-normal text-[#7a8464]">
                     $j++;
                     $name  = get_sub_field('name');
                     $role  = get_sub_field('role');
-                    $image = get_sub_field('image');
                     $bio   = get_sub_field('bio');
                 ?>
                     <div
@@ -571,13 +561,7 @@ leading-[1.4] font-normal text-[#7a8464]">
                             <button class="absolute right-4 top-4 text-[#7a8464]" data-close>✕</button>
 
                             <div class="text-center">
-                                <?php if ($image) : ?>
-                                    <div class="mx-auto mb-4 h-[120px] w-[120px] overflow-hidden rounded-full">
-                                        <img class="h-full w-full object-cover"
-                                            src="<?php echo esc_url($image['url']); ?>"
-                                            alt="<?php echo esc_attr($image['alt']); ?>">
-                                    </div>
-                                <?php endif; ?>
+                           
 
                                 <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] text-[#58683d]"><?php echo esc_html($name); ?></h3>
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047] mb-4"><?php echo esc_html($role); ?></p>
@@ -630,7 +614,7 @@ leading-[1.4] font-normal text-[#7a8464]">
                     class="text-[clamp(26px,2.8vw,52px)]
                        leading-[1.1] tracking-[-0.01em] font-normal italic text-balance text-white
                        opacity-0 translate-y-4 transition-all duration-700">
-                     Transformamos por Ayudamos a nuestros clientes desde la cercanía, el rigor y la visión estratégica. </h2>
+                    Transformamos por Ayudamos a nuestros clientes desde la cercanía, el rigor y la visión estratégica. </h2>
 
                 <p
                     data-transform-item
