@@ -78,20 +78,100 @@
     };
 
     document.addEventListener('click', (e) => {
-      const link = e.target.closest('a[href^="#"]');
+      const link = e.target.closest('a[href]');
       if (!link) return;
 
       const href = link.getAttribute('href');
       if (!href || href === '#') return;
 
-      const target = document.querySelector(href);
-      if (!target) return;
+      const scrollToTarget = (selector) => {
+        const target = document.querySelector(selector);
+        if (!target) return;
+        e.preventDefault();
+        const y = window.scrollY + target.getBoundingClientRect().top - getOffset();
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      };
 
-      e.preventDefault();
+      if (href.startsWith('#')) {
+        scrollToTarget(href);
+        return;
+      }
 
-      const y = window.scrollY + target.getBoundingClientRect().top - getOffset();
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      if (!href.includes('#')) return;
+
+      let url;
+      try {
+        url = new URL(href, window.location.href);
+      } catch {
+        return;
+      }
+
+      if (url.origin !== window.location.origin) return;
+
+      const normalizePath = (path) => path.replace(/\/+$/, '') || '/';
+      if (normalizePath(url.pathname) !== normalizePath(window.location.pathname)) return;
+
+      if (!url.hash || url.hash === '#') return;
+      scrollToTarget(url.hash);
     });
+  };
+
+  // ======================================================
+  // EQUIPO — mostrar botón en móvil al tocar la card
+  // ======================================================
+  const setupTeamCardToggle = () => {
+    const cards = Array.from(document.querySelectorAll('[data-team-card]'));
+    if (!cards.length) return;
+
+    const isMobile = () => window.matchMedia('(max-width: 639px)').matches;
+
+    const showButton = (card) => {
+      const btn = card.querySelector('[data-team-button]');
+      if (!btn) return;
+      btn.classList.remove('opacity-0', 'translate-y-4');
+      btn.classList.add('opacity-100', 'translate-y-0');
+    };
+
+    const hideButton = (card) => {
+      const btn = card.querySelector('[data-team-button]');
+      if (!btn) return;
+      btn.classList.remove('opacity-100', 'translate-y-0');
+      btn.classList.add('opacity-0', 'translate-y-4');
+    };
+
+    const hideAll = () => cards.forEach(hideButton);
+
+    document.addEventListener('click', (e) => {
+      if (!isMobile()) return;
+
+      const card = e.target.closest('[data-team-card]');
+      if (!card) {
+        hideAll();
+        return;
+      }
+
+      if (e.target.closest('[data-team-button]') || e.target.closest('[data-modal]')) {
+        return;
+      }
+
+      const btn = card.querySelector('[data-team-button]');
+      if (!btn) return;
+
+      const isOpen = btn.classList.contains('opacity-100');
+      hideAll();
+      if (!isOpen) showButton(card);
+    });
+
+    const mq = window.matchMedia('(max-width: 639px)');
+    const handleChange = () => {
+      if (!mq.matches) hideAll();
+    };
+
+    if (mq.addEventListener) {
+      mq.addEventListener('change', handleChange);
+    } else if (mq.addListener) {
+      mq.addListener(handleChange);
+    }
   };
 
   // ======================================================
@@ -161,6 +241,9 @@
 
     // Smooth scroll
     setupSmoothScroll();
+
+    // Team button toggle (mobile)
+    setupTeamCardToggle();
   });
 
   // ======================================================

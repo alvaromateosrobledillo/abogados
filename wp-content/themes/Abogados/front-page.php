@@ -48,10 +48,7 @@
             </div>
 
             <!-- Capa central para legibilidad -->
-            <div class="absolute inset-0 
-    bg-gradient-to-b 
-    from-black/45 via-black/30 to-black/40
-    sm:from-black/20 sm:via-black/10 sm:to-black/18">
+            <div class="absolute inset-0  bg-gradient-to-b   from-black/45 via-black/30 to-black/40  sm:from-black/20 sm:via-black/10 sm:to-black/18">
             </div>
 
 
@@ -177,9 +174,6 @@
 
     </section>
 
-
-
-
     <section
         id="quienes-somos"
         data-section="about"
@@ -241,7 +235,7 @@
 
                 <!-- TEXTO -->
                 <div
-                    class="space-y-4 px-8
+                    class="space-y-4 px-0 sm:px-8
                opacity-0 translate-y-4 transition-all duration-700"
                     data-about-text>
 
@@ -281,7 +275,7 @@
                             data-about-image>
 
                             <img
-                                class="w-full h-[320px] sm:h-[360px] lg:h-[420px] object-cover"
+                                class="w-full h-[320px] sm:h-[360px] md:h-[450px] object-cover"
                                 src="<?php echo esc_url($image['url']); ?>"
                                 alt="<?php echo esc_attr($image['alt']); ?>">
                         </div>
@@ -533,7 +527,7 @@
                     </p>
                 </div>
 
-                <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-3 pt-2">
+                <div class="grid gap-6 md:grid-cols-3 lg:grid-cols-3 pt-2">
                     <?php $j = 0;
                     while (have_rows('team_members')) : the_row();
                         $j++;
@@ -545,15 +539,15 @@
 
                         <article data-team-card class="group text-center relative opacity-0 translate-y-8 transition-all duration-500 overflow-hidden">
                             <?php if ($image) : ?>
-                                <div class="mx-auto h-[110px] w-[110px] overflow-hidden rounded-full -mb-9">
+                                <div class="mx-auto h-[110px] w-[110px] overflow-hidden rounded-full -mb-13">
                                     <img class="h-full w-full object-cover" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
                                 </div>
                             <?php endif; ?>
 
-                            <div class="bg-[#e3e4db] px-6 pt-14 pb-5 transition-all duration-300 ease-out group-hover:pb-14 group-hover:shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
+                            <div class="bg-[#e3e4db] px-6 pt-16  transition-all duration-300 ease-out group-hover:pb-14 group-hover:shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
                                 <h3 class="text-[clamp(15px,1.5vw,22px)] leading-[1.2] font-normal text-[#58683d]"><?php echo esc_html($name); ?></h3>
                                 <p class="mt-1 text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047]"><?php echo esc_html($role); ?></p>
-                                <button type="button" data-modal="team-modal-<?php echo $j; ?>" class="mt-5 inline-flex items-center cursor-pointer text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#58683d] border border-[#b5baa6] px-4 py-1.5 opacity-0 translate-y-4 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a]">
+                                <button type="button" data-modal="team-modal-<?php echo $j; ?>" data-team-button class="mt-5 inline-flex items-center cursor-pointer text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#58683d] border border-[#b5baa6] px-4 py-1.5 opacity-0 translate-y-4 transition-all duration-300 ease-out sm:group-hover:opacity-100 sm:group-hover:translate-y-0 hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a]">
                                     <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
                                 </button>
                             </div>
@@ -843,7 +837,7 @@
                     </div>
 
                     <!-- DATOS -->
-                    <div class="grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 text-[#3f413a]">
+                    <div class="grid gap-x-12 gap-y-8 grid-cols-2 lg:grid-cols-3 text-[#3f413a]">
 
                         <!-- DIRECCIÓN -->
                         <div

@@ -31,8 +31,11 @@
           <!-- LOGO -->
           <a href="<?php echo esc_url(home_url('/')); ?>"
             data-header-item
-            class="flex items-center gap-3 md:gap-4 flex-shrink-0 -mt-2
-                  opacity-0 translate-y-2 transition-all duration-500">
+            class="flex items-center gap-3 md:gap-4 flex-shrink-0
+         -mx-4 sm:mx-0
+         mt-0 sm:-mt-2
+         opacity-0 translate-y-2 transition-all duration-500">
+
 
             <?php if (has_custom_logo()) : ?>
               <span class="inline-flex items-center
@@ -78,7 +81,7 @@
                     $lang_class .= ' text-[#58683d]';
                   }
                   ?>
-                  <a class="<?php echo esc_attr($lang_class); ?>" href="<?php echo esc_url($lang['url']); ?>"<?php echo !empty($lang['current_lang']) ? ' aria-current="page"' : ''; ?>>
+                  <a class="<?php echo esc_attr($lang_class); ?>" href="<?php echo esc_url($lang['url']); ?>" <?php echo !empty($lang['current_lang']) ? ' aria-current="page"' : ''; ?>>
                     <?php echo esc_html(strtoupper($lang['slug'])); ?>
                   </a>
                   <?php if ($index < $total) : ?>
@@ -165,7 +168,7 @@
                     $lang_class .= ' text-[#58683d]';
                   }
                   ?>
-                  <a class="<?php echo esc_attr($lang_class); ?>" href="<?php echo esc_url($lang['url']); ?>"<?php echo !empty($lang['current_lang']) ? ' aria-current="page"' : ''; ?>>
+                  <a class="<?php echo esc_attr($lang_class); ?>" href="<?php echo esc_url($lang['url']); ?>" <?php echo !empty($lang['current_lang']) ? ' aria-current="page"' : ''; ?>>
                     <?php echo esc_html(strtoupper($lang['slug'])); ?>
                   </a>
                 <?php endforeach; ?>
