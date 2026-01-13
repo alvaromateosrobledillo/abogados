@@ -36,11 +36,11 @@
                 data-footer-col
                 class="opacity-0 translate-y-8 transition-all duration-700">
 
-                <h4 class="text-[clamp(10px,1.1vw,15px)] uppercase tracking-[0.2em] leading-[1.4] text-white mb-4">
+                <h4 class="text-[clamp(14px,1.4vw,18px)] uppercase tracking-[0.2em] leading-[1.4] text-white mb-4">
                     <?php echo esc_html(nd_translate('Enlaces', 'Links')); ?>
                 </h4>
 
-                <ul class="space-y-3 text-[clamp(10px,1.3vw,15px)] leading-[1.6] text-[#989a9c]">
+                <ul class="space-y-3 text-[clamp(14px,1.6vw,18px)] leading-[1.6] text-[#989a9c]">
                     <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#hero')); ?>"><?php echo esc_html(nd_translate('Inicio', 'Home')); ?></a></li>
                     <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#quienes-somos')); ?>"><?php echo esc_html(nd_translate('Quiénes Somos', 'About Us')); ?></a></li>
                     <li><a class="hover:text-white transition" href="<?php echo esc_url(home_url('/#servicios')); ?>"><?php echo esc_html(nd_translate('Servicios', 'Services')); ?></a></li>

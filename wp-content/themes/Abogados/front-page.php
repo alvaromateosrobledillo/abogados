@@ -8,11 +8,13 @@
 
         <!-- FONDO -->
         <div class="absolute inset-0 -z-10">
+
+            <!-- Vídeo -->
             <video
                 data-hero-bg
                 class="h-full w-full object-cover object-center
-             opacity-0 scale-[1.03]
-             transition-all duration-[1200ms] ease-out"
+                   opacity-0 scale-[1.03]
+                   transition-all duration-[1200ms] ease-out"
                 muted
                 loop
                 playsinline
@@ -31,70 +33,108 @@
                     type="video/mp4" />
             </video>
 
-            <div class="absolute inset-0 bg-[rgba(18,18,17,0.45)]"></div>
+            <!-- Sombra derecha -->
+            <div class="absolute inset-0 
+            bg-gradient-to-l 
+            from-black/45 via-black/28 to-transparent
+            sm:from-black/25 sm:via-black/18">
+            </div>
+
+            <!-- Sombra izquierda -->
+            <div class="absolute inset-0 
+            bg-gradient-to-r 
+            from-black/40 via-black/24 to-transparent
+            sm:from-black/20 sm:via-black/14">
+            </div>
+
+            <!-- Capa central para legibilidad -->
+            <div class="absolute inset-0 
+    bg-gradient-to-b 
+    from-black/45 via-black/30 to-black/40
+    sm:from-black/20 sm:via-black/10 sm:to-black/18">
+            </div>
+
+
         </div>
 
         <!-- CONTENIDO -->
         <div class="page-shell flex min-h-[calc(100vh-96px)]
-              flex-col items-center justify-center
-              py-24 text-center">
+        flex-col items-center justify-center
+        py-20 sm:py-24 text-center">
 
             <?php if ($pretitle = get_field('hero_pretitle')) : ?>
                 <p data-hero-item
-                    class="uppercase tracking-[0.2em] text-[clamp(14px,1.4vw,32px)] leading-[1.4]
-                font-medium text-white/95 opacity-0 translate-y-3 transition-all duration-700">
+                    class="uppercase tracking-[0.2em]
+                text-[clamp(11px,3.2vw,16px)] sm:text-[clamp(14px,1.4vw,32px)]
+                leading-[1.25]
+                font-medium text-white/95
+                opacity-0 translate-y-3 transition-all duration-700">
                     <?php echo esc_html($pretitle); ?>
                 </p>
             <?php endif; ?>
 
             <?php if ($title = get_field('hero_title')) : ?>
                 <h1 data-hero-item
-                    class="text-[clamp(46px,4.5vw,82px)]
-                 leading-[1.05] tracking-[-0.02em]
-                 text-balance text-white p-0
-                 opacity-0 translate-y-4 transition-all duration-700">
+                    class="mt-3
+                text-[clamp(30px,7vw,40px)] sm:text-[clamp(46px,4.5vw,82px)]
+                leading-[1.1] sm:leading-[1.05]
+                tracking-[-0.02em]
+                text-balance text-white
+                drop-shadow-[0_3px_14px_rgba(0,0,0,0.6)]
+                opacity-0 translate-y-4 transition-all duration-700">
                     <?php echo esc_html($title); ?>
                 </h1>
             <?php endif; ?>
 
             <?php if ($subtitle = get_field('hero_subtitle')) : ?>
                 <h2 data-hero-item
-                    class="-mt-1 text-[clamp(46px,4.5vw,82px)]
-                 leading-[1.05] tracking-[-0.02em]
-                 text-balance text-[#7f8762]
-                 opacity-0 translate-y-4 transition-all duration-700 p-0">
+                    class="mt-2 w-full
+                text-[clamp(28px,6.5vw,38px)] sm:text-[clamp(46px,4.5vw,82px)]
+                leading-[1.1] sm:leading-[1.05]
+                tracking-[-0.02em]
+                text-balance
+                text-[#9faa6f] sm:text-[#7f8762]
+                drop-shadow-[0_3px_14px_rgba(0,0,0,0.6)]
+                opacity-0 translate-y-4 transition-all duration-700">
                     <?php echo esc_html($subtitle); ?>
                 </h2>
             <?php endif; ?>
 
             <?php if ($desc = get_field('hero_description')) : ?>
                 <p data-hero-item
-                    class="max-w-2xl text-[clamp(15px,1.5vw,22px)] leading-[1.25]
-          text-white/90 opacity-0 translate-y-3 transition-all duration-700">
+                    class="mt-5 max-w-xl sm:max-w-2xl
+                text-[clamp(15px,4vw,18px)] sm:text-[clamp(18px,1.5vw,22px)]
+                leading-[1.4] sm:leading-[1.25]
+                text-white/95
+                drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]
+                opacity-0 translate-y-3 transition-all duration-700">
                     <?php echo esc_html($desc); ?>
                 </p>
-
             <?php endif; ?>
 
             <!-- CTAs -->
             <div data-hero-item
-                class="mt-10 flex flex-col sm:flex-row gap-4
-                opacity-0 translate-y-3 transition-all duration-700">
+                class="mt-8 sm:mt-10
+            flex flex-col sm:flex-row gap-4
+            opacity-0 translate-y-3 transition-all duration-700">
 
                 <?php if (get_field('hero_cta_primary_text')) : ?>
                     <a href="<?php echo esc_url(get_field('hero_cta_primary_url')); ?>"
                         class="h-11 min-w-[170px] px-9 bg-[#7f8762] text-white
-                  shadow-[0_16px_36px_rgba(0,0,0,0.38)]
-                  hover:bg-[#6f7a56] transition flex items-center justify-center">
+                    shadow-[0_16px_36px_rgba(0,0,0,0.38)]
+                    hover:bg-[#6f7a56] transition
+                    flex items-center justify-center">
                         <?php the_field('hero_cta_primary_text'); ?>
                     </a>
                 <?php endif; ?>
 
                 <?php if (get_field('hero_cta_secondary_text')) : ?>
                     <a href="<?php echo esc_url(get_field('hero_cta_secondary_url')); ?>"
-                        class="h-11 min-w-[170px] px-9 border border-white/30
-                  bg-white/5 text-white backdrop-blur-sm
-                  hover:bg-white/10 transition flex items-center justify-center">
+                        class="h-11 min-w-[170px] px-9
+                    border border-white/30
+                    bg-white/5 text-white backdrop-blur-sm
+                    hover:bg-white/10 transition
+                    flex items-center justify-center">
                         <?php the_field('hero_cta_secondary_text'); ?>
                     </a>
                 <?php endif; ?>
@@ -108,10 +148,12 @@
                 href="#quienes-somos"
                 data-hero-scroll
                 class="absolute bottom-10 left-1/2 -translate-x-1/2
-           flex flex-col items-center gap-2
-           text-[clamp(11px,1.1vw,17px)] uppercase tracking-[0.2em] leading-[1.4]
-           text-white/70 hover:text-white transition
-           opacity-0">
+            flex flex-col items-center gap-2
+            text-[clamp(11px,1.1vw,17px)]
+            uppercase tracking-[0.2em]
+            leading-[1.4]
+            text-white/70 hover:text-white transition
+            opacity-0">
 
                 <span><?php echo esc_html($scroll); ?></span>
 
@@ -133,8 +175,8 @@
             </a>
         <?php endif; ?>
 
-
     </section>
+
 
 
 
@@ -151,7 +193,7 @@
 
             <?php if ($pretitle = get_field('about_pretitle')) : ?>
                 <h2
-                    class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)]leading-[1.4] font-medium text-[#535F35]
+                    class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)] leading-[1.4] font-medium text-[#535F35]
                opacity-0 translate-y-3 transition-all duration-700"
                     data-about-item>
                     <?php echo esc_html($pretitle); ?>
@@ -220,7 +262,7 @@
                     </div>
 
                     <?php if ($content = get_field('about_paragraphs')) : ?>
-                        <div class="prose prose-base md:prose-lg lg:prose-xl [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25]prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15]prose-strong:font-semibold prose-strong:text-[#4d5a34]text-[#3d3f36] max-w-2xl">
+                        <div class="prose prose-base md:prose-lg lg:prose-xl [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25] prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15] prose-strong:font-semibold prose-strong:text-[#4d5a34] text-[#3d3f36] max-w-2xl">
                             <?php echo wp_kses_post($content); ?>
                         </div>
                     <?php endif; ?>
@@ -283,7 +325,7 @@
             <?php if ($pre = get_field('commitment_pretitle')) : ?>
                 <p
                     data-commitment-item
-                    class="uppercase tracking-[0.2em]  text-[clamp(15px,1.5vw,22px)]leading-[1.4]
+                    class="uppercase tracking-[0.2em]  text-[clamp(15px,1.5vw,22px)] leading-[1.4]
                font-normal text-white
                opacity-0 translate-y-4 transition-all duration-500">
                     <?php echo esc_html($pre); ?>
@@ -374,161 +416,144 @@
         </div>
     </section>
 
-    <section
-        id="equipo"
-        data-section="team"
-        class="py-10 lg:py-12 bg-white">
-
+    <section id="equipo" data-section="team" class="py-10 lg:py-12 bg-white">
         <div class="page-shell space-y-8 sm:space-y-10">
 
             <!-- ===== SOCIOS ===== -->
             <?php if (have_rows('partners')) : ?>
 
-                <div
-                    data-team-title
-                    class="text-center opacity-0 translate-y-6 transition-all duration-500">
-                    <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)]leading-[1.4] font-normal text-[#7a8464]">
+                <div data-team-title class="text-center opacity-0 translate-y-6 transition-all duration-500">
+                    <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)] leading-[1.4] font-normal text-[#7a8464]">
                         <?php echo esc_html(nd_translate('Socios', 'Partners')); ?>
                     </p>
                 </div>
 
-                <div class="grid gap-4 sm:gap-5 sm:grid-cols-2  md:grid-cols-4 lg:grid-cols-4">
+                <div class="grid gap-4 sm:gap-5 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
                     <?php $i = 0;
                     while (have_rows('partners')) : the_row();
                         $i++;
-                        $name  = get_sub_field('name');
-                        $role  = get_sub_field('role');
+                        $name = get_sub_field('name');
+                        $role = get_sub_field('role');
                         $image = get_sub_field('image');
-                        $bio   = get_sub_field('bio');
+                        $bio = get_sub_field('bio');
                     ?>
 
-                        <article
-                            data-team-card
-                            class="group relative overflow-hidden border border-[#e2dfd5] bg-black shadow-[0_22px_50px_rgba(0,0,0,0.22)] opacity-0 translate-y-8 transition-all duration-500 origin-bottom hover:-translate-y-1 hover:scale-[1.02]">
+                        <article data-team-card
+                            class="group relative overflow-hidden border border-[#e2dfd5] bg-black
+           opacity-0 translate-y-8 transition-all duration-500 origin-bottom
+           hover:-translate-y-1">
 
-                            <div class="w-full aspect-[1/1] sm:aspect-[2/3]">
+                            <!-- IMAGEN -->
+                            <div class="relative w-full h-[200px] sm:h-[320px] md:aspect-[2/3] md:h-auto overflow-hidden">
                                 <?php if ($image) : ?>
                                     <img
-                                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                        style="object-position: center top;"
+                                        class="h-full w-full object-cover transition-transform duration-700 ease-out
+                       group-hover:scale-105
+                       object-[center_25%] sm:object-[center_top]"
                                         src="<?php echo esc_url($image['url']); ?>"
                                         alt="<?php echo esc_attr($image['alt']); ?>">
                                 <?php endif; ?>
                             </div>
 
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
+                            <!-- OVERLAY INFERIOR (más oscuro en móvil, más fino en desktop) -->
+                            <div
+                                class="absolute bottom-0 left-0 right-0 h-[42%] sm:h-[45%]
+               bg-gradient-to-t 
+               from-black/95 via-black/70 to-transparent
+               sm:from-black/85 sm:via-black/50
+               pointer-events-none">
+                            </div>
 
-                            <div class="absolute bottom-0 left-0 right-0 p-4 text-left">
-                                <h3 class="text-[clamp(15px,1.5vw,22px)] leading-[1.2] font-normal text-[#b7be9b]">
+                            <!-- TEXTO -->
+                            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-left">
+
+                                <h3 class="text-[15px] sm:text-[clamp(15px,1.5vw,22px)]
+                   leading-[1.15] font-normal text-[#b7be9b]">
                                     <?php echo esc_html($name); ?>
                                 </h3>
-                                <p class="mt-1 text-[clamp(11px,1.1vw,17px)] uppercase tracking-[0.2em] leading-[1.4] text-white/80">
+
+                                <p class="mt-1 text-[11px] sm:text-[clamp(11px,1.1vw,17px)]
+                  uppercase tracking-[0.18em] leading-[1.3]
+                  text-white/90">
                                     <?php echo esc_html($role); ?>
                                 </p>
+
                                 <button
                                     type="button"
                                     data-modal="partner-modal-<?php echo $i; ?>"
-                                    class="mt-2 inline-flex items-center gap-2 text-[clamp(13px,1.3vw,18px)] leading-[1.6]
-                       font-normal text-[#d1d7bd]
-                       border border-[#9aa27a] px-3 py-1.5
-                       opacity-0 translate-y-1 pointer-events-none
-                       transition-all duration-300 ease-out
-                       group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto
-                       hover:-translate-y-0.5 hover:border-[#b5baa6] hover:bg-white/10 hover:text-white">
+                                    class="mt-2 sm:mt-3 inline-flex items-center gap-2 cursor-pointer
+                   text-[12px] sm:text-[clamp(13px,1.3vw,18px)]
+                   leading-[1.5]
+                   font-normal text-[#d1d7bd]
+                   border border-[#9aa27a]
+                   px-3 py-1
+                   opacity-100 sm:opacity-0 sm:translate-y-2
+                   transition-all duration-300 ease-out
+                   sm:group-hover:opacity-100 sm:group-hover:translate-y-0
+                   hover:border-[#b5baa6] hover:bg-white/10 hover:text-white">
+
                                     <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
                                 </button>
+
                             </div>
+
                         </article>
+
+
+
+
 
                     <?php endwhile; ?>
                 </div>
 
-                <!-- MODALES SOCIOS (sin animar, correcto así) -->
+                <!-- MODALES SOCIOS -->
                 <?php $i = 0;
                 while (have_rows('partners')) : the_row();
                     $i++;
-                    $name  = get_sub_field('name');
-                    $role  = get_sub_field('role');
-                    $image = get_sub_field('image');
-                    $bio   = get_sub_field('bio');
+                    $bio = get_sub_field('bio');
                 ?>
-                    <div
-                        id="partner-modal-<?php echo $i; ?>"
-                        class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 px-4"
-                        data-modal-root
-                        data-modal-backdrop>
-
-                        <div class="relative w-full max-w-6xl max-h-[85vh] overflow-y-auto bg-white p-12 lg:p-16 shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
-                            <button class="absolute right-4 top-4 text-[#7a8464] text-xl" data-close>✕</button>
-
-                            <div class="text-center space-y-6 p-8">
-                                <div class="text-[clamp(15px,1.4vw,20px)] leading-[1.6]
-                        [&_p]:mb-4
-                        [&_p]:text-[clamp(15px,1.4vw,20px)]
-                        [&_p]:leading-[1.6]
-                        text-[#3d3f36] text-left">
-                                    <?php echo wp_kses_post($bio); ?>
-                                </div>
-
+                    <div id="partner-modal-<?php echo $i; ?>" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-3 sm:px-6" data-modal-root data-modal-backdrop>
+                        <div class="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-white p-4 sm:p-6 lg:p-10 rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
+                            <button class="absolute right-3 top-3 text-[#7a8464] text-xl" data-close>✕</button>
+                            <div class="text-left space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] [&_p]:mb-3 [&_p]:leading-[1.6] text-[#3d3f36]">
+                                <?php echo wp_kses_post($bio); ?>
                             </div>
                         </div>
                     </div>
-
                 <?php endwhile; ?>
-            <?php endif; ?>
 
+            <?php endif; ?>
 
             <!-- ===== EQUIPO ===== -->
             <?php if (have_rows('team_members')) : ?>
 
-                <div
-                    data-team-title
-                    class="pt-4 text-center opacity-0 translate-y-6 transition-all duration-500">
-                    <p class="uppercase tracking-[0.2em] text-[clamp(11px,1.1vw,17px)] leading-[1.4] font-normal text-[#7a8464]">
+                <div data-team-title class="pt-4 text-center opacity-0 translate-y-6 transition-all duration-500">
+                    <p class="uppercase tracking-[0.2em] text-[clamp(13px,1.1vw,17px)] leading-[1.4] font-normal text-[#7a8464]">
                         <?php echo esc_html(nd_translate('Equipo', 'Team')); ?>
                     </p>
                 </div>
 
-                <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-3">
+                <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-3 pt-2">
                     <?php $j = 0;
                     while (have_rows('team_members')) : the_row();
                         $j++;
-                        $name  = get_sub_field('name');
-                        $role  = get_sub_field('role');
+                        $name = get_sub_field('name');
+                        $role = get_sub_field('role');
                         $image = get_sub_field('image');
-                        $bio   = get_sub_field('bio');
+                        $bio = get_sub_field('bio');
                     ?>
 
-                        <article
-                            data-team-card
-                            class="group text-center relative
-                   opacity-0 translate-y-8 transition-all duration-500">
-
+                        <article data-team-card class="group text-center relative opacity-0 translate-y-8 transition-all duration-500 overflow-hidden">
                             <?php if ($image) : ?>
-                                <div class="mx-auto h-[120px] w-[120px] overflow-hidden rounded-full">
-                                    <img class="h-full w-full object-cover"
-                                        src="<?php echo esc_url($image['url']); ?>"
-                                        alt="<?php echo esc_attr($image['alt']); ?>">
+                                <div class="mx-auto h-[110px] w-[110px] overflow-hidden rounded-full -mb-9">
+                                    <img class="h-full w-full object-cover" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
                                 </div>
                             <?php endif; ?>
 
-                            <div class="mt-[-55px] bg-[#e3e4db] px-5 pb-5 transition-all duration-300 ease-out
-                       group-hover:pt-9 group-hover:pb-7 group-hover:shadow-[0_10px_24px_rgba(0,0,0,0.12)]">
-                                <h3 class="text-[clamp(15px,1.5vw,22px)] leading-[1.2] font-normal text-[#58683d] pt-16">
-                                    <?php echo esc_html($name); ?>
-                                </h3>
-                                <p class="mt-1 text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047]">
-                                    <?php echo esc_html($role); ?>
-                                </p>
-                                <button
-                                    type="button"
-                                    data-modal="team-modal-<?php echo $j; ?>"
-                                    class="mt-2 inline-flex items-center text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#58683d]
-                       border border-[#b5baa6] px-3 py-1
-                       opacity-0 translate-y-2 pointer-events-none
-                       transition-all duration-300 ease-out
-                       group-hover:opacity-100 group-hover:-translate-y-1 group-hover:pointer-events-auto
-                       hover:-translate-y-0.5 hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a]">
+                            <div class="bg-[#e3e4db] px-6 pt-14 pb-5 transition-all duration-300 ease-out group-hover:pb-14 group-hover:shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
+                                <h3 class="text-[clamp(15px,1.5vw,22px)] leading-[1.2] font-normal text-[#58683d]"><?php echo esc_html($name); ?></h3>
+                                <p class="mt-1 text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047]"><?php echo esc_html($role); ?></p>
+                                <button type="button" data-modal="team-modal-<?php echo $j; ?>" class="mt-5 inline-flex items-center cursor-pointer text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#58683d] border border-[#b5baa6] px-4 py-1.5 opacity-0 translate-y-4 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a]">
                                     <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
                                 </button>
                             </div>
@@ -537,26 +562,18 @@
                     <?php endwhile; ?>
                 </div>
 
-                <!-- MODALES EQUIPO (igual que antes) -->
+                <!-- MODALES EQUIPO -->
                 <?php $j = 0;
                 while (have_rows('team_members')) : the_row();
                     $j++;
-                    $name  = get_sub_field('name');
-                    $role  = get_sub_field('role');
-                    $bio   = get_sub_field('bio');
+                    $name = get_sub_field('name');
+                    $role = get_sub_field('role');
+                    $bio = get_sub_field('bio');
                 ?>
-                    <div
-                        id="team-modal-<?php echo $j; ?>"
-                        class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 px-4"
-                        data-modal-root
-                        data-modal-backdrop>
-
-                        <div class="relative w-full max-w-xl bg-white p-8">
-                            <button class="absolute right-4 top-4 text-[#7a8464]" data-close>✕</button>
-
+                    <div id="team-modal-<?php echo $j; ?>" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-3 sm:px-6" data-modal-root data-modal-backdrop>
+                        <div class="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-white p-4 sm:p-6 lg:p-8 rounded-xl">
+                            <button class="absolute right-3 top-3 text-[#7a8464] text-xl" data-close>✕</button>
                             <div class="text-center">
-                           
-
                                 <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] text-[#58683d]"><?php echo esc_html($name); ?></h3>
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047] mb-4"><?php echo esc_html($role); ?></p>
                                 <div class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25] text-[#3d3f36] text-left">
@@ -566,6 +583,7 @@
                         </div>
                     </div>
                 <?php endwhile; ?>
+
             <?php endif; ?>
 
         </div>
@@ -634,8 +652,7 @@
         </div>
     </section>
 
-    <section
-        id="servicios"
+    <section id="servicios"
         data-section="services"
         class="py-16 lg:py-20 bg-white">
 
@@ -645,7 +662,7 @@
             <div
                 data-services-title
                 class="text-center opacity-0 translate-y-6 transition-all duration-700">
-                <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)]leading-[1.4]
+                <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)] leading-[1.4]
                       font-normal text-[#7a8464]">
                     <?php echo esc_html(nd_translate('Servicios', 'Services')); ?>
                 </p>
@@ -934,80 +951,14 @@
                         <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#3f3f39]"><?php echo esc_html(nd_translate('Escríbenos', 'Write to us')); ?></h3>
                         <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#4a4b44]"><?php echo esc_html(nd_translate('Estamos aquí para escucharte.', 'We are here to listen to you.')); ?></p>
                     </div>
-
                     <!-- FORMULARIO -->
-                    <form class="space-y-4">
-                        <label class="relative block">
-                            <span class="absolute -top-2 left-3 bg-white px-1 text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#6a754f]">
-                                <?php echo esc_html(nd_translate('Nombre completo', 'Full name')); ?>
-                            </span>
-                            <input
-                                class="w-full border border-[#d8d4c8] bg-white px-4 py-3 text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#3f3f39]
-                       shadow-[0_2px_6px_rgba(0,0,0,0.08)]
-                       focus:border-[#596636] focus:ring-2 focus:ring-[#c7c1b1] focus:outline-none"
-                                type="text"
-                                autocomplete="name"
-                                required>
-                        </label>
-
-                        <label class="relative block">
-                            <span class="absolute -top-2 left-3 bg-white px-1 text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#6a754f]">
-                                <?php echo esc_html(nd_translate('Correo electrónico', 'Email address')); ?>
-                            </span>
-                            <input
-                                class="w-full border border-[#d8d4c8] bg-white px-4 py-3 text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#3f3f39]
-                       shadow-[0_2px_6px_rgba(0,0,0,0.08)]
-                       focus:border-[#596636] focus:ring-2 focus:ring-[#c7c1b1] focus:outline-none"
-                                type="email"
-                                autocomplete="email"
-                                required>
-                        </label>
-
-                        <label class="relative block">
-                            <span class="absolute -top-2 left-3 bg-white px-1 text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#6a754f]">
-                                <?php echo esc_html(nd_translate('Teléfono', 'Phone')); ?>
-                            </span>
-                            <input
-                                class="w-full border border-[#d8d4c8] bg-white px-4 py-3 text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#3f3f39]
-                       shadow-[0_2px_6px_rgba(0,0,0,0.08)]
-                       focus:border-[#596636] focus:ring-2 focus:ring-[#c7c1b1] focus:outline-none"
-                                type="tel"
-                                autocomplete="tel">
-                        </label>
-
-                        <label class="relative block">
-                            <span class="absolute -top-2 left-3 bg-white px-1 text-[clamp(11px,1.1vw,17px)] leading-[1.4] text-[#6a754f]">
-                                <?php echo esc_html(nd_translate('Escribe tu consulta', 'Write your inquiry')); ?>
-                            </span>
-                            <textarea
-                                class="w-full border border-[#d8d4c8] bg-white px-4 py-3 text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#3f3f39]
-                       shadow-[0_2px_6px_rgba(0,0,0,0.08)]
-                       focus:border-[#596636] focus:ring-2 focus:ring-[#c7c1b1] focus:outline-none"
-                                rows="5"
-                                required></textarea>
-                        </label>
-
-                        <button
-                            type="submit"
-                            class="relative w-full h-11 bg-[#596636] text-white
-                   hover:bg-[#4e5a2f] transition
-                   disabled:opacity-60 disabled:cursor-not-allowed"
-                            data-submit-btn>
-
-                            <span data-submit-text><?php echo esc_html(nd_translate('Enviar mensaje', 'Send message')); ?></span>
-
-                            <span
-                                data-submit-loader
-                                class="absolute inset-0 flex items-center justify-center
-                     opacity-0 transition-opacity duration-200">
-
-                                <svg class="h-5 w-5 animate-spin text-white" viewBox="0 0 24 24" aria-hidden="true">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" />
-                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
-                                </svg>
-                            </span>
-                        </button>
-                    </form>
+                    <?php
+                    $contact_form_shortcode = nd_translate(
+                        '[contact-form-7 id="9cabae9" title="FORM Contacto ES"]',
+                        '[contact-form-7 id="a7b81c6" title="FORM Contact EN"]'
+                    );
+                    echo do_shortcode($contact_form_shortcode);
+                    ?>
                 </div>
 
             </div>

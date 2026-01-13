@@ -51,7 +51,7 @@ function abogados_tracking_scripts() {
         "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{$gtag_id}');"
     );
 
-    wp_enqueue_script(
+   /* wp_enqueue_script(
         'abogados-usercentrics-ppg',
         'https://policygenerator.usercentrics.eu/api/privacy-policy',
         array(),
@@ -65,25 +65,26 @@ function abogados_tracking_scripts() {
         array(),
         null,
         false
-    );
+    );*/
 }
 add_action('wp_enqueue_scripts', 'abogados_tracking_scripts', 5);
 
 /**
  * Add the required attributes for external scripts.
  */
+/* 
 function abogados_script_loader_tag($tag, $handle, $src) {
     if ('abogados-usercentrics-ppg' === $handle) {
         return '<script id="usercentrics-ppg" privacy-policy-id="ec1abe1b-17de-4a19-9b9a-98e6f1c952da" src="' . esc_url($src) . '"></script>';
     }
 
-    if ('abogados-cookiebot' === $handle) {
+   if ('abogados-cookiebot' === $handle) {
         return '<script id="Cookiebot" src="' . esc_url($src) . '" data-cbid="e53609b9-3b4b-400f-89e3-3089efb742ed" data-blockingmode="auto" type="text/javascript"></script>';
     }
 
-    return $tag;
+    return $tag; 
 }
-add_filter('script_loader_tag', 'abogados_script_loader_tag', 10, 3);
+add_filter('script_loader_tag', 'abogados_script_loader_tag', 10, 3); */
 
 function abogados_assets() {
     wp_enqueue_style(
@@ -93,13 +94,26 @@ function abogados_assets() {
         '1.0'
     );
 
+    $tailwind_handle = '';
     $tailwind_path = get_template_directory() . '/assets/css/tailwind.build.css';
     if ( file_exists( $tailwind_path ) ) {
+        $tailwind_handle = 'abogados-tailwind';
         wp_enqueue_style(
-            'abogados-tailwind',
+            $tailwind_handle,
             get_template_directory_uri() . '/assets/css/tailwind.build.css',
             array(),
             filemtime($tailwind_path)
+        );
+    }
+
+    $forms_path = get_template_directory() . '/assets/css/forms.css';
+    if ( file_exists( $forms_path ) ) {
+        $forms_deps = $tailwind_handle ? array($tailwind_handle) : array();
+        wp_enqueue_style(
+            'abogados-forms',
+            get_template_directory_uri() . '/assets/css/forms.css',
+            $forms_deps,
+            filemtime($forms_path)
         );
     }
 

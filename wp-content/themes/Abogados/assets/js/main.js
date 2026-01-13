@@ -273,6 +273,110 @@
   });
 
   // ======================================================
+  // CONTACT FORM 7 - RESPONSE MODAL
+  // ======================================================
+  (() => {
+    const statusMap = {
+      wpcf7mailsent: 'success',
+      wpcf7invalid: 'error',
+      wpcf7mailfailed: 'error',
+      wpcf7spam: 'error',
+      wpcf7aborted: 'error',
+      wpcf7unaccepted: 'error',
+    };
+
+    document.body.classList.add('cf7-modal-enabled');
+
+    let modal;
+    let titleEl;
+    let messageEl;
+
+    const getLang = () => {
+      const lang = document.documentElement.getAttribute('lang') || '';
+      return lang.toLowerCase().startsWith('en') ? 'en' : 'es';
+    };
+
+    const copy = {
+      es: {
+        successTitle: 'Mensaje enviado',
+        errorTitle: 'No se pudo enviar',
+        successFallback: 'Gracias, hemos recibido tu mensaje.',
+        errorFallback: 'Hay errores en el formulario. Revisa los campos marcados.',
+      },
+      en: {
+        successTitle: 'Message sent',
+        errorTitle: 'Could not send',
+        successFallback: 'Thanks, we received your message.',
+        errorFallback: 'There are errors in the form. Please review the highlighted fields.',
+      },
+    };
+
+    const ensureModal = () => {
+      if (modal) return modal;
+
+      modal = document.createElement('div');
+      modal.className = 'cf7-modal';
+      modal.hidden = true;
+      modal.innerHTML = `
+        <div class="cf7-modal__panel" role="document">
+          <button type="button" class="cf7-modal__close" aria-label="Close">x</button>
+          <div class="cf7-modal__title"></div>
+          <div class="cf7-modal__message"></div>
+        </div>
+      `;
+
+      document.body.appendChild(modal);
+
+      titleEl = modal.querySelector('.cf7-modal__title');
+      messageEl = modal.querySelector('.cf7-modal__message');
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target.closest('.cf7-modal__close')) {
+          hideModal();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') hideModal();
+      });
+
+      return modal;
+    };
+
+    const showModal = (status, message) => {
+      const lang = getLang();
+      const strings = copy[lang] || copy.es;
+      const isSuccess = status === 'success';
+      const title = isSuccess ? strings.successTitle : strings.errorTitle;
+      const fallback = isSuccess ? strings.successFallback : strings.errorFallback;
+
+      ensureModal();
+      modal.classList.toggle('is-success', isSuccess);
+      modal.classList.toggle('is-error', !isSuccess);
+      titleEl.textContent = title;
+      messageEl.textContent = message || fallback;
+      modal.hidden = false;
+      document.body.classList.add('cf7-modal-open');
+
+      modal.querySelector('.cf7-modal__close')?.focus();
+    };
+
+    const hideModal = () => {
+      if (!modal) return;
+      modal.hidden = true;
+      document.body.classList.remove('cf7-modal-open');
+    };
+
+    Object.keys(statusMap).forEach((eventName) => {
+      document.addEventListener(eventName, (e) => {
+        const status = statusMap[eventName];
+        const message = e?.detail?.apiResponse?.message;
+        showModal(status, message);
+      });
+    });
+  })();
+
+  // ======================================================
   // REVEALS POR SECCIÓN (SCROLL REAL)
   // ======================================================
   revealSection(
