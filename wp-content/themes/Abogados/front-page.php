@@ -55,14 +55,14 @@
         </div>
 
         <!-- CONTENIDO -->
-        <div class="page-shell flex min-h-[calc(100vh-96px)]
+        <div class="page-shell flex min-h-[calc(100svh-96px)] sm:min-h-[calc(100vh-96px)]
         flex-col items-center justify-center
-        py-20 sm:py-24 text-center">
+        py-12 sm:py-24 text-center">
 
             <?php if ($pretitle = get_field('hero_pretitle')) : ?>
                 <p data-hero-item
                     class="uppercase tracking-[0.2em]
-                text-[clamp(11px,3.2vw,16px)] sm:text-[clamp(14px,1.4vw,32px)]
+                text-[clamp(14px,3.2vw,16px)] sm:text-[clamp(14px,1.4vw,32px)]
                 leading-[1.25]
                 font-medium text-white/95
                 opacity-0 translate-y-3 transition-all duration-700">
@@ -72,12 +72,11 @@
 
             <?php if ($title = get_field('hero_title')) : ?>
                 <h1 data-hero-item
-                    class="mt-3
+                    class="mt-2 sm:mt-3
                 text-[clamp(30px,7vw,40px)] sm:text-[clamp(46px,4.5vw,82px)]
                 leading-[1.1] sm:leading-[1.05]
                 tracking-[-0.02em]
                 text-balance text-white
-                drop-shadow-[0_3px_14px_rgba(0,0,0,0.6)]
                 opacity-0 translate-y-4 transition-all duration-700">
                     <?php echo esc_html($title); ?>
                 </h1>
@@ -85,13 +84,12 @@
 
             <?php if ($subtitle = get_field('hero_subtitle')) : ?>
                 <h2 data-hero-item
-                    class="mt-2 w-full
+                    class="mt-1 sm:mt-2 w-full
                 text-[clamp(28px,6.5vw,38px)] sm:text-[clamp(46px,4.5vw,82px)]
                 leading-[1.1] sm:leading-[1.05]
                 tracking-[-0.02em]
                 text-balance
                 text-[#9faa6f] sm:text-[#7f8762]
-                drop-shadow-[0_3px_14px_rgba(0,0,0,0.6)]
                 opacity-0 translate-y-4 transition-all duration-700">
                     <?php echo esc_html($subtitle); ?>
                 </h2>
@@ -99,11 +97,10 @@
 
             <?php if ($desc = get_field('hero_description')) : ?>
                 <p data-hero-item
-                    class="mt-5 max-w-xl sm:max-w-2xl
-                text-[clamp(15px,4vw,18px)] sm:text-[clamp(18px,1.5vw,22px)]
+                    class="mt-4 sm:mt-5 max-w-xl sm:max-w-2xl
+                text-[clamp(17px,4vw,19px)] sm:text-[clamp(18px,1.5vw,22px)]
                 leading-[1.4] sm:leading-[1.25]
                 text-white/95
-                drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]
                 opacity-0 translate-y-3 transition-all duration-700">
                     <?php echo esc_html($desc); ?>
                 </p>
@@ -111,7 +108,7 @@
 
             <!-- CTAs -->
             <div data-hero-item
-                class="mt-8 sm:mt-10
+                class="mt-5 sm:mt-10
             flex flex-col sm:flex-row gap-4
             opacity-0 translate-y-3 transition-all duration-700">
 
@@ -144,7 +141,7 @@
             <a
                 href="#quienes-somos"
                 data-hero-scroll
-                class="absolute bottom-10 left-1/2 -translate-x-1/2
+                class="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2
             flex flex-col items-center gap-2
             text-[clamp(11px,1.1vw,17px)]
             uppercase tracking-[0.2em]
@@ -212,7 +209,7 @@
 
             <?php if ($about_text = get_field('about_text')) : ?>
                 <div
-                    class="mt-5 text-[#3d3f36] prose prose-base md:prose-lg lg:prose-xl leading-[1.25] [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25]
+                    class="mt-5 text-[#3d3f36] prose prose-base md:prose-lg lg:prose-xl leading-[1.25] [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25]
                 prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15]
                 prose-strong:text-[#4d5a34]
                 prose-strong:font-normal
@@ -256,7 +253,7 @@
                     </div>
 
                     <?php if ($content = get_field('about_paragraphs')) : ?>
-                        <div class="prose prose-base md:prose-lg lg:prose-xl [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25] prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15] prose-strong:font-semibold prose-strong:text-[#4d5a34] text-[#3d3f36] max-w-2xl">
+                        <div class="prose prose-base md:prose-lg lg:prose-xl [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25] prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15] prose-strong:font-semibold prose-strong:text-[#4d5a34] text-[#3d3f36] max-w-2xl">
                             <?php echo wp_kses_post($content); ?>
                         </div>
                     <?php endif; ?>
@@ -356,7 +353,7 @@
                 <div
                     data-commitment-item
                     class="mt-8 mx-auto max-w-6xl text-white
-               text-[clamp(17px,1.8vw,26px)] leading-[1.25] [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25]
+               text-[clamp(17px,1.8vw,26px)] leading-[1.25] [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25]
                [&_p]:mb-6
                opacity-0 translate-y-6 transition-all duration-500">
                     <?php echo wp_kses_post($text1); ?>
@@ -367,7 +364,7 @@
                 <div
                     data-commitment-item
                     class="mt-7 mx-auto max-w-6xl text-[#859263]
-              [&_p]:text-[clamp(15px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(17px,1.8vw,26px)] [&_p]:leading-[1.25]
+              [&_p]:text-[clamp(17px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(17px,1.8vw,26px)] [&_p]:leading-[1.25]
                [&_p]:mb-6
                opacity-0 translate-y-6 transition-all duration-500">
                     <?php echo wp_kses_post($text2); ?>
@@ -544,7 +541,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <div class="bg-[#e3e4db] px-6 pt-16  transition-all duration-300 ease-out group-hover:pb-14 group-hover:shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
+                            <div data-team-card-body class="bg-[#e3e4db] px-6 pt-16 transition-all duration-300 ease-out group-hover:pb-14 group-hover:shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
                                 <h3 class="text-[clamp(15px,1.5vw,22px)] leading-[1.2] font-normal text-[#58683d]"><?php echo esc_html($name); ?></h3>
                                 <p class="mt-1 text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047]"><?php echo esc_html($role); ?></p>
                                 <button type="button" data-modal="team-modal-<?php echo $j; ?>" data-team-button class="mt-5 inline-flex items-center cursor-pointer text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#58683d] border border-[#b5baa6] px-4 py-1.5 opacity-0 translate-y-4 transition-all duration-300 ease-out sm:group-hover:opacity-100 sm:group-hover:translate-y-0 hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a]">
@@ -570,7 +567,7 @@
                             <div class="text-center">
                                 <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] text-[#58683d]"><?php echo esc_html($name); ?></h3>
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047] mb-4"><?php echo esc_html($role); ?></p>
-                                <div class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25] text-[#3d3f36] text-left">
+                                <div class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25] text-[#3d3f36] text-left">
                                     <?php echo wp_kses_post($bio); ?>
                                 </div>
                             </div>
@@ -625,7 +622,7 @@
                 <p
                     data-transform-item
                     class="mt-6 mx-auto max-w-3xl
-                       text-[clamp(15px,1.5vw,22px)] leading-[1.25]
+                       text-[clamp(17px,1.5vw,22px)] leading-[1.25]
                        text-white/90 font-normal
                        opacity-0 translate-y-4 transition-all duration-700">
                     <?php echo esc_html(nd_translate('En MBI Abogados ofrecemos asesoramiento jurídico con visión estratégica, claridad constante y dedicación personal. Lo esencial bien hecho. Lo complejo bien pensado.', 'At MBI Abogados we offer legal advice with strategic vision, constant clarity, and personal dedication. The essentials done right. The complex well thought out.')); ?>
@@ -689,7 +686,7 @@
 
                     <span class="block w-10 h-px bg-[#b9bbab]"></span>
 
-                    <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#4c4e47]">
+                    <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] text-[#4c4e47]">
                         <?php echo esc_html(nd_translate('En MBI Abogados convertimos complejidad jurídica en decisiones claras. Priorizamos, aterrizamos escenarios y acompañamos la ejecución con criterio y responsabilidad.', 'At MBI Abogados we turn legal complexity into clear decisions. We prioritize, ground scenarios, and support execution with judgment and responsibility.')); ?>
                         <br>
                         <?php echo esc_html(nd_translate('Lo esencial bien hecho. Lo complejo bien pensado. Pensamos como abogados. Actuamos como aliados.', 'The essentials done right. The complex well thought out. We think like lawyers. We act as allies.')); ?>
@@ -714,7 +711,7 @@
                     data-services-right
                     class="space-y-4 lg:pt-1 opacity-0 translate-y-8 transition-all duration-700">
 
-                    <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#5b5d55] pb-5">
+                    <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] text-[#5b5d55] pb-5">
                         <?php echo esc_html(nd_translate('Nos especializamos en áreas donde la experiencia marca la diferencia:', 'We specialize in areas where experience makes the difference:')); ?>
                     </p>
 
@@ -767,7 +764,7 @@
                                         id="service-panel-<?php echo $i; ?>"
                                         class="border-t border-[#d4d5c8]
                                            px-6 pb-5 pt-4
-                                           text-[clamp(13px,1.5vw,18px)] leading-[1.25] [&_p]:text-[clamp(15px,1.5vw,22px)] [&_p]:leading-[1.25]
+                                           text-[clamp(15px,1.5vw,18px)] leading-[1.25] [&_p]:text-[clamp(16px,1.5vw,22px)] [&_p]:leading-[1.25]
                                            text-[#4b4d45]
                                            hidden"
                                         data-accordion-panel>
@@ -808,7 +805,7 @@
                     class="inline-block h-px w-16 bg-[#859263]
                opacity-0 scale-x-0 origin-center transition-all duration-700"></span>
 
-                <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] font-light">
+                <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] font-light">
                     <?php echo esc_html(nd_translate('Cada cliente importa. Cada caso merece una respuesta a su medida.', 'Every client matters. Every case deserves a tailored response.')); ?>
                 </p>
             </div>
@@ -943,7 +940,7 @@
 
                     <div class="space-y-2">
                         <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#3f3f39]"><?php echo esc_html(nd_translate('Escríbenos', 'Write to us')); ?></h3>
-                        <p class="text-[clamp(15px,1.5vw,22px)] leading-[1.25] text-[#4a4b44]"><?php echo esc_html(nd_translate('Estamos aquí para escucharte.', 'We are here to listen to you.')); ?></p>
+                        <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] text-[#4a4b44]"><?php echo esc_html(nd_translate('Estamos aquí para escucharte.', 'We are here to listen to you.')); ?></p>
                     </div>
                     <!-- FORMULARIO -->
                     <?php

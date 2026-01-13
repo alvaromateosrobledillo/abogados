@@ -120,7 +120,8 @@
   // EQUIPO — mostrar botón en móvil al tocar la card
   // ======================================================
   const setupTeamCardToggle = () => {
-    const cards = Array.from(document.querySelectorAll('[data-team-card]'));
+    const cards = Array.from(document.querySelectorAll('[data-team-card]'))
+      .filter(card => card.querySelector('[data-team-button]'));
     if (!cards.length) return;
 
     const isMobile = () => window.matchMedia('(max-width: 639px)').matches;
@@ -139,13 +140,23 @@
       btn.classList.add('opacity-0', 'translate-y-4');
     };
 
-    const hideAll = () => cards.forEach(hideButton);
+    const openCard = (card) => {
+      showButton(card);
+      card.classList.add('is-open');
+    };
+
+    const closeCard = (card) => {
+      hideButton(card);
+      card.classList.remove('is-open');
+    };
+
+    const hideAll = () => cards.forEach(closeCard);
 
     document.addEventListener('click', (e) => {
       if (!isMobile()) return;
 
       const card = e.target.closest('[data-team-card]');
-      if (!card) {
+      if (!card || !cards.includes(card)) {
         hideAll();
         return;
       }
@@ -154,12 +165,9 @@
         return;
       }
 
-      const btn = card.querySelector('[data-team-button]');
-      if (!btn) return;
-
-      const isOpen = btn.classList.contains('opacity-100');
+      const isOpen = card.classList.contains('is-open');
       hideAll();
-      if (!isOpen) showButton(card);
+      if (!isOpen) openCard(card);
     });
 
     const mq = window.matchMedia('(max-width: 639px)');
