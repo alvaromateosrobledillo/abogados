@@ -112,6 +112,19 @@
                         </a>
                     </li>
                 </ul>
+
+                <div class="pt-5">
+                    <button type="button"
+                            data-modal="work-modal"
+                            class="inline-flex items-center justify-center
+                                   border border-[#6a754f] px-4 py-2
+                                   text-[clamp(12px,1.2vw,16px)]
+                                   uppercase tracking-[0.2em]
+                                   text-white hover:border-[#8a9472]
+                                   hover:bg-white/10 transition">
+                        <?php echo esc_html(nd_translate('Trabaja con nosotros', 'Work with us')); ?>
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -148,6 +161,28 @@
     </div>
 </footer>
 
+<div id="work-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-3 sm:px-6" data-modal-root data-modal-backdrop>
+    <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white p-4 sm:p-6 lg:p-8 rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
+        <button class="absolute right-3 top-3 text-[#7a8464] text-xl" data-close>✕</button>
+        <div class="space-y-4">
+            <div class="space-y-2">
+                <h3 class="text-[clamp(20px,2.2vw,34px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#3f3f39]">
+                    <?php echo esc_html(nd_translate('Trabaja con nosotros', 'Work with us')); ?>
+                </h3>
+                <p class="text-[clamp(15px,1.4vw,20px)] leading-[1.25] text-[#4a4b44]">
+                    <?php echo esc_html(nd_translate('Envíanos tu candidatura y nos pondremos en contacto contigo.', 'Send us your application and we will get back to you.')); ?>
+                </p>
+            </div>
+            <?php
+            $work_form_shortcode = nd_translate(
+                '[contact-form-7 id="1ac5a41" title="trabaja"]',
+                '[contact-form-7 id="076e25f" title="work"]'
+            );
+            echo do_shortcode($work_form_shortcode);
+            ?>
+        </div>
+    </div>
+</div>
 
 <?php wp_footer(); ?>
 </body>

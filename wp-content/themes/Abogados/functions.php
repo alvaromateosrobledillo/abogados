@@ -152,6 +152,32 @@ if (!function_exists('nd_translate')) {
     }
 }
 
+if (!function_exists('abogados_translate_role')) {
+    function abogados_translate_role($role) {
+        if (!is_string($role)) {
+            return $role;
+        }
+
+        $role = trim($role);
+        if ($role === '' || !function_exists('nd_translate')) {
+            return $role;
+        }
+
+        if (nd_translate('es', 'en') !== 'en') {
+            return $role;
+        }
+
+        $map = array(
+            'Socia Fundadora' => 'Founding Partner',
+            'Socio Fundador' => 'Founding Partner',
+            'Socia' => 'Partner',
+            'Socio' => 'Partner',
+        );
+
+        return array_key_exists($role, $map) ? $map[$role] : $role;
+    }
+}
+
 /**
  * Utility: add classes to menu links and items via wp_nav_menu args.
  */

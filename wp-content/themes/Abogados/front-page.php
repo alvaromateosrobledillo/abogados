@@ -62,8 +62,8 @@
             <?php if ($pretitle = get_field('hero_pretitle')) : ?>
                 <p data-hero-item
                     class="uppercase tracking-[0.2em]
-                text-[clamp(14px,3.2vw,16px)] sm:text-[clamp(14px,1.4vw,32px)]
-                leading-[1.25]
+                text-[clamp(14px,3.2vw,16px)] sm:text-[clamp(14px,1.4vw,38px)]
+                leading-[1.1]
                 font-medium text-white/95
                 opacity-0 translate-y-3 transition-all duration-700">
                     <?php echo esc_html($pretitle); ?>
@@ -72,43 +72,44 @@
 
             <?php if ($title = get_field('hero_title')) : ?>
                 <h1 data-hero-item
-                    class="mt-2 sm:mt-3
-                text-[clamp(30px,7vw,40px)] sm:text-[clamp(46px,4.5vw,82px)]
-                leading-[1.1] sm:leading-[1.05]
-                tracking-[-0.02em]
-                text-balance text-white
-                opacity-0 translate-y-4 transition-all duration-700">
+                    class="mt-3 sm:mt-0
+      text-[clamp(30px,7vw,40px)] sm:text-[clamp(46px,4.5vw,92px)]
+      leading-[1.1] sm:leading-[1.1]
+      tracking-[-0.02em]
+      text-balance text-white
+      opacity-0 translate-y-4 transition-all duration-700">
                     <?php echo esc_html($title); ?>
                 </h1>
             <?php endif; ?>
 
             <?php if ($subtitle = get_field('hero_subtitle')) : ?>
                 <h2 data-hero-item
-                    class="mt-1 sm:mt-2 w-full
-                text-[clamp(28px,6.5vw,38px)] sm:text-[clamp(46px,4.5vw,82px)]
-                leading-[1.1] sm:leading-[1.05]
-                tracking-[-0.02em]
-                text-balance
-                text-[#9faa6f] sm:text-[#7f8762]
-                opacity-0 translate-y-4 transition-all duration-700">
+                    class="mt-2 sm:mt-[-0.3em] w-full
+      text-[clamp(28px,6.5vw,38px)] sm:text-[clamp(46px,4.5vw,92px)]
+      leading-[1.1] sm:leading-[1.2]
+      tracking-[-0.02em]
+      text-balance
+      text-[#9faa6f] sm:text-[#7f8762]
+      opacity-0 translate-y-4 transition-all duration-700">
                     <?php echo esc_html($subtitle); ?>
                 </h2>
             <?php endif; ?>
 
+
             <?php if ($desc = get_field('hero_description')) : ?>
                 <p data-hero-item
-                    class="mt-4 sm:mt-5 max-w-xl sm:max-w-2xl
-                text-[clamp(17px,4vw,19px)] sm:text-[clamp(18px,1.5vw,22px)]
-                leading-[1.4] sm:leading-[1.25]
-                text-white/95
-                opacity-0 translate-y-3 transition-all duration-700">
+                    class="mt-4 sm:mt-2 max-w-xl sm:max-w-4xl
+   text-[clamp(17px,4vw,19px)] sm:text-[clamp(19px,1.6vw,24px)]
+   leading-[1.45] sm:leading-[1.3]
+   text-white/95
+   opacity-0 translate-y-3 transition-all duration-700">
                     <?php echo esc_html($desc); ?>
                 </p>
             <?php endif; ?>
 
             <!-- CTAs -->
             <div data-hero-item
-                class="mt-5 sm:mt-10
+                class="mt-5 sm:mt-5
             flex flex-col sm:flex-row gap-4
             opacity-0 translate-y-3 transition-all duration-700">
 
@@ -237,17 +238,12 @@
                     data-about-text>
 
                     <div>
-                        <?php if ($claim1 = get_field('about_claim_1')) : ?>
-                            <h2 class="text-[clamp(26px,2.8vw,48px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">
-                                <?php echo esc_html($claim1); ?>
-                            </h2>
-                        <?php endif; ?>
-
-                        <?php if ($claim2 = get_field('about_claim_2')) : ?>
-                            <p class="text-[clamp(26px,2.8vw,48px)] leading-[1.2] tracking-[-0.01em] italic font-normal text-[#4d5a34] -mt-1">
-                                <?php echo esc_html($claim2); ?>
-                            </p>
-                        <?php endif; ?>
+                        <h2 class="text-[clamp(26px,2.8vw,48px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">
+                            <?php echo esc_html(nd_translate('Cercanía que entiende.', 'Closeness that understands.')); ?>
+                        </h2>
+                        <p class="text-[clamp(26px,2.8vw,48px)] leading-[1.2] tracking-[-0.01em] italic font-normal text-[#4d5a34] -mt-1">
+                            <?php echo esc_html(nd_translate('Rigor que construye.', 'Rigor that builds.')); ?>
+                        </p>
 
                         <span class="block w-12 h-[1.5px] bg-[#a5a693] mt-3"></span>
                     </div>
@@ -256,7 +252,27 @@
                         <div class="prose prose-base md:prose-lg lg:prose-xl [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25] prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15] prose-strong:font-semibold prose-strong:text-[#4d5a34] text-[#3d3f36] max-w-2xl">
                             <?php echo wp_kses_post($content); ?>
                         </div>
+                    <?php else : ?>
+                        <div class="prose prose-base md:prose-lg lg:prose-xl [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25] prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15] prose-strong:font-semibold prose-strong:text-[#4d5a34] text-[#3d3f36] max-w-2xl">
+                            <p><?php echo esc_html(nd_translate('Estamos comprometidos con un modelo en el que cada cliente es atendido directamente por un socio. Sin intermediarios. Sin jerga innecesaria. Con criterio, claridad y compromiso.', 'We are committed to a model where every client is assisted directly by a partner. No middle layers. No unnecessary jargon. With sound judgment, clarity, and commitment.')); ?></p>
+                            <p><?php echo esc_html(nd_translate('No acumulamos casos. Construimos relaciones a largo plazo con nuestros clientes basadas en la confianza, la estrategia y una excelencia discreta.', 'We don’t accumulate cases. We build long-term relationships with our clients based on trust, strategy, and discreet excellence.')); ?></p>
+                            <p><?php echo esc_html(nd_translate('Porque cada cliente importa.', 'Because every client matters.')); ?></p>
+                        </div>
                     <?php endif; ?>
+
+                    <div class="max-w-2xl">
+                        <button
+                            type="button"
+                            data-modal="partners-profile-modal"
+                            class="inline-flex items-center justify-center
+                                   border border-[#6a754f] px-5 py-2
+                                   text-[clamp(12px,1.2vw,16px)]
+                                   uppercase tracking-[0.2em]
+                                   text-[#4d5a34] hover:border-[#8a9472]
+                                   hover:bg-white/40 transition">
+                            <?php echo esc_html(nd_translate('Nuestra trayectoria', 'Our journey')); ?>
+                        </button>
+                    </div>
 
 
                 </div>
@@ -272,7 +288,7 @@
                             data-about-image>
 
                             <img
-                                class="w-full h-[320px] sm:h-[360px] md:h-[450px] object-cover"
+                                class="w-full h-[320px] sm:h-[360px] md:h-[430px] lg:h-[500px] object-cover"
                                 src="<?php echo esc_url($image['url']); ?>"
                                 alt="<?php echo esc_attr($image['alt']); ?>">
                         </div>
@@ -282,6 +298,91 @@
             </div>
         </div>
     </section>
+
+    <div id="partners-profile-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 px-3 sm:px-6 backdrop-blur-sm" data-modal-root data-modal-backdrop>
+        <div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#f2f1ec] border border-[#d7d4cb] p-5 sm:p-7 lg:p-10 rounded-2xl shadow-[0_28px_70px_rgba(0,0,0,0.3)]">
+            <button class="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#d7d4cb] bg-white/85 text-[#7a8464] text-lg hover:bg-white transition" data-close>✕</button>
+            <div class="space-y-8 text-[#3d3f36]">
+                <div class="space-y-3">
+                    <p class="uppercase tracking-[0.2em] text-[clamp(12px,1.1vw,16px)] text-[#7a8464]">
+                        MBI Abogados
+                    </p>
+                    <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">
+                        <?php echo esc_html(nd_translate('Perfil de los Socios de MBI Abogados', 'MBI Abogados Partner Profiles')); ?>
+                    </h2>
+                    <span class="block h-px w-16 bg-[#859263]"></span>
+                    <p class="text-[clamp(15px,1.4vw,20px)] leading-[1.6]">
+                        <?php echo esc_html(nd_translate(
+                            'MBI Abogados está liderado por tres socios con trayectorias complementarias y una sólida reputación en el ejercicio jurídico. Su experiencia combinada en litigación, arbitraje, derecho civil y mercantil, urbanismo y asesoramiento estratégico conforma un despacho orientado a la excelencia técnica y a la obtención de resultados.',
+                            'MBI Abogados is led by three partners with complementary trajectories and a solid reputation in legal practice. Their combined experience in litigation, arbitration, civil and commercial law, urban planning, and strategic advisory services shapes a firm oriented toward technical excellence and results.'
+                        )); ?>
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="rounded-xl border border-[#e1dfd5] bg-white/80 p-4 sm:p-5">
+                        <h3 class="text-[clamp(18px,1.8vw,26px)] leading-[1.25] font-normal text-[#58683d]">
+                            <?php echo esc_html(nd_translate('Fernando Marín Riaño – Socio Fundador', 'Fernando Marín Riaño – Founding Partner')); ?>
+                        </h3>
+                        <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36]">
+                            <p>
+                                <?php echo esc_html(nd_translate(
+                                    'Jurista de referencia con más de treinta años de experiencia, Fernando Marín Riaño destaca por su solvencia técnica y su capacidad para abordar asuntos de alta complejidad jurídica. Especialista en litigación, arbitraje y asesoramiento estratégico, aporta un profundo conocimiento del derecho civil, mercantil, contencioso‑administrativo e inmobiliario.',
+                                    'A leading jurist with more than thirty years of experience, Fernando Marín Riaño stands out for his technical solvency and his ability to handle matters of high legal complexity. A specialist in litigation, arbitration, and strategic advisory work, he brings deep knowledge of civil, commercial, administrative, and real‑estate law.'
+                                )); ?>
+                            </p>
+                            <p>
+                                <?php echo esc_html(nd_translate(
+                                    'Licenciado en Derecho por la Universidad Complutense de Madrid e integrante del Cuerpo de Letrados de las Cortes Generales, desarrolló durante más de dos décadas una intensa labor de asesoramiento a diversas Comisiones del Senado, lo que le otorga una perspectiva institucional única. Su enfoque estratégico, su rigor y su fiabilidad lo convierten en un pilar esencial del despacho.',
+                                    'Graduated in Law from the Complutense University of Madrid and a member of the Corps of Lawyers of the Spanish Parliament, he spent more than two decades advising several Senate Committees, giving him a unique institutional perspective. His strategic approach, rigor, and reliability make him a key pillar of the firm.'
+                                )); ?>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-xl border border-[#e1dfd5] bg-white/80 p-4 sm:p-5">
+                        <h3 class="text-[clamp(18px,1.8vw,26px)] leading-[1.25] font-normal text-[#58683d]">
+                            <?php echo esc_html(nd_translate('Mónica Iglesias Sánchez – Socia Fundadora', 'Mónica Iglesias Sánchez – Founding Partner')); ?>
+                        </h3>
+                        <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36]">
+                            <p>
+                                <?php echo esc_html(nd_translate(
+                                    'Abogada con casi tres décadas de trayectoria, Mónica Iglesias Sánchez está especializada en litigación civil y mercantil, arbitraje y derecho concursal. Licenciada en Derecho por la Universidad San Pablo CEU y con formación de posgrado en Derecho Comunitario y Tributación, combina un sólido dominio técnico con una gran capacidad estratégica.',
+                                    'A lawyer with nearly three decades of experience, Mónica Iglesias Sánchez specializes in civil and commercial litigation, arbitration, and insolvency law. Graduated in Law from Universidad San Pablo CEU and with postgraduate training in EU Law and Taxation, she combines strong technical command with high strategic capacity.'
+                                )); ?>
+                            </p>
+                            <p>
+                                <?php echo esc_html(nd_translate(
+                                    'Arbitra del ICAM, ha intervenido en numerosos procedimientos de alta complejidad, incluyendo conflictos societarios, responsabilidad de administradores, litigios contractuales y reestructuraciones empresariales. Su enfoque riguroso y orientado a resultados la convierte en una garantía de excelencia para los clientes del despacho.',
+                                    'An arbitrator at ICAM, she has intervened in numerous high‑complexity proceedings, including shareholder disputes, directors’ liability, contractual litigation, and corporate restructurings. Her rigorous, results‑driven approach makes her a guarantee of excellence for the firm’s clients.'
+                                )); ?>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-xl border border-[#e1dfd5] bg-white/80 p-4 sm:p-5">
+                        <h3 class="text-[clamp(18px,1.8vw,26px)] leading-[1.25] font-normal text-[#58683d]">
+                            <?php echo esc_html(nd_translate('Enrique J. Besada Ferreiro – Socio Fundador', 'Enrique J. Besada Ferreiro – Founding Partner')); ?>
+                        </h3>
+                        <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36]">
+                            <p>
+                                <?php echo esc_html(nd_translate(
+                                    'Especializado en Derecho Inmobiliario y Urbanístico, Enrique Besada cuenta con una amplia experiencia tanto en la administración pública como en el sector privado. Su trayectoria incluye la dirección de procedimientos urbanísticos, litigios civiles, mercantiles y contencioso‑administrativos, así como el asesoramiento integral en operaciones inmobiliarias y procesos de desarrollo urbanístico.',
+                                    'Specialized in Real Estate and Urban Planning Law, Enrique Besada has extensive experience in both public administration and the private sector. His trajectory includes leading urban planning procedures, civil, commercial, and administrative litigation, as well as comprehensive advisory work on real‑estate transactions and development processes.'
+                                )); ?>
+                            </p>
+                            <p>
+                                <?php echo esc_html(nd_translate(
+                                    'Ha participado en expedientes de disciplina urbanística, procedimientos judiciales complejos y operaciones de compraventa y due diligence de activos inmobiliarios. Su profundo conocimiento del planeamiento y la gestión urbanística lo convierte en un referente en la materia y en un valor clave para los clientes que buscan asesoramiento especializado.',
+                                    'He has participated in urban discipline cases, complex judicial proceedings, and purchase/sale operations and due diligence of real‑estate assets. His deep knowledge of planning and urban management makes him a reference in the field and a key value for clients seeking specialized advice.'
+                                )); ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section
         id="compromiso"
@@ -435,7 +536,7 @@
            hover:-translate-y-1">
 
                             <!-- IMAGEN -->
-                            <div class="relative w-full h-[200px] sm:h-[320px] md:aspect-[2/3] md:h-auto overflow-hidden">
+                            <div class="relative w-full h-[200px] sm:h-[320px] md:aspect-[2/3] md:h-auto overflow-hidden cursor-pointer" data-modal="partner-modal-<?php echo $i; ?>">
                                 <?php if ($image) : ?>
                                     <img
                                         class="h-full w-full object-cover transition-transform duration-700 ease-out
@@ -501,13 +602,59 @@
                 <?php $i = 0;
                 while (have_rows('partners')) : the_row();
                     $i++;
+                    $name = get_sub_field('name');
+                    $role = get_sub_field('role');
+                    $image = get_sub_field('image');
                     $bio = get_sub_field('bio');
+                    $name_slug = $name ? sanitize_title($name) : '';
+                    $modal_image_url = '';
+                    $modal_image_alt = '';
+
+                    if ($name_slug) {
+                        if (strpos($name_slug, 'enrique') !== false) {
+                            $modal_image_url = get_template_directory_uri() . '/assets/img/Enrique_Modal.jpg';
+                            $modal_image_alt = 'Enrique';
+                        } elseif (strpos($name_slug, 'monica') !== false) {
+                            $modal_image_url = get_template_directory_uri() . '/assets/img/Monica_modal.jpg';
+                            $modal_image_alt = 'Monica';
+                        }
+                    }
+
+                    if (!$modal_image_url) {
+                        $modal_image = get_sub_field('modal_image');
+                        if ($modal_image) {
+                            $modal_image_url = $modal_image['url'];
+                            $modal_image_alt = $modal_image['alt'];
+                        } elseif ($image) {
+                            $modal_image_url = $image['url'];
+                            $modal_image_alt = $image['alt'];
+                        }
+                    }
                 ?>
                     <div id="partner-modal-<?php echo $i; ?>" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-3 sm:px-6" data-modal-root data-modal-backdrop>
                         <div class="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-white p-4 sm:p-6 lg:p-10 rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
                             <button class="absolute right-3 top-3 text-[#7a8464] text-xl" data-close>✕</button>
-                            <div class="text-left space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] [&_p]:mb-3 [&_p]:leading-[1.6] text-[#3d3f36]">
-                                <?php echo wp_kses_post($bio); ?>
+                            <div class="flex flex-col gap-6 lg:gap-8 md:flex-row">
+                                <?php if ($modal_image_url) : ?>
+                                    <div class="md:w-5/12 lg:w-4/12">
+                                        <div class="w-full overflow-hidden rounded-lg bg-[#f2f1ec] aspect-[1/1] sm:aspect-[4/5] max-h-[35vh] sm:max-h-[55vh] md:max-h-none">
+                                            <img class="h-full w-full object-cover object-[center_top]" src="<?php echo esc_url($modal_image_url); ?>" alt="<?php echo esc_attr($modal_image_alt ?: $name); ?>">
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="<?php echo $modal_image_url ? 'md:w-7/12 lg:w-8/12' : 'w-full'; ?>">
+                                    <div class="space-y-2 text-left">
+                                        <h3 class="text-[clamp(18px,1.8vw,26px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#58683d]">
+                                            <?php echo esc_html($name); ?>
+                                        </h3>
+                                        <p class="text-[clamp(18px,1.8vw,26px)] uppercase tracking-[0.18em] leading-[1.2] text-[#7a8464]">
+                                            <?php echo esc_html($role); ?>
+                                        </p>
+                                    </div>
+                                    <div class="mt-4 text-[clamp(15px,1.4vw,20px)] leading-[1.6] [&_p]:mb-3 [&_p]:leading-[1.6] text-[#3d3f36] text-left">
+                                        <?php echo wp_kses_post($bio); ?>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -763,13 +910,19 @@
                                     <div
                                         id="service-panel-<?php echo $i; ?>"
                                         class="border-t border-[#d4d5c8]
-                                           px-6 pb-5 pt-4
                                            text-[clamp(15px,1.5vw,18px)] leading-[1.25] [&_p]:text-[clamp(16px,1.5vw,22px)] [&_p]:leading-[1.25]
                                            text-[#4b4d45]
-                                           hidden"
-                                        data-accordion-panel>
-
-                                        <?php echo wp_kses_post($desc); ?>
+                                           grid grid-rows-[0fr] opacity-0
+                                           transition-[grid-template-rows,opacity] duration-[360ms] ease-[cubic-bezier(0.4,0,0.2,1)]
+                                           data-[open=true]:grid-rows-[1fr] data-[open=true]:opacity-100
+                                           motion-reduce:transition-none"
+                                        data-accordion-panel
+                                        data-open="false"
+                                        aria-hidden="true"
+                                        inert>
+                                        <div class="min-h-0 overflow-hidden px-6">
+                                            <?php echo wp_kses_post($desc); ?>
+                                        </div>
                                     </div>
                                 </div>
 

@@ -341,6 +341,26 @@
   // ======================================================
   // ACORDEÓN
   // ======================================================
+  const setAccordionPanelState = (panel, open) => {
+    if (!panel) return;
+    panel.dataset.open = open ? 'true' : 'false';
+    panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    if (open) {
+      panel.removeAttribute('inert');
+    } else {
+      panel.setAttribute('inert', '');
+    }
+  };
+
+  const initAccordionPanels = () => {
+    document.querySelectorAll('[data-accordion-panel]').forEach((panel) => {
+      const isOpen = panel.dataset.open === 'true';
+      setAccordionPanelState(panel, isOpen);
+    });
+  };
+
+  initAccordionPanels();
+
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-accordion-trigger]');
     if (!trigger) return;
@@ -349,18 +369,27 @@
     if (!accordion) return;
 
     const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+    const singleMode = accordion.getAttribute('data-accordion') === 'single';
 
-    accordion.querySelectorAll('[data-accordion-trigger]').forEach(btn => {
-      btn.setAttribute('aria-expanded', 'false');
-      btn.querySelector('[data-accordion-icon]')?.classList.remove('rotate-180');
-      document.getElementById(btn.getAttribute('aria-controls'))?.classList.add('hidden');
-    });
-
-    if (!isOpen) {
-      trigger.setAttribute('aria-expanded', 'true');
-      trigger.querySelector('[data-accordion-icon]')?.classList.add('rotate-180');
-      document.getElementById(trigger.getAttribute('aria-controls'))?.classList.remove('hidden');
+    if (singleMode) {
+      accordion.querySelectorAll('[data-accordion-trigger]').forEach(btn => {
+        if (btn === trigger) return;
+        btn.setAttribute('aria-expanded', 'false');
+        btn.querySelector('[data-accordion-icon]')?.classList.remove('rotate-180');
+        setAccordionPanelState(document.getElementById(btn.getAttribute('aria-controls')), false);
+      });
     }
+
+    if (isOpen) {
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.querySelector('[data-accordion-icon]')?.classList.remove('rotate-180');
+      setAccordionPanelState(document.getElementById(trigger.getAttribute('aria-controls')), false);
+      return;
+    }
+
+    trigger.setAttribute('aria-expanded', 'true');
+    trigger.querySelector('[data-accordion-icon]')?.classList.add('rotate-180');
+    setAccordionPanelState(document.getElementById(trigger.getAttribute('aria-controls')), true);
   });
 
   // ======================================================

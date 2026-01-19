@@ -556,13 +556,13 @@
                     <p class="text-[16px] sm:text-[18px] text-[#5b5d55]">
                         Nos especializamos en áreas donde la experiencia marca la diferencia:
                     </p>
-                    <div class="space-y-2" data-accordion="single">
+                    <div class="space-y-1.5" data-accordion="single">
                         <?php foreach ($services as $index => $service) : ?>
                             <?php $is_open = false; ?>
                             <div class="border border-[#e0e0d6] bg-[#e8e9df]">
                                 <button
                                     type="button"
-                                    class="flex w-full items-center justify-between gap-4 px-6 py-4 text-left"
+                                    class="flex w-full items-center justify-between gap-4 px-6 py-2.5 text-left"
                                     data-accordion-trigger
                                     aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>"
                                     aria-controls="<?php echo esc_attr('servicio-panel-' . $index); ?>"
@@ -585,9 +585,18 @@
                                     id="<?php echo esc_attr('servicio-panel-' . $index); ?>"
                                     role="region"
                                     aria-labelledby="<?php echo esc_attr('servicio-trigger-' . $index); ?>"
-                                    class="border-t border-[#d4d5c8] px-6 pb-5 pt-3 text-[17px] sm:text-[18px] leading-relaxed text-[#4b4d45] <?php echo $is_open ? '' : 'hidden'; ?>"
-                                    data-accordion-panel>
-                                    <?php echo esc_html($service['desc']); ?>
+                                    class="border-t border-[#d4d5c8] text-[17px] sm:text-[18px] leading-relaxed text-[#4b4d45]
+                                           grid grid-rows-[0fr] opacity-0
+                                           transition-[grid-template-rows,opacity] duration-[360ms] ease-[cubic-bezier(0.4,0,0.2,1)]
+                                           data-[open=true]:grid-rows-[1fr] data-[open=true]:opacity-100
+                                           motion-reduce:transition-none"
+                                    data-accordion-panel
+                                    data-open="<?php echo $is_open ? 'true' : 'false'; ?>"
+                                    aria-hidden="<?php echo $is_open ? 'false' : 'true'; ?>"
+                                    inert>
+                                    <div class="min-h-0 overflow-hidden px-6 pb-5 pt-3">
+                                        <?php echo esc_html($service['desc']); ?>
+                                    </div>
                                 </div>
                             </div>
                         <?php endforeach; ?>

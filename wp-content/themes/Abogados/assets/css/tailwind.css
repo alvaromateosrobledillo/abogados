@@ -117,22 +117,22 @@ body {
 
   @media (min-width: 920px) {
     .page-shell {
-      padding-left: 4.25rem;
-      padding-right: 4.25rem;
+      padding-left: 4rem;
+      padding-right: 4rem;
     }
   }
 
   @media (min-width: 1024px) {
     .page-shell {
-      padding-left: 4.25rem;
-      padding-right: 4.25rem;
+      padding-left: 4rem;
+      padding-right: 4rem;
     }
   }
 
   @media (min-width: 1280px) {
     .page-shell {
-      padding-left: 5.25rem;
-      padding-right: 5.25rem;
+      padding-left: 4rem;
+      padding-right: 4rem;
     }
   }
 
