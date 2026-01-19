@@ -347,13 +347,13 @@
                         <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36]">
                             <p>
                                 <?php echo esc_html(nd_translate(
-                                    'Abogada con casi tres décadas de trayectoria, Mónica Iglesias Sánchez está especializada en litigación civil y mercantil, arbitraje y derecho concursal. Licenciada en Derecho por la Universidad San Pablo CEU y con formación de posgrado en Derecho Comunitario y Tributación, combina un sólido dominio técnico con una gran capacidad estratégica.',
-                                    'A lawyer with nearly three decades of experience, Mónica Iglesias Sánchez specializes in civil and commercial litigation, arbitration, and insolvency law. Graduated in Law from Universidad San Pablo CEU and with postgraduate training in EU Law and Taxation, she combines strong technical command with high strategic capacity.'
+                                    'Abogada con más de tres décadas de trayectoria, Mónica Iglesias Sánchez está especializada en litigación civil y mercantil, arbitraje y derecho concursal. Licenciada en Derecho por la Universidad San Pablo CEU y con formación de posgrado en Derecho Comunitario y Tributación, combina un sólido dominio técnico con una gran capacidad estratégica.',
+                                    'A lawyer with more than three decades of experience, Mónica Iglesias Sánchez specializes in civil and commercial litigation, arbitration, and insolvency law. Graduated in Law from Universidad San Pablo CEU and with postgraduate training in EU Law and Taxation, she combines strong technical command with high strategic capacity.'
                                 )); ?>
                             </p>
                             <p>
                                 <?php echo esc_html(nd_translate(
-                                    'Arbitra del ICAM, ha intervenido en numerosos procedimientos de alta complejidad, incluyendo conflictos societarios, responsabilidad de administradores, litigios contractuales y reestructuraciones empresariales. Su enfoque riguroso y orientado a resultados la convierte en una garantía de excelencia para los clientes del despacho.',
+                                    'Arbitro del ICAM, ha intervenido en numerosos procedimientos de alta complejidad, incluyendo conflictos societarios, responsabilidad de administradores, litigios contractuales y reestructuraciones empresariales. Su enfoque riguroso y orientado a resultados la convierte en una garantía de excelencia para los clientes del despacho.',
                                     'An arbitrator at ICAM, she has intervened in numerous high‑complexity proceedings, including shareholder disputes, directors’ liability, contractual litigation, and corporate restructurings. Her rigorous, results‑driven approach makes her a guarantee of excellence for the firm’s clients.'
                                 )); ?>
                             </p>
@@ -606,9 +606,42 @@
                     $role = get_sub_field('role');
                     $image = get_sub_field('image');
                     $bio = get_sub_field('bio');
+                    $linkedin = get_sub_field('linkedin');
                     $name_slug = $name ? sanitize_title($name) : '';
                     $modal_image_url = '';
                     $modal_image_alt = '';
+                    $linkedin_url = '';
+                    $linkedin_label = '';
+                    $linkedin_target = '_blank';
+
+                    if (is_array($linkedin)) {
+                        $linkedin_url = $linkedin['url'] ?? '';
+                        $linkedin_label = $linkedin['title'] ?? '';
+                        $linkedin_target = $linkedin['target'] ?? '_blank';
+                    } elseif (is_string($linkedin)) {
+                        $linkedin_url = $linkedin;
+                    }
+
+                    if (!$linkedin_url && is_string($bio)) {
+                        if (preg_match('/href=[\"\'](https?:\\/\\/(?:www\\.)?linkedin\\.com\\/[^\"\']+)[\"\']/i', $bio, $matches)) {
+                            $linkedin_url = $matches[1];
+                        } elseif (preg_match('/https?:\\/\\/(?:www\\.)?linkedin\\.com\\/[^\\s\"\'<>]+/i', $bio, $matches)) {
+                            $linkedin_url = $matches[0];
+                        }
+                    }
+                    if (!$linkedin_url && $name_slug) {
+                        $manual_linkedin_map = [
+                            'monica' => 'https://www.linkedin.com/in/monica-iglesias-sanchez-14237041/',
+                            'enrique' => 'https://www.linkedin.com/in/enrique-j-besada-ferreiro-71046b43/?originalSubdomain=es',
+                            'fernando' => 'https://www.linkedin.com/company/mbi-abogados',
+                        ];
+                        foreach ($manual_linkedin_map as $needle => $url) {
+                            if (strpos($name_slug, $needle) !== false) {
+                                $linkedin_url = $url;
+                                break;
+                            }
+                        }
+                    }
 
                     if ($name_slug) {
                         if (strpos($name_slug, 'enrique') !== false) {
@@ -651,8 +684,48 @@
                                             <?php echo esc_html($role); ?>
                                         </p>
                                     </div>
-                                    <div class="mt-4 text-[clamp(15px,1.4vw,20px)] leading-[1.6] [&_p]:mb-3 [&_p]:leading-[1.6] text-[#3d3f36] text-left">
-                                        <?php echo wp_kses_post($bio); ?>
+                                    <div class="mt-4">
+                                        <?php
+                                        $bio_html = $bio ? wp_kses_post($bio) : '';
+                                        $bio_has_layout = $bio_html && preg_match('/class=[\"\'][^\"\']*(max-h-\\[|overflow-y-auto|flex[^\"\']*gap-2)[^\"\']*[\"\']/', $bio_html);
+                                        $linkedin_markup = '';
+
+                                        if ($linkedin_url) {
+                                            $linkedin_text = $linkedin_label ?: nd_translate('LinkedIn', 'LinkedIn');
+                                            $linkedin_icon = get_template_directory_uri() . '/assets/img/linkedin.png';
+                                            $linkedin_markup = '<div class="mt-3 text-left">'
+                                                . '<a href="' . esc_url($linkedin_url) . '" target="' . esc_attr($linkedin_target ?: '_blank') . '" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-[#b5baa6] px-3 py-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.18em] text-[#58683d] hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a] transition">'
+                                                . '<img class="h-4 w-4 object-contain" src="' . esc_url($linkedin_icon) . '" alt="" aria-hidden="true">'
+                                                . '<span>' . esc_html($linkedin_text) . '</span>'
+                                                . '</a>'
+                                                . '</div>';
+                                        }
+
+                                        $bio_output = $bio_html;
+                                        if ($linkedin_markup) {
+                                            $inserted = false;
+                                            if ($bio_has_layout && $bio_html) {
+                                                $closing_div_pos = strripos($bio_html, '</div>');
+                                                if ($closing_div_pos !== false) {
+                                                    $bio_output = substr($bio_html, 0, $closing_div_pos) . $linkedin_markup . substr($bio_html, $closing_div_pos);
+                                                    $inserted = true;
+                                                }
+                                            }
+
+                                            if (!$inserted) {
+                                                $bio_output = $bio_html ? $bio_html . $linkedin_markup : $linkedin_markup;
+                                            }
+                                        }
+                                        ?>
+                                        <?php if ($bio_output) : ?>
+                                            <?php if ($bio_has_layout) : ?>
+                                                <?php echo $bio_output; ?>
+                                            <?php else : ?>
+                                                <div class="text-[clamp(15px,1.4vw,20px)] leading-[1.6] [&_p]:mb-3 [&_p]:leading-[1.6] text-[#3d3f36] text-left">
+                                                    <?php echo $bio_output; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -707,16 +780,90 @@
                     $name = get_sub_field('name');
                     $role = get_sub_field('role');
                     $bio = get_sub_field('bio');
+                    $name_slug = $name ? sanitize_title($name) : '';
+                    $linkedin = get_sub_field('linkedin');
+                    $linkedin_url = '';
+                    $linkedin_label = '';
+                    $linkedin_target = '_blank';
+
+                    if (is_array($linkedin)) {
+                        $linkedin_url = $linkedin['url'] ?? '';
+                        $linkedin_label = $linkedin['title'] ?? '';
+                        $linkedin_target = $linkedin['target'] ?? '_blank';
+                    } elseif (is_string($linkedin)) {
+                        $linkedin_url = $linkedin;
+                    }
+
+                    if (!$linkedin_url && is_string($bio)) {
+                        if (preg_match('/href=[\"\'](https?:\\/\\/(?:www\\.)?linkedin\\.com\\/[^\"\']+)[\"\']/i', $bio, $matches)) {
+                            $linkedin_url = $matches[1];
+                        } elseif (preg_match('/https?:\\/\\/(?:www\\.)?linkedin\\.com\\/[^\\s\"\'<>]+/i', $bio, $matches)) {
+                            $linkedin_url = $matches[0];
+                        }
+                    }
+                    if (!$linkedin_url && $name_slug) {
+                        $manual_linkedin_map = [
+                            'monica' => 'https://www.linkedin.com/in/monica-iglesias-sanchez-14237041/',
+                            'enrique' => 'https://www.linkedin.com/in/enrique-j-besada-ferreiro-71046b43/?originalSubdomain=es',
+                            'fernando' => 'https://www.linkedin.com/company/mbi-abogados',
+                        ];
+                        foreach ($manual_linkedin_map as $needle => $url) {
+                            if (strpos($name_slug, $needle) !== false) {
+                                $linkedin_url = $url;
+                                break;
+                            }
+                        }
+                    }
                 ?>
                     <div id="team-modal-<?php echo $j; ?>" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-3 sm:px-6" data-modal-root data-modal-backdrop>
                         <div class="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-white p-4 sm:p-6 lg:p-8 rounded-xl">
                             <button class="absolute right-3 top-3 text-[#7a8464] text-xl" data-close>✕</button>
                             <div class="text-center">
                                 <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] text-[#58683d]"><?php echo esc_html($name); ?></h3>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047] mb-4"><?php echo esc_html($role); ?></p>
-                                <div class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25] text-[#3d3f36] text-left">
-                                    <?php echo wp_kses_post($bio); ?>
-                                </div>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047]"><?php echo esc_html($role); ?></p>
+                            </div>
+                            <div class="mt-4 text-left">
+                                <?php
+                                $bio_html = $bio ? wp_kses_post($bio) : '';
+                                $bio_has_layout = $bio_html && preg_match('/class=[\"\'][^\"\']*(max-h-\\[|overflow-y-auto|flex[^\"\']*gap-2)[^\"\']*[\"\']/', $bio_html);
+                                $linkedin_markup = '';
+
+                                if ($linkedin_url) {
+                                    $linkedin_text = $linkedin_label ?: nd_translate('LinkedIn', 'LinkedIn');
+                                    $linkedin_icon = get_template_directory_uri() . '/assets/img/linkedin.png';
+                                    $linkedin_markup = '<div class="mt-3 text-left">'
+                                        . '<a href="' . esc_url($linkedin_url) . '" target="' . esc_attr($linkedin_target ?: '_blank') . '" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-[#b5baa6] px-3 py-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.18em] text-[#58683d] hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a] transition">'
+                                        . '<img class="h-4 w-4 object-contain" src="' . esc_url($linkedin_icon) . '" alt="" aria-hidden="true">'
+                                        . '<span>' . esc_html($linkedin_text) . '</span>'
+                                        . '</a>'
+                                        . '</div>';
+                                }
+
+                                $bio_output = $bio_html;
+                                if ($linkedin_markup) {
+                                    $inserted = false;
+                                    if ($bio_has_layout && $bio_html) {
+                                        $closing_div_pos = strripos($bio_html, '</div>');
+                                        if ($closing_div_pos !== false) {
+                                            $bio_output = substr($bio_html, 0, $closing_div_pos) . $linkedin_markup . substr($bio_html, $closing_div_pos);
+                                            $inserted = true;
+                                        }
+                                    }
+
+                                    if (!$inserted) {
+                                        $bio_output = $bio_html ? $bio_html . $linkedin_markup : $linkedin_markup;
+                                    }
+                                }
+                                ?>
+                                <?php if ($bio_output) : ?>
+                                    <?php if ($bio_has_layout) : ?>
+                                        <?php echo $bio_output; ?>
+                                    <?php else : ?>
+                                        <div class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25] text-[#3d3f36] text-left">
+                                            <?php echo $bio_output; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -987,7 +1134,7 @@
                     </div>
 
                     <!-- DATOS -->
-                    <div class="grid gap-x-12 gap-y-8 grid-cols-2 lg:grid-cols-3 text-[#3f413a]">
+                    <div class="grid gap-x-8 gap-y-8 grid-cols-2 lg:grid-cols-3 text-[#3f413a]">
 
                         <!-- DIRECCIÓN -->
                         <div
@@ -1037,8 +1184,21 @@
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-1">
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Horario', 'Hours')); ?></p>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('L–V · 9:00 a 17:30', 'Mon–Fri · 9:00 to 17:30')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.4] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Horario', 'Hours')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.15] text-[#3f413a]">
+                                    <span class="block font-medium">
+                                        <?php echo esc_html(nd_translate('L–J', 'Mon–Thu')); ?>
+                                        <span class="mx-2 text-[#a5a693]">·</span>
+                                        9:30 <span class="text-[#6a754f]">–</span> 19:30
+                                    </span>
+
+                                    <span class="mt-1 block font-medium">
+                                        <?php echo esc_html(nd_translate('V', 'Fri')); ?>
+                                        <span class="mx-2 text-[#a5a693]">·</span>
+                                        9:30 <span class="text-[#6a754f]">–</span> 14:00
+                                    </span>
+                                </p>
+
                             </div>
                         </div>
 
