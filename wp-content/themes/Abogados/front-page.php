@@ -528,6 +528,7 @@
                         $role = get_sub_field('role');
                         $image = get_sub_field('image');
                         $bio = get_sub_field('bio');
+                        $role_output = function_exists('abogados_translate_role') ? abogados_translate_role($role) : $role;
                     ?>
 
                         <article data-team-card
@@ -567,7 +568,7 @@
                                 <p class="mt-1 text-[11px] sm:text-[clamp(11px,1.1vw,17px)]
                   uppercase tracking-[0.18em] leading-[1.3]
                   text-white/90">
-                                    <?php echo esc_html($role); ?>
+                                    <?php echo esc_html($role_output); ?>
                                 </p>
 
                                 <button
@@ -608,6 +609,7 @@
                     $bio = get_sub_field('bio');
                     $linkedin = get_sub_field('linkedin');
                     $name_slug = $name ? sanitize_title($name) : '';
+                    $role_output = function_exists('abogados_translate_role') ? abogados_translate_role($role) : $role;
                     $modal_image_url = '';
                     $modal_image_alt = '';
                     $linkedin_url = '';
@@ -644,12 +646,19 @@
                     }
 
                     if ($name_slug) {
-                        if (strpos($name_slug, 'enrique') !== false) {
-                            $modal_image_url = get_template_directory_uri() . '/assets/img/Enrique_Modal.jpg';
-                            $modal_image_alt = 'Enrique';
-                        } elseif (strpos($name_slug, 'monica') !== false) {
-                            $modal_image_url = get_template_directory_uri() . '/assets/img/Monica_modal.jpg';
-                            $modal_image_alt = 'Monica';
+                        $modal_image_map = [
+                            'enrique' => ['Enrique_Modal.jpg', 'Enrique'],
+                            'monica' => ['Monica_modal.jpg', 'Monica'],
+                            'fernando' => ['Fernando_Modal.jpg', 'Fernando'],
+                            'pablo' => ['Pablo_Modal.jpg', 'Pablo'],
+                            'sara' => ['Sara_Modal.jpg', 'Sara'],
+                        ];
+                        foreach ($modal_image_map as $needle => $data) {
+                            if (strpos($name_slug, $needle) !== false) {
+                                $modal_image_url = get_template_directory_uri() . '/assets/img/' . $data[0];
+                                $modal_image_alt = $data[1];
+                                break;
+                            }
                         }
                     }
 
@@ -680,43 +689,33 @@
                                         <h3 class="text-[clamp(18px,1.8vw,26px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#58683d]">
                                             <?php echo esc_html($name); ?>
                                         </h3>
-                                        <p class="text-[clamp(18px,1.8vw,26px)] uppercase tracking-[0.18em] leading-[1.2] text-[#7a8464]">
-                                            <?php echo esc_html($role); ?>
+                                        <p class="text-[clamp(14px,1.3vw,20px)] uppercase tracking-[0.18em] leading-[1.2] text-[#7a8464]">
+                                            <?php echo esc_html($role_output); ?>
                                         </p>
                                     </div>
-                                    <div class="mt-4">
-                                        <?php
-                                        $bio_html = $bio ? wp_kses_post($bio) : '';
-                                        $bio_has_layout = $bio_html && preg_match('/class=[\"\'][^\"\']*(max-h-\\[|overflow-y-auto|flex[^\"\']*gap-2)[^\"\']*[\"\']/', $bio_html);
-                                        $linkedin_markup = '';
+                                    <?php
+                                    $bio_html = $bio ? wp_kses_post($bio) : '';
+                                    $bio_has_layout = $bio_html && preg_match('/class=[\"\'][^\"\']*(max-h-\\[|overflow-y-auto|flex[^\"\']*gap-2)[^\"\']*[\"\']/', $bio_html);
+                                    $linkedin_markup = '';
 
-                                        if ($linkedin_url) {
-                                            $linkedin_text = $linkedin_label ?: nd_translate('LinkedIn', 'LinkedIn');
-                                            $linkedin_icon = get_template_directory_uri() . '/assets/img/linkedin.png';
-                                            $linkedin_markup = '<div class="mt-3 text-left">'
-                                                . '<a href="' . esc_url($linkedin_url) . '" target="' . esc_attr($linkedin_target ?: '_blank') . '" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-[#b5baa6] px-3 py-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.18em] text-[#58683d] hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a] transition">'
-                                                . '<img class="h-4 w-4 object-contain" src="' . esc_url($linkedin_icon) . '" alt="" aria-hidden="true">'
-                                                . '<span>' . esc_html($linkedin_text) . '</span>'
-                                                . '</a>'
-                                                . '</div>';
-                                        }
+                                    if ($linkedin_url) {
+                                        $linkedin_text = $linkedin_label ?: nd_translate('LinkedIn', 'LinkedIn');
+                                        $linkedin_icon = get_template_directory_uri() . '/assets/img/linkedin.png';
+                                        $linkedin_markup = '<div class="mt-3 text-left">'
+                                            . '<a href="' . esc_url($linkedin_url) . '" target="' . esc_attr($linkedin_target ?: '_blank') . '" rel="noopener noreferrer" class="inline-flex w-fit items-center gap-2 rounded-full border border-[#c6cab6] bg-[#f6f5f0] px-3 py-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.18em] text-[#4d5a34] shadow-[0_6px_14px_rgba(0,0,0,0.08)] transition hover:border-[#8a9472] hover:bg-[#efede4] hover:text-[#3f4a2a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a9472]/60 focus-visible:ring-offset-2">'
+                                            . '<img class="h-4 w-4 object-contain" src="' . esc_url($linkedin_icon) . '" alt="" aria-hidden="true">'
+                                            . '<span>' . esc_html($linkedin_text) . '</span>'
+                                            . '</a>'
+                                            . '</div>';
+                                    }
 
-                                        $bio_output = $bio_html;
-                                        if ($linkedin_markup) {
-                                            $inserted = false;
-                                            if ($bio_has_layout && $bio_html) {
-                                                $closing_div_pos = strripos($bio_html, '</div>');
-                                                if ($closing_div_pos !== false) {
-                                                    $bio_output = substr($bio_html, 0, $closing_div_pos) . $linkedin_markup . substr($bio_html, $closing_div_pos);
-                                                    $inserted = true;
-                                                }
-                                            }
-
-                                            if (!$inserted) {
-                                                $bio_output = $bio_html ? $bio_html . $linkedin_markup : $linkedin_markup;
-                                            }
-                                        }
-                                        ?>
+                                    $bio_output = $bio_html;
+                                    $bio_margin_class = $linkedin_markup ? 'mt-3' : 'mt-4';
+                                    ?>
+                                    <?php if ($linkedin_markup) : ?>
+                                        <?php echo $linkedin_markup; ?>
+                                    <?php endif; ?>
+                                    <div class="<?php echo esc_attr($bio_margin_class); ?>">
                                         <?php if ($bio_output) : ?>
                                             <?php if ($bio_has_layout) : ?>
                                                 <?php echo $bio_output; ?>
@@ -752,6 +751,7 @@
                         $role = get_sub_field('role');
                         $image = get_sub_field('image');
                         $bio = get_sub_field('bio');
+                        $role_output = function_exists('abogados_translate_role') ? abogados_translate_role($role) : $role;
                     ?>
 
                         <article data-team-card class="group text-center relative opacity-0 translate-y-8 transition-all duration-500 overflow-hidden">
@@ -763,7 +763,7 @@
 
                             <div data-team-card-body class="bg-[#e3e4db] px-6 pt-16 transition-all duration-300 ease-out group-hover:pb-14 group-hover:shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
                                 <h3 class="text-[clamp(15px,1.5vw,22px)] leading-[1.2] font-normal text-[#58683d]"><?php echo esc_html($name); ?></h3>
-                                <p class="mt-1 text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047]"><?php echo esc_html($role); ?></p>
+                                <p class="mt-1 text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047]"><?php echo esc_html($role_output); ?></p>
                                 <button type="button" data-modal="team-modal-<?php echo $j; ?>" data-team-button class="mt-5 inline-flex items-center cursor-pointer text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#58683d] border border-[#b5baa6] px-4 py-1.5 opacity-0 translate-y-4 transition-all duration-300 ease-out sm:group-hover:opacity-100 sm:group-hover:translate-y-0 hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a]">
                                     <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
                                 </button>
@@ -779,12 +779,16 @@
                     $j++;
                     $name = get_sub_field('name');
                     $role = get_sub_field('role');
+                    $image = get_sub_field('image');
                     $bio = get_sub_field('bio');
                     $name_slug = $name ? sanitize_title($name) : '';
+                    $role_output = function_exists('abogados_translate_role') ? abogados_translate_role($role) : $role;
                     $linkedin = get_sub_field('linkedin');
                     $linkedin_url = '';
                     $linkedin_label = '';
                     $linkedin_target = '_blank';
+                    $modal_image_url = '';
+                    $modal_image_alt = '';
 
                     if (is_array($linkedin)) {
                         $linkedin_url = $linkedin['url'] ?? '';
@@ -814,56 +818,89 @@
                             }
                         }
                     }
+
+                    if ($name_slug) {
+                        $modal_image_map = [
+                            'enrique' => ['Enrique_Modal.jpg', 'Enrique'],
+                            'monica' => ['Monica_modal.jpg', 'Monica'],
+                            'fernando' => ['Fernando_Modal.jpg', 'Fernando'],
+                            'pablo' => ['Pablo_Modal.jpg', 'Pablo'],
+                            'sara' => ['Sara_Modal.jpg', 'Sara'],
+                        ];
+                        foreach ($modal_image_map as $needle => $data) {
+                            if (strpos($name_slug, $needle) !== false) {
+                                $modal_image_url = get_template_directory_uri() . '/assets/img/' . $data[0];
+                                $modal_image_alt = $data[1];
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!$modal_image_url) {
+                        $modal_image = get_sub_field('modal_image');
+                        if ($modal_image) {
+                            $modal_image_url = $modal_image['url'];
+                            $modal_image_alt = $modal_image['alt'];
+                        } elseif ($image) {
+                            $modal_image_url = $image['url'];
+                            $modal_image_alt = $image['alt'];
+                        }
+                    }
                 ?>
                     <div id="team-modal-<?php echo $j; ?>" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-3 sm:px-6" data-modal-root data-modal-backdrop>
-                        <div class="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-white p-4 sm:p-6 lg:p-8 rounded-xl">
+                        <div class="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-white p-4 sm:p-6 lg:p-10 rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
                             <button class="absolute right-3 top-3 text-[#7a8464] text-xl" data-close>✕</button>
-                            <div class="text-center">
-                                <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] text-[#58683d]"><?php echo esc_html($name); ?></h3>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047]"><?php echo esc_html($role); ?></p>
-                            </div>
-                            <div class="mt-4 text-left">
-                                <?php
-                                $bio_html = $bio ? wp_kses_post($bio) : '';
-                                $bio_has_layout = $bio_html && preg_match('/class=[\"\'][^\"\']*(max-h-\\[|overflow-y-auto|flex[^\"\']*gap-2)[^\"\']*[\"\']/', $bio_html);
-                                $linkedin_markup = '';
-
-                                if ($linkedin_url) {
-                                    $linkedin_text = $linkedin_label ?: nd_translate('LinkedIn', 'LinkedIn');
-                                    $linkedin_icon = get_template_directory_uri() . '/assets/img/linkedin.png';
-                                    $linkedin_markup = '<div class="mt-3 text-left">'
-                                        . '<a href="' . esc_url($linkedin_url) . '" target="' . esc_attr($linkedin_target ?: '_blank') . '" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-[#b5baa6] px-3 py-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.18em] text-[#58683d] hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a] transition">'
-                                        . '<img class="h-4 w-4 object-contain" src="' . esc_url($linkedin_icon) . '" alt="" aria-hidden="true">'
-                                        . '<span>' . esc_html($linkedin_text) . '</span>'
-                                        . '</a>'
-                                        . '</div>';
-                                }
-
-                                $bio_output = $bio_html;
-                                if ($linkedin_markup) {
-                                    $inserted = false;
-                                    if ($bio_has_layout && $bio_html) {
-                                        $closing_div_pos = strripos($bio_html, '</div>');
-                                        if ($closing_div_pos !== false) {
-                                            $bio_output = substr($bio_html, 0, $closing_div_pos) . $linkedin_markup . substr($bio_html, $closing_div_pos);
-                                            $inserted = true;
-                                        }
-                                    }
-
-                                    if (!$inserted) {
-                                        $bio_output = $bio_html ? $bio_html . $linkedin_markup : $linkedin_markup;
-                                    }
-                                }
-                                ?>
-                                <?php if ($bio_output) : ?>
-                                    <?php if ($bio_has_layout) : ?>
-                                        <?php echo $bio_output; ?>
-                                    <?php else : ?>
-                                        <div class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25] text-[#3d3f36] text-left">
-                                            <?php echo $bio_output; ?>
+                            <div class="flex flex-col gap-6 lg:gap-8 md:flex-row">
+                                <?php if ($modal_image_url) : ?>
+                                    <div class="md:w-5/12 lg:w-4/12">
+                                        <div class="w-full overflow-hidden rounded-lg bg-[#f2f1ec] aspect-[1/1] sm:aspect-[4/5] max-h-[35vh] sm:max-h-[55vh] md:max-h-none">
+                                            <img class="h-full w-full object-cover object-[center_top]" src="<?php echo esc_url($modal_image_url); ?>" alt="<?php echo esc_attr($modal_image_alt ?: $name); ?>">
                                         </div>
-                                    <?php endif; ?>
+                                    </div>
                                 <?php endif; ?>
+                                <div class="<?php echo $modal_image_url ? 'md:w-7/12 lg:w-8/12' : 'w-full'; ?>">
+                                    <div class="space-y-2 text-left">
+                                        <h3 class="text-[clamp(18px,1.8vw,26px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#58683d]">
+                                            <?php echo esc_html($name); ?>
+                                        </h3>
+                                        <p class="text-[clamp(14px,1.3vw,20px)] uppercase tracking-[0.18em] leading-[1.2] text-[#7a8464]">
+                                            <?php echo esc_html($role_output); ?>
+                                        </p>
+                                    </div>
+                                    <?php
+                                    $bio_html = $bio ? wp_kses_post($bio) : '';
+                                    $bio_has_layout = $bio_html && preg_match('/class=[\"\'][^\"\']*(max-h-\\[|overflow-y-auto|flex[^\"\']*gap-2)[^\"\']*[\"\']/', $bio_html);
+                                    $linkedin_markup = '';
+
+                                    if ($linkedin_url) {
+                                        $linkedin_text = $linkedin_label ?: nd_translate('LinkedIn', 'LinkedIn');
+                                        $linkedin_icon = get_template_directory_uri() . '/assets/img/linkedin.png';
+                                        $linkedin_markup = '<div class="mt-3 text-left">'
+                                            . '<a href="' . esc_url($linkedin_url) . '" target="' . esc_attr($linkedin_target ?: '_blank') . '" rel="noopener noreferrer" class="inline-flex w-fit items-center gap-2 rounded-full border border-[#c6cab6] bg-[#f6f5f0] px-3 py-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.18em] text-[#4d5a34] shadow-[0_6px_14px_rgba(0,0,0,0.08)] transition hover:border-[#8a9472] hover:bg-[#efede4] hover:text-[#3f4a2a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a9472]/60 focus-visible:ring-offset-2">'
+                                            . '<img class="h-4 w-4 object-contain" src="' . esc_url($linkedin_icon) . '" alt="" aria-hidden="true">'
+                                            . '<span>' . esc_html($linkedin_text) . '</span>'
+                                            . '</a>'
+                                            . '</div>';
+                                    }
+
+                                    $bio_output = $bio_html;
+                                    $bio_margin_class = $linkedin_markup ? 'mt-3' : 'mt-4';
+                                    ?>
+                                    <?php if ($linkedin_markup) : ?>
+                                        <?php echo $linkedin_markup; ?>
+                                    <?php endif; ?>
+                                    <div class="<?php echo esc_attr($bio_margin_class); ?>">
+                                        <?php if ($bio_output) : ?>
+                                            <?php if ($bio_has_layout) : ?>
+                                                <?php echo $bio_output; ?>
+                                            <?php else : ?>
+                                                <div class="text-[clamp(15px,1.4vw,20px)] leading-[1.6] [&_p]:mb-3 [&_p]:leading-[1.6] text-[#3d3f36] text-left">
+                                                    <?php echo $bio_output; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1134,85 +1171,39 @@
                     </div>
 
                     <!-- DATOS -->
-                    <div class="grid gap-x-8 gap-y-8 grid-cols-2 lg:grid-cols-3 text-[#3f413a]">
-
-                        <!-- DIRECCIÓN -->
-                        <div
-                            data-contact-item
-                            class="flex gap-4 opacity-0 translate-y-6 transition-all duration-700">
-
-                            <img
-                                class="mt-0.5 h-6 w-6 shrink-0 object-contain"
-                                src="<?php echo get_template_directory_uri(); ?>/assets/img/direccion.png"
-                                alt="" aria-hidden="true">
-
-                            <div class="space-y-1">
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Dirección', 'Address')); ?></p>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('Calle Recoletos 19', 'Calle Recoletos 19')); ?></p>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('28001 Madrid, España', '28001 Madrid, Spain')); ?></p>
-                            </div>
-                        </div>
+                    <div class="grid gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12 grid-cols-2 lg:grid-cols-3 text-[#3f413a]">
 
                         <!-- TELÉFONO -->
                         <div
                             data-contact-item
-                            class="flex gap-4 opacity-0 translate-y-6 transition-all duration-700">
+                            class="flex items-start gap-4 sm:gap-5 opacity-0 translate-y-6 transition-all duration-700">
 
                             <img
                                 class="mt-0.5 h-6 w-6 shrink-0 object-contain"
                                 src="<?php echo get_template_directory_uri(); ?>/assets/img/telefono.svg"
                                 alt="" aria-hidden="true">
 
-                            <div class="space-y-1">
+                            <div class="space-y-2">
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Teléfono', 'Phone')); ?></p>
                                 <a
-                                    href="tel:+34912345678"
+                                    href="tel:+34918403779"
                                     class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] hover:text-[#58683d] transition">
-                                    +34 91 234 56 78
+                                    +34 91 840 37 79
                                 </a>
-                            </div>
-                        </div>
-
-                        <!-- HORARIO -->
-                        <div
-                            data-contact-item
-                            class="flex gap-4 opacity-0 translate-y-6 transition-all duration-700">
-
-                            <img
-                                class="mt-0.5 h-6 w-6 shrink-0 object-contain"
-                                src="<?php echo get_template_directory_uri(); ?>/assets/img/reloj.png"
-                                alt="" aria-hidden="true">
-
-                            <div class="space-y-1">
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.4] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Horario', 'Hours')); ?></p>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.15] text-[#3f413a]">
-                                    <span class="block font-medium">
-                                        <?php echo esc_html(nd_translate('L–J', 'Mon–Thu')); ?>
-                                        <span class="mx-2 text-[#a5a693]">·</span>
-                                        9:30 <span class="text-[#6a754f]">–</span> 19:30
-                                    </span>
-
-                                    <span class="mt-1 block font-medium">
-                                        <?php echo esc_html(nd_translate('V', 'Fri')); ?>
-                                        <span class="mx-2 text-[#a5a693]">·</span>
-                                        9:30 <span class="text-[#6a754f]">–</span> 14:00
-                                    </span>
-                                </p>
-
                             </div>
                         </div>
 
                         <!-- EMAIL -->
                         <div
                             data-contact-item
-                            class="flex gap-4 opacity-0 translate-y-6 transition-all duration-700">
+                            class="flex items-start gap-4 sm:gap-5 opacity-0 translate-y-6 transition-all duration-700">
 
                             <img
                                 class="mt-0.5 h-6 w-6 shrink-0 object-contain"
                                 src="<?php echo get_template_directory_uri(); ?>/assets/img/email.png"
                                 alt="" aria-hidden="true">
 
-                            <div class="space-y-1">
+                            <div class="space-y-2">
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Email', 'Email')); ?></p>
                                 <a
                                     href="mailto:info@mbiabogados.com"
@@ -1225,20 +1216,69 @@
                         <!-- LINKEDIN -->
                         <div
                             data-contact-item
-                            class="flex gap-4 opacity-0 translate-y-6 transition-all duration-700">
+                            class="flex items-start gap-4 sm:gap-5 opacity-0 translate-y-6 transition-all duration-700">
 
                             <img
                                 class="mt-0.5 h-6 w-6 shrink-0 object-contain"
                                 src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin.png"
                                 alt="" aria-hidden="true">
 
-                            <div class="space-y-1">
+                            <div class="space-y-2">
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('LinkedIn', 'LinkedIn')); ?></p>
                                 <a
-                                    href="#inicio"
+                                    href="https://www.linkedin.com/company/mbi-abogados/"
                                     class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] hover:text-[#58683d] transition">
                                     MBI Abogados
                                 </a>
+                            </div>
+                        </div>
+
+                        <!-- DIRECCIÓN -->
+                        <div
+                            data-contact-item
+                            class="flex items-start gap-4 sm:gap-5 opacity-0 translate-y-6 transition-all duration-700">
+
+                            <img
+                                class="mt-0.5 h-6 w-6 shrink-0 object-contain"
+                                src="<?php echo get_template_directory_uri(); ?>/assets/img/direccion.png"
+                                alt="" aria-hidden="true">
+
+                            <div class="space-y-2">
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Dirección', 'Address')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('Calle Recoletos 19', 'Calle Recoletos 19')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('1º planta', '1st floor')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('28001 Madrid, España', '28001 Madrid, Spain')); ?></p>
+                            </div>
+                        </div>
+
+                        <!-- HORARIO -->
+                        <div
+                            data-contact-item
+                            class="flex items-start gap-4 sm:gap-5 opacity-0 translate-y-6 transition-all duration-700">
+
+                            <img
+                                class="mt-0.5 h-6 w-6 shrink-0 object-contain"
+                                src="<?php echo get_template_directory_uri(); ?>/assets/img/reloj.png"
+                                alt="" aria-hidden="true">
+
+                            <div class="space-y-2">
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.4] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Horario', 'Hours')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.4] text-[#3f413a]">
+                                    <span class="grid grid-cols-[auto_1fr] items-baseline gap-x-3 font-medium">
+                                        <span><?php echo esc_html(nd_translate('Lun–Jue', 'Mon–Thu')); ?></span>
+                                        <span class="justify-self-end whitespace-nowrap">
+                                            9:30<span class="text-[#6a754f]">–</span>19:30
+                                        </span>
+                                    </span>
+
+                                    <span class="mt-2 grid grid-cols-[auto_1fr] items-baseline gap-x-3 font-medium">
+                                        <span><?php echo esc_html(nd_translate('Viernes', 'Friday')); ?></span>
+                                        <span class="justify-self-end whitespace-nowrap">
+                                            9:30<span class="text-[#6a754f]">–</span>14:00
+                                        </span>
+                                    </span>
+                                </p>
+
                             </div>
                         </div>
 

@@ -158,8 +158,8 @@ if (!function_exists('abogados_translate_role')) {
             return $role;
         }
 
-        $role = trim($role);
-        if ($role === '' || !function_exists('nd_translate')) {
+        $role_trimmed = trim(preg_replace('/\\s+/', ' ', $role));
+        if ($role_trimmed === '' || !function_exists('nd_translate')) {
             return $role;
         }
 
@@ -167,14 +167,18 @@ if (!function_exists('abogados_translate_role')) {
             return $role;
         }
 
+        $normalized = function_exists('mb_strtolower')
+            ? mb_strtolower($role_trimmed, 'UTF-8')
+            : strtolower($role_trimmed);
+
         $map = array(
-            'Socia Fundadora' => 'Founding Partner',
-            'Socio Fundador' => 'Founding Partner',
-            'Socia' => 'Partner',
-            'Socio' => 'Partner',
+            'socia fundadora' => 'Founding Partner',
+            'socio fundador' => 'Founding Partner',
+            'socia' => 'Partner',
+            'socio' => 'Partner',
         );
 
-        return array_key_exists($role, $map) ? $map[$role] : $role;
+        return array_key_exists($normalized, $map) ? $map[$normalized] : $role_trimmed;
     }
 }
 

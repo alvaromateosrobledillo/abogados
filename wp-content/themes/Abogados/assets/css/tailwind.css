@@ -100,7 +100,7 @@ body {
 
 @layer components {
   .page-shell {
-    max-width: 92rem;
+    max-width: 96rem;
     margin-left: auto;
     margin-right: auto;
     padding-left: 3rem;
