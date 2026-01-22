@@ -311,7 +311,7 @@
                         <?php echo esc_html(nd_translate('Perfil de los Socios de MBI Abogados', 'MBI Abogados Partner Profiles')); ?>
                     </h2>
                     <span class="block h-px w-16 bg-[#859263]"></span>
-                    <p class="text-[clamp(15px,1.4vw,20px)] leading-[1.6]">
+                    <p class="text-[clamp(15px,1.4vw,20px)] leading-[1.2]">
                         <?php echo esc_html(nd_translate(
                             'MBI Abogados está liderado por tres socios con trayectorias complementarias y una sólida reputación en el ejercicio jurídico. Su experiencia combinada en litigación, arbitraje, derecho civil y mercantil, urbanismo y asesoramiento estratégico conforma un despacho orientado a la excelencia técnica y a la obtención de resultados.',
                             'MBI Abogados is led by three partners with complementary trajectories and a solid reputation in legal practice. Their combined experience in litigation, arbitration, civil and commercial law, urban planning, and strategic advisory services shapes a firm oriented toward technical excellence and results.'
@@ -324,7 +324,7 @@
                         <h3 class="text-[clamp(18px,1.8vw,26px)] leading-[1.25] font-normal text-[#58683d]">
                             <?php echo esc_html(nd_translate('Fernando Marín Riaño – Socio Fundador', 'Fernando Marín Riaño – Founding Partner')); ?>
                         </h3>
-                        <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36]">
+                        <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.2] text-[#3d3f36]">
                             <p>
                                 <?php echo esc_html(nd_translate(
                                     'Jurista de referencia con más de treinta años de experiencia, Fernando Marín Riaño destaca por su solvencia técnica y su capacidad para abordar asuntos de alta complejidad jurídica. Especialista en litigación, arbitraje y asesoramiento estratégico, aporta un profundo conocimiento del derecho civil, mercantil, contencioso‑administrativo e inmobiliario.',
@@ -558,7 +558,7 @@
                             </div>
 
                             <!-- TEXTO -->
-                            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-left">
+                            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-left partner-card-text">
 
                                 <h3 class="text-[15px] sm:text-[clamp(15px,1.5vw,22px)]
                    leading-[1.15] font-normal text-[#b7be9b]">
@@ -636,6 +636,8 @@
                             'monica' => 'https://www.linkedin.com/in/monica-iglesias-sanchez-14237041/',
                             'enrique' => 'https://www.linkedin.com/in/enrique-j-besada-ferreiro-71046b43/?originalSubdomain=es',
                             'fernando' => 'https://www.linkedin.com/company/mbi-abogados',
+                            'irene' => 'https://www.linkedin.com/in/irene-mu%C3%B1iz-%C3%A1lvarez-0758331a/',
+                            'pablo' => 'https://www.linkedin.com/in/pablo-epalza-arnedo/',
                         ];
                         foreach ($manual_linkedin_map as $needle => $url) {
                             if (strpos($name_slug, $needle) !== false) {
@@ -675,7 +677,7 @@
                 ?>
                     <div id="partner-modal-<?php echo $i; ?>" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-3 sm:px-6" data-modal-root data-modal-backdrop>
                         <div class="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-white p-4 sm:p-6 lg:p-10 rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
-                            <button class="absolute right-3 top-3 text-[#7a8464] text-xl" data-close>✕</button>
+                            <button class="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d7d4cb] bg-white text-[#5b6542] text-[20px] shadow-[0_6px_14px_rgba(0,0,0,0.18)] transition hover:bg-[#f2f1ec] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a9472]/60 focus-visible:ring-offset-2" data-close><span class="relative top-[1px] leading-none">✕</span></button>
                             <div class="flex flex-col gap-6 lg:gap-8 md:flex-row">
                                 <?php if ($modal_image_url) : ?>
                                     <div class="md:w-5/12 lg:w-4/12">
@@ -686,7 +688,7 @@
                                 <?php endif; ?>
                                 <div class="<?php echo $modal_image_url ? 'md:w-7/12 lg:w-8/12' : 'w-full'; ?>">
                                     <div class="space-y-2 text-left">
-                                        <h3 class="text-[clamp(18px,1.8vw,26px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#58683d]">
+                                        <h3 class="text-[clamp(19px,1.9vw,28px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#58683d]">
                                             <?php echo esc_html($name); ?>
                                         </h3>
                                         <p class="text-[clamp(14px,1.3vw,20px)] uppercase tracking-[0.18em] leading-[1.2] text-[#7a8464]">
@@ -720,7 +722,7 @@
                                             <?php if ($bio_has_layout) : ?>
                                                 <?php echo $bio_output; ?>
                                             <?php else : ?>
-                                                <div class="text-[clamp(15px,1.4vw,20px)] leading-[1.6] [&_p]:mb-3 [&_p]:leading-[1.6] text-[#3d3f36] text-left">
+                                                <div class="text-[clamp(15px,1.4vw,20px)] leading-[1.6] [&_p]:mb-3 [&_p]:leading-[1.2] text-[#3d3f36] text-left">
                                                     <?php echo $bio_output; ?>
                                                 </div>
                                             <?php endif; ?>
@@ -810,6 +812,8 @@
                             'monica' => 'https://www.linkedin.com/in/monica-iglesias-sanchez-14237041/',
                             'enrique' => 'https://www.linkedin.com/in/enrique-j-besada-ferreiro-71046b43/?originalSubdomain=es',
                             'fernando' => 'https://www.linkedin.com/company/mbi-abogados',
+                            'irene' => 'https://www.linkedin.com/in/irene-mu%C3%B1iz-%C3%A1lvarez-0758331a/',
+                            'pablo' => 'https://www.linkedin.com/in/pablo-epalza-arnedo/',
                         ];
                         foreach ($manual_linkedin_map as $needle => $url) {
                             if (strpos($name_slug, $needle) !== false) {
@@ -849,7 +853,7 @@
                 ?>
                     <div id="team-modal-<?php echo $j; ?>" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-3 sm:px-6" data-modal-root data-modal-backdrop>
                         <div class="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-white p-4 sm:p-6 lg:p-10 rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
-                            <button class="absolute right-3 top-3 text-[#7a8464] text-xl" data-close>✕</button>
+                            <button class="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d7d4cb] bg-white text-[#5b6542] text-[20px] shadow-[0_6px_14px_rgba(0,0,0,0.18)] transition hover:bg-[#f2f1ec] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a9472]/60 focus-visible:ring-offset-2" data-close><span class="relative top-[1px] leading-none">✕</span></button>
                             <div class="flex flex-col gap-6 lg:gap-8 md:flex-row">
                                 <?php if ($modal_image_url) : ?>
                                     <div class="md:w-5/12 lg:w-4/12">
@@ -860,7 +864,7 @@
                                 <?php endif; ?>
                                 <div class="<?php echo $modal_image_url ? 'md:w-7/12 lg:w-8/12' : 'w-full'; ?>">
                                     <div class="space-y-2 text-left">
-                                        <h3 class="text-[clamp(18px,1.8vw,26px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#58683d]">
+                                        <h3 class="text-[clamp(19px,1.9vw,28px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#58683d]">
                                             <?php echo esc_html($name); ?>
                                         </h3>
                                         <p class="text-[clamp(14px,1.3vw,20px)] uppercase tracking-[0.18em] leading-[1.2] text-[#7a8464]">
@@ -894,7 +898,7 @@
                                             <?php if ($bio_has_layout) : ?>
                                                 <?php echo $bio_output; ?>
                                             <?php else : ?>
-                                                <div class="text-[clamp(15px,1.4vw,20px)] leading-[1.6] [&_p]:mb-3 [&_p]:leading-[1.6] text-[#3d3f36] text-left">
+                                                <div class="text-[clamp(15px,1.4vw,20px)] leading-[1.2] [&_p]:mb-3 [&_p]:leading-[1.2] text-[#3d3f36] text-left">
                                                     <?php echo $bio_output; ?>
                                                 </div>
                                             <?php endif; ?>
@@ -1233,23 +1237,7 @@
                             </div>
                         </div>
 
-                        <!-- DIRECCIÓN -->
-                        <div
-                            data-contact-item
-                            class="flex items-start gap-4 sm:gap-5 opacity-0 translate-y-6 transition-all duration-700">
-
-                            <img
-                                class="mt-0.5 h-6 w-6 shrink-0 object-contain"
-                                src="<?php echo get_template_directory_uri(); ?>/assets/img/direccion.png"
-                                alt="" aria-hidden="true">
-
-                            <div class="space-y-2">
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Dirección', 'Address')); ?></p>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('Calle Recoletos 19', 'Calle Recoletos 19')); ?></p>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('1º planta', '1st floor')); ?></p>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('28001 Madrid, España', '28001 Madrid, Spain')); ?></p>
-                            </div>
-                        </div>
+                   
 
                         <!-- HORARIO -->
                         <div
@@ -1282,6 +1270,23 @@
                             </div>
                         </div>
 
+                             <!-- DIRECCIÓN -->
+                        <div
+                            data-contact-item
+                            class="flex items-start gap-4 sm:gap-5 opacity-0 translate-y-6 transition-all duration-700">
+
+                            <img
+                                class="mt-0.5 h-6 w-6 shrink-0 object-contain"
+                                src="<?php echo get_template_directory_uri(); ?>/assets/img/direccion.png"
+                                alt="" aria-hidden="true">
+
+                            <div class="space-y-2">
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Dirección', 'Address')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('Calle Recoletos 19', 'Calle Recoletos 19')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('1º planta', '1st floor')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('28001 Madrid, España', '28001 Madrid, Spain')); ?></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

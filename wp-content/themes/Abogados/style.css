@@ -7,3 +7,21 @@ Text Domain: abogados
 */
 
 /* Intentionally minimal. Main styles are in assets/css/tailwind.build.css. */
+.modal-bio-flow > .flex {
+  display: block;
+}
+
+.modal-bio-flow > .flex > * + * {
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 639px) {
+  .partner-card-text h3,
+  .partner-card-text p {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  }
+
+  .partner-card-text h3 {
+    color: #f6f5f0;
+  }
+}

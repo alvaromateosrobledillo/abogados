@@ -259,6 +259,7 @@
                     'image' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80',
                     'alt'   => 'Retrato de Pablo Espalza',
                     'bio'   => 'Asesoramiento en operaciones inmobiliarias y defensa contenciosa con visión estratégica.',
+                    'linkedin' => 'https://www.linkedin.com/in/pablo-epalza-arnedo/',
                 ],
                 [
                     'name'  => 'Nombre Apellido',
@@ -428,6 +429,11 @@
                     data-modal-backdrop>
 
                     <div class="relative w-full max-w-xl bg-white p-8 shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
+                        <?php
+                        $linkedin_url = $member['linkedin'] ?? '';
+                        $linkedin_icon = get_template_directory_uri() . '/assets/img/linkedin.png';
+                        $bio_margin_class = $linkedin_url ? 'mt-3' : 'mt-4';
+                        ?>
 
                         <!-- CERRAR -->
                         <button
@@ -450,11 +456,20 @@
                                 <?php echo esc_html($member['name']); ?>
                             </h3>
 
-                            <p class="text-[15px] text-[#4f5047] mb-4">
+                            <p class="mt-1 text-[13px] sm:text-[14px] uppercase tracking-[0.18em] leading-[1.2] text-[#7a8464]">
                                 <?php echo esc_html($member['role']); ?>
                             </p>
 
-                            <p class="text-[16px] leading-relaxed text-[#3d3f36] text-left">
+                            <?php if ($linkedin_url) : ?>
+                                <div class="mt-3 text-left">
+                                    <a href="<?php echo esc_url($linkedin_url); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex w-fit items-center gap-2 rounded-full border border-[#c6cab6] bg-[#f6f5f0] px-3 py-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.18em] text-[#4d5a34] shadow-[0_6px_14px_rgba(0,0,0,0.08)] transition hover:border-[#8a9472] hover:bg-[#efede4] hover:text-[#3f4a2a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a9472]/60 focus-visible:ring-offset-2">
+                                        <img class="h-4 w-4 object-contain" src="<?php echo esc_url($linkedin_icon); ?>" alt="" aria-hidden="true">
+                                        <span>LinkedIn</span>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+                            <p class="<?php echo esc_attr($bio_margin_class); ?> text-[16px] leading-relaxed text-[#3d3f36] text-left">
                                 <?php echo esc_html($member['bio']); ?>
                             </p>
 

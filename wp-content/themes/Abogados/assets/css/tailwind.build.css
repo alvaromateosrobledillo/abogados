@@ -265,6 +265,9 @@
   .top-100 {
     top: calc(var(--spacing) * 100);
   }
+  .top-\[1px\] {
+    top: 1px;
+  }
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
@@ -1577,6 +1580,9 @@
   .text-\[clamp\(13px\,1\.5vw\,20px\)\] {
     font-size: clamp(13px, 1.5vw, 20px);
   }
+  .text-\[clamp\(14px\,1\.3vw\,20px\)\] {
+    font-size: clamp(14px, 1.3vw, 20px);
+  }
   .text-\[clamp\(14px\,1\.4vw\,18px\)\] {
     font-size: clamp(14px, 1.4vw, 18px);
   }
@@ -1609,6 +1615,9 @@
   }
   .text-\[clamp\(18px\,1\.8vw\,26px\)\] {
     font-size: clamp(18px, 1.8vw, 26px);
+  }
+  .text-\[clamp\(19px\,1\.9vw\,28px\)\] {
+    font-size: clamp(19px, 1.9vw, 28px);
   }
   .text-\[clamp\(20px\,2\.2vw\,34px\)\] {
     font-size: clamp(20px, 2.2vw, 34px);
@@ -1677,6 +1686,10 @@
   .leading-\[1\.45\] {
     --tw-leading: 1.45;
     line-height: 1.45;
+  }
+  .leading-none {
+    --tw-leading: 1;
+    line-height: 1;
   }
   .leading-relaxed {
     --tw-leading: var(--leading-relaxed);
@@ -1799,6 +1812,9 @@
   }
   .text-\[\#5b5d55\] {
     color: #5b5d55;
+  }
+  .text-\[\#5b6542\] {
+    color: #5b6542;
   }
   .text-\[\#5d5f55\] {
     color: #5d5f55;
@@ -1974,6 +1990,10 @@
   }
   .shadow-\[0_6px_14px_rgba\(0\,0\,0\,0\.08\)\] {
     --tw-shadow: 0 6px 14px var(--tw-shadow-color, rgba(0,0,0,0.08));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-\[0_6px_14px_rgba\(0\,0\,0\,0\.18\)\] {
+    --tw-shadow: 0 6px 14px var(--tw-shadow-color, rgba(0,0,0,0.18));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-\[0_6px_20px_rgba\(0\,0\,0\,0\.04\)\] {
@@ -3419,10 +3439,10 @@
       font-size: clamp(17px, 1.8vw, 26px);
     }
   }
-  .\[\&_p\]\:leading-\[1\.6\] {
+  .\[\&_p\]\:leading-\[1\.2\] {
     & p {
-      --tw-leading: 1.6;
-      line-height: 1.6;
+      --tw-leading: 1.2;
+      line-height: 1.2;
     }
   }
   .\[\&_p\]\:leading-\[1\.25\] {
@@ -3560,7 +3580,7 @@ body {
 @layer base {
   main p {
     font-size: 18px;
-    line-height: 1.7;
+    line-height: 1.6;
   }
   @media (min-width: 640px) {
     main p {

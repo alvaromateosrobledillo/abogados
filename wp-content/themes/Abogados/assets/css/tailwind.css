@@ -147,7 +147,7 @@ body {
 @layer base {
   main p {
     font-size: 18px;
-    line-height: 1.7;
+    line-height: 1.6;
   }
 
   @media (min-width: 640px) {
