@@ -628,6 +628,9 @@
   .aspect-\[1\/1\] {
     aspect-ratio: 1/1;
   }
+  .aspect-\[4\/5\] {
+    aspect-ratio: 4/5;
+  }
   .h-3\.5 {
     height: calc(var(--spacing) * 3.5);
   }
@@ -676,6 +679,12 @@
   .h-\[200px\] {
     height: 200px;
   }
+  .h-\[230px\] {
+    height: 230px;
+  }
+  .h-\[250px\] {
+    height: 250px;
+  }
   .h-\[260px\] {
     height: 260px;
   }
@@ -693,6 +702,12 @@
   }
   .max-h-\[35vh\] {
     max-height: 35vh;
+  }
+  .max-h-\[45vh\] {
+    max-height: 45vh;
+  }
+  .max-h-\[55vh\] {
+    max-height: 55vh;
   }
   .max-h-\[90vh\] {
     max-height: 90vh;
@@ -1353,6 +1368,9 @@
   }
   .object-cover {
     object-fit: cover;
+  }
+  .object-\[center_20\%\] {
+    object-position: center 20%;
   }
   .object-\[center_25\%\] {
     object-position: center 25%;
@@ -2837,6 +2855,11 @@
       --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
     }
   }
+  .sm\:object-cover {
+    @media (width >= 40rem) {
+      object-fit: cover;
+    }
+  }
   .sm\:object-\[center_top\] {
     @media (width >= 40rem) {
       object-position: center top;
@@ -2900,6 +2923,11 @@
   .sm\:py-6 {
     @media (width >= 40rem) {
       padding-block: calc(var(--spacing) * 6);
+    }
+  }
+  .sm\:py-12 {
+    @media (width >= 40rem) {
+      padding-block: calc(var(--spacing) * 12);
     }
   }
   .sm\:py-14 {

@@ -1,3 +1,13 @@
+<?php
+$legal_page = get_page_by_path('aviso-legal');
+$privacy_page = get_page_by_path('politica-de-privacidad');
+$cookies_page = get_page_by_path('politica-de-cookies');
+
+$legal_url = $legal_page ? get_permalink($legal_page) : '#';
+$privacy_url = $privacy_page ? get_permalink($privacy_page) : '#';
+$cookies_url = $cookies_page ? get_permalink($cookies_page) : '#';
+?>
+
 <footer
     data-section="footer"
     class="bg-[#0f0f0f] text-[#f1f1ea]">

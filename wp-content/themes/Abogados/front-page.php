@@ -537,7 +537,7 @@
            hover:-translate-y-1">
 
                             <!-- IMAGEN -->
-                            <div class="relative w-full h-[200px] sm:h-[320px] md:aspect-[2/3] md:h-auto overflow-hidden cursor-pointer" data-modal="partner-modal-<?php echo $i; ?>">
+                            <div class="relative w-full h-[250px] sm:h-[320px] md:aspect-[2/3] md:h-auto overflow-hidden cursor-pointer" data-modal="partner-modal-<?php echo $i; ?>">
                                 <?php if ($image) : ?>
                                     <img
                                         class="h-full w-full object-cover transition-transform duration-700 ease-out
@@ -654,6 +654,7 @@
                             'fernando' => ['Fernando_Modal.jpg', 'Fernando'],
                             'pablo' => ['Pablo_Modal.jpg', 'Pablo'],
                             'sara' => ['Sara_Modal.jpg', 'Sara'],
+                            'cristina' => ['cristina_modal.jpg', 'Cristina'],
                         ];
                         foreach ($modal_image_map as $needle => $data) {
                             if (strpos($name_slug, $needle) !== false) {
@@ -681,8 +682,8 @@
                             <div class="flex flex-col gap-6 lg:gap-8 md:flex-row">
                                 <?php if ($modal_image_url) : ?>
                                     <div class="md:w-5/12 lg:w-4/12">
-                                        <div class="w-full overflow-hidden rounded-lg bg-[#f2f1ec] aspect-[1/1] sm:aspect-[4/5] max-h-[35vh] sm:max-h-[55vh] md:max-h-none">
-                                            <img class="h-full w-full object-cover object-[center_top]" src="<?php echo esc_url($modal_image_url); ?>" alt="<?php echo esc_attr($modal_image_alt ?: $name); ?>">
+                                        <div class="w-full overflow-hidden rounded-lg bg-[#f2f1ec] aspect-[4/5] sm:aspect-[4/5] max-h-[45vh] sm:max-h-[55vh] md:max-h-none">
+                                            <img class="h-full w-full object-contain sm:object-cover object-[center_top]" src="<?php echo esc_url($modal_image_url); ?>" alt="<?php echo esc_attr($modal_image_alt ?: $name); ?>">
                                         </div>
                                     </div>
                                 <?php endif; ?>
@@ -830,6 +831,7 @@
                             'fernando' => ['Fernando_Modal.jpg', 'Fernando'],
                             'pablo' => ['Pablo_Modal.jpg', 'Pablo'],
                             'sara' => ['Sara_Modal.jpg', 'Sara'],
+                            'cristina' => ['cristina_modal.jpg', 'Cristina'],
                         ];
                         foreach ($modal_image_map as $needle => $data) {
                             if (strpos($name_slug, $needle) !== false) {
@@ -857,8 +859,8 @@
                             <div class="flex flex-col gap-6 lg:gap-8 md:flex-row">
                                 <?php if ($modal_image_url) : ?>
                                     <div class="md:w-5/12 lg:w-4/12">
-                                        <div class="w-full overflow-hidden rounded-lg bg-[#f2f1ec] aspect-[1/1] sm:aspect-[4/5] max-h-[35vh] sm:max-h-[55vh] md:max-h-none">
-                                            <img class="h-full w-full object-cover object-[center_top]" src="<?php echo esc_url($modal_image_url); ?>" alt="<?php echo esc_attr($modal_image_alt ?: $name); ?>">
+                                        <div class="w-full overflow-hidden rounded-lg bg-[#f2f1ec] aspect-[4/5] sm:aspect-[4/5] max-h-[45vh] sm:max-h-[55vh] md:max-h-none">
+                                            <img class="h-full w-full object-contain sm:object-cover object-[center_top]" src="<?php echo esc_url($modal_image_url); ?>" alt="<?php echo esc_attr($modal_image_alt ?: $name); ?>">
                                         </div>
                                     </div>
                                 <?php endif; ?>
