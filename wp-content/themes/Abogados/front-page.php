@@ -634,10 +634,11 @@
                     if (!$linkedin_url && $name_slug) {
                         $manual_linkedin_map = [
                             'monica' => 'https://www.linkedin.com/in/monica-iglesias-sanchez-14237041/',
-                            'enrique' => 'https://www.linkedin.com/in/enrique-j-besada-ferreiro-71046b43/?originalSubdomain=es',
+                            'enrique' => 'https://www.linkedin.com/in/enrique-j-besada-ferreiro-71046b43 ',
                             'fernando' => 'https://www.linkedin.com/company/mbi-abogados',
                             'irene' => 'https://www.linkedin.com/in/irene-mu%C3%B1iz-%C3%A1lvarez-0758331a/',
                             'pablo' => 'https://www.linkedin.com/in/pablo-epalza-arnedo/',
+                            'cristina' => 'https://www.linkedin.com/in/garciamenendezcristina/',
                         ];
                         foreach ($manual_linkedin_map as $needle => $url) {
                             if (strpos($name_slug, $needle) !== false) {
@@ -651,7 +652,7 @@
                         $modal_image_map = [
                             'enrique' => ['Enrique_Modal.png', 'Enrique'],
                             'monica' => ['Monica_modal.jpg', 'Monica'],
-                            'fernando' => ['Fernando_Modal.jpg', 'Fernando'],
+                            'fernando' => ['Fernando_Modal.png', 'Fernando'],
                             'pablo' => ['Pablo_Modal.jpg', 'Pablo'],
                             'sara' => ['Sara_Modal.jpg', 'Sara'],
                             'cristina' => ['cristina_modal.jpg', 'Cristina'],
@@ -815,6 +816,7 @@
                             'fernando' => 'https://www.linkedin.com/company/mbi-abogados',
                             'irene' => 'https://www.linkedin.com/in/irene-mu%C3%B1iz-%C3%A1lvarez-0758331a/',
                             'pablo' => 'https://www.linkedin.com/in/pablo-epalza-arnedo/',
+                            'cristina' => 'https://www.linkedin.com/in/garciamenendezcristina/',
                         ];
                         foreach ($manual_linkedin_map as $needle => $url) {
                             if (strpos($name_slug, $needle) !== false) {
@@ -828,7 +830,7 @@
                         $modal_image_map = [
                             'enrique' => ['Enrique_Modal.png', 'Enrique'],
                             'monica' => ['Monica_modal.jpg', 'Monica'],
-                            'fernando' => ['Fernando_Modal.jpg', 'Fernando'],
+                            'fernando' => ['Fernando_Modal.png', 'Fernando'],
                             'pablo' => ['Pablo_Modal.jpg', 'Pablo'],
                             'sara' => ['Sara_Modal.jpg', 'Sara'],
                             'cristina' => ['cristina_modal.jpg', 'Cristina'],
