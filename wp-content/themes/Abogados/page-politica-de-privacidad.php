@@ -15,11 +15,57 @@ get_header();
                 </h1>
                 <div class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25] [&_p]:mb-6 text-[#3d3f36]">
                     <?php
-                    $page_content = trim(get_the_content());
-                    if ($page_content) {
+                    $page_content = get_the_content();
+                    $plain_content = trim(wp_strip_all_tags($page_content));
+                    $plain_content = str_replace(array("\xc2\xa0", '&nbsp;'), '', $plain_content);
+                    if ($plain_content !== '') {
                         echo apply_filters('the_content', $page_content);
                     } else {
+                        $is_english = function_exists('nd_translate') && nd_translate('es', 'en') === 'en';
+                        if ($is_english) {
                     ?>
+                        <div class="space-y-6">
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">1. Data Controller</h2>
+                                <p>The Data Controller corresponds to the owner of the website, whose full details are: MBI ABOGADOS, S.L., with tax ID B21705322 and registered address at C/ RECOLETOS, 19 1º 28001 MADRID.</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">2. Data processed, purposes and retention period</h2>
+                                <p><strong>2.1 Data processed</strong></p>
+                                <p>For the purposes of requesting information or contacting the Owner, or for a recruitment process, whether advertised or through a spontaneous application submitted by the user, certain data must be provided by completing the forms provided, in which those that are mandatory will be indicated.</p>
+                                <p>During browsing, data such as the IP address assigned by your provider or certain social profiles associated with the user may be provided.</p>
+                                <p><strong>2.2 Purposes</strong></p>
+                                <p>The purposes are as follows:</p>
+                                <p>Contact form: The email address or phone number provided for contact will be used to respond effectively to the questions raised.</p>
+                                <p>CV submission: The data contained in CVs will be used in recruitment processes, present and future, although the Owner reserves the right to delete the information provided.</p>
+                                <p><strong>2.3 Retention</strong></p>
+                                <p>The retention period will be as follows:</p>
+                                <p>Contact form: The personal data provided will be kept while the relationship/link with MBI ABOGADOS, S.L. is maintained and for the periods required by applicable regulations. In other cases, the data will be kept until deletion is requested by the data subject.</p>
+                                <p>CV submission: Data will be processed, from receipt, for a period of 1 year, unless the user requests cancellation earlier.</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">3. Exercise of rights</h2>
+                                <p>Any person has the right to obtain confirmation as to whether or not personal data concerning them are being processed. Data subjects have the right to access their personal data, as well as to request rectification of inaccurate data or, where appropriate, to request their deletion when, among other reasons, the data are no longer necessary for the purposes for which they were collected.</p>
+                                <p>Under certain circumstances, data subjects may request restriction of processing or object to processing, in which case we will only retain them for the exercise or defense of claims.</p>
+                                <p>To do so, users may send a written request to MBI ABOGADOS, S.L., at C/ RECOLETOS, 19 1º 28001 MADRID or to the email address info@mbiabogados.com, including in both cases a photocopy of the national identity document or equivalent supporting documentation.</p>
+                                <p>If you wish to exercise the right to data portability, those data will be provided to the new Controller.</p>
+                                <p>In any case, as a data subject or interested party, you may lodge complaints with the Spanish Data Protection Agency (www.aepd.es).</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">4. Legal basis for processing</h2>
+                                <p>The legal basis for processing the data provided is the consent granted by the user for the processing of their personal data for one or more specific purposes, as well as for the performance of a contract to which the user is a party, or for the application of pre‑contractual measures.</p>
+                                <p>Consent is always revocable and may be exercised at any time.</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">5. Recipients and disclosures</h2>
+                                <p>Such data will not be disclosed to third parties nor will international transfers be made.</p>
+                            </div>
+                        </div>
+                    <?php } else { ?>
                         <div class="space-y-6">
                             <div class="space-y-4">
                                 <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">1. Responsable del Tratamiento</h2>
@@ -61,6 +107,7 @@ get_header();
                                 <p>Dichos datos no serán objeto de cesión a terceros ni se realizarán transferencias internacionales.</p>
                             </div>
                         </div>
+                    <?php } ?>
                     <?php } ?>
                 </div>
             </div>

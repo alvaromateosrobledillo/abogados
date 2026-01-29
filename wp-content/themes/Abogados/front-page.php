@@ -649,7 +649,7 @@
 
                     if ($name_slug) {
                         $modal_image_map = [
-                            'enrique' => ['Enrique_Modal.jpg', 'Enrique'],
+                            'enrique' => ['Enrique_Modal.png', 'Enrique'],
                             'monica' => ['Monica_modal.jpg', 'Monica'],
                             'fernando' => ['Fernando_Modal.jpg', 'Fernando'],
                             'pablo' => ['Pablo_Modal.jpg', 'Pablo'],
@@ -826,7 +826,7 @@
 
                     if ($name_slug) {
                         $modal_image_map = [
-                            'enrique' => ['Enrique_Modal.jpg', 'Enrique'],
+                            'enrique' => ['Enrique_Modal.png', 'Enrique'],
                             'monica' => ['Monica_modal.jpg', 'Monica'],
                             'fernando' => ['Fernando_Modal.jpg', 'Fernando'],
                             'pablo' => ['Pablo_Modal.jpg', 'Pablo'],
@@ -1177,7 +1177,7 @@
                     </div>
 
                     <!-- DATOS -->
-                    <div class="grid gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12 grid-cols-2 lg:grid-cols-3 text-[#3f413a]">
+                    <div class="grid gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12 grid-cols-2 min-[1500px]:grid-cols-3 text-[#3f413a]">
 
                         <!-- TELÉFONO -->
                         <div
@@ -1284,7 +1284,7 @@
 
                             <div class="space-y-2">
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Dirección', 'Address')); ?></p>
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('Calle Recoletos 19', 'Calle Recoletos 19')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('Calle Recoletos 19 ', 'Calle Recoletos 19')); ?></p>
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('1º planta', '1st floor')); ?></p>
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6]"><?php echo esc_html(nd_translate('28001 Madrid, España', '28001 Madrid, Spain')); ?></p>
                             </div>
@@ -1315,6 +1315,7 @@
             </div>
         </div>
     </section>
+
 
 
 </main>

@@ -15,11 +15,79 @@ get_header();
                 </h1>
                 <div class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25] [&_p]:mb-6 text-[#3d3f36]">
                     <?php
-                    $page_content = trim(get_the_content());
-                    if ($page_content) {
+                    $page_content = get_the_content();
+                    $plain_content = trim(wp_strip_all_tags($page_content));
+                    $plain_content = str_replace(array("\xc2\xa0", '&nbsp;'), '', $plain_content);
+                    if ($plain_content !== '') {
                         echo apply_filters('the_content', $page_content);
                     } else {
+                        $is_english = function_exists('nd_translate') && nd_translate('es', 'en') === 'en';
+                        if ($is_english) {
                     ?>
+                        <div class="space-y-6">
+                            <div class="space-y-2">
+                                <p><strong>Corporate Name:</strong> MBI ABOGADOS, S.L.</p>
+                                <p><strong>Registered Address:</strong> C/ RECOLETOS, 19 1º 28001 MADRID</p>
+                                <p><strong>Tax ID:</strong> B21705322</p>
+                                <p><strong>Phone:</strong> +34 91 840 39 79</p>
+                                <p><strong>Email:</strong> info@mbiabogados.com</p>
+                                <p><strong>Domain name:</strong> https://mbiabogados.com/</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">PURPOSE</h2>
+                                <p>The provider, responsible for the website, makes this document available to users in order to comply with the obligations set forth in Law 34/2002 on Information Society Services and Electronic Commerce (LSSI‑CE), and to inform all website users about the terms of use of the website.</p>
+                                <p>Any person accessing this website assumes the role of user, committing to the strict observance and compliance with the provisions set forth herein, as well as any other applicable legal provisions.</p>
+                                <p>The provider reserves the right to modify any type of information that may appear on the website, without any obligation to provide prior notice or inform users of such obligations, it being understood that publication on the provider’s website is sufficient.</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">LIABILITY</h2>
+                                <p>The provider disclaims any liability for the information published on its website, provided that this information has been manipulated or introduced by a third party external to it.</p>
+                                <p>The provider’s website may use cookies (small information files that the server sends to the computer of the person accessing the page) to carry out certain functions that are considered essential for the proper functioning and display of the site. The cookies used on the website are, in any case, temporary and have the sole purpose of making subsequent transmission more efficient and disappear when the user's session ends. In no case will cookies be used to collect personal information.</p>
+                                <p>From the client’s website it is possible that you are redirected to content on third‑party websites. Since the provider cannot always control the content introduced by third parties on their websites, it assumes no responsibility whatsoever for such content. In any case, the provider states that it will proceed to the immediate removal of any content that may contravene national or international legislation, morality or public order, proceeding to the immediate removal of the redirection to said website, and informing the competent authorities of the content in question.</p>
+                                <p>The provider is not responsible for the information and content stored, by way of example but not limited to, in forums, chats, blog generators, comments, social networks or any other medium that allows third parties to publish content independently on the provider’s website. Nevertheless, and in compliance with the provisions of articles 11 and 16 of the LSSI‑CE, the provider makes itself available to all users, authorities and security forces, and actively collaborates in the removal or, where appropriate, blocking of all content that could affect or contravene national or international legislation, third‑party rights or morality and public order. If the user considers that there is any content on the website that could be susceptible to this classification, they are requested to notify the website administrator immediately.</p>
+                                <p>This website has been reviewed and tested to function correctly. In principle, it can be guaranteed to function correctly 365 days a year, 24 hours a day. However, the provider does not rule out the possibility that certain programming errors may exist, or that causes of force majeure, natural disasters, strikes, or similar circumstances may occur that make access to the website impossible.</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">PERSONAL DATA PROTECTION</h2>
+                                <p>MBI ABOGADOS, S.L., owner of the portal https://mbiabogados.com/, informs users thereof (hereinafter the “portal”) that MBI ABOGADOS, S.L. is responsible for the processing carried out through this portal, unless otherwise stated in the processing in question.</p>
+                                <p>MBI ABOGADOS, S.L. respects the current legislation on personal data protection, the privacy of users and the secrecy and security of personal data, in accordance with the applicable legislation on data protection, in particular Regulation 2016/679 of the European Parliament and of the Council of 27 April 2016, adopting the technical and organizational measures necessary to prevent loss, misuse, alteration, unauthorized access and theft of the personal data provided, taking into account the state of the art, the nature of the data and the risks to which they are exposed.</p>
+                                <p>In particular, users of the portal are informed that their personal data may only be obtained for processing when they are adequate, relevant and not excessive in relation to the scope and the specific, explicit and legitimate purposes for which they were obtained.</p>
+                                <p>When personal data are collected through the portal, the user will be informed beforehand, clearly and unequivocally, of the following aspects:</p>
+                                <p>• Existence of processing of personal data.</p>
+                                <p>• The identity and contact details of the controller of the personal data obtained.</p>
+                                <p>• The contact details of the Data Protection Officer, where applicable.</p>
+                                <p>• The purposes of the processing for which the personal data are intended and the legal basis for the processing.</p>
+                                <p>• The recipients or categories of recipients of the personal data, where applicable.</p>
+                                <p>• Where applicable, the controller’s intention to transfer personal data to a third country.</p>
+                                <p>• The period or criteria for retention of the information.</p>
+                                <p>• The existence of the right to request from the controller access to the personal data relating to the data subject, and their rectification or erasure, or restriction of processing, the right to data portability, or to object to processing. Likewise, the way to exercise the aforementioned rights.</p>
+                                <p>• When processing is based on the data subject’s consent, the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal. If processing is not based on consent, their right to object to processing.</p>
+                                <p>• The right to lodge a complaint with a supervisory authority.</p>
+                                <p>• The existence, if any, of automated decisions, including profiling and the exercise of rights associated with such processing.</p>
+                                <p>In particular, when data relating to children are collected, processing shall only be lawful if consent was given or authorized by the holder of parental authority or guardianship over the child.</p>
+                                <p>The user will be solely responsible for completing forms with false, inaccurate, incomplete or outdated data.</p>
+                                <p>The data provided will be kept as long as the commercial relationship is maintained or for the years necessary to comply with legal obligations. The data requested are necessary, so if they are not provided, it will not be possible to provide the requested service. Data will not be disclosed to third parties except in cases where there is a legal obligation. You have the right to obtain confirmation as to whether MBI ABOGADOS, S.L. is processing your personal data; therefore, you have the right to access your personal data, rectify inaccurate data or request their deletion when the data are no longer necessary, to restrict processing, or to object to processing, as well as the right to data portability.</p>
+                                <p>You have the right to lodge a complaint with the Supervisory Authority (Spanish Data Protection Agency www.aepd.es).</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">INTELLECTUAL AND INDUSTRIAL PROPERTY</h2>
+                                <p>The website, including, by way of example but not limited to, its programming, editing, compilation and other elements necessary for its operation, as well as the designs, logos, text and/or graphics, are the property of the provider or, where appropriate, the provider has a license or express authorization from the authors. All website contents are duly protected by intellectual and industrial property regulations and registered in the corresponding public registers.</p>
+                                <p>Regardless of the purpose for which they were intended, total or partial reproduction, use, exploitation, distribution and commercialization require, in all cases, prior written authorization from the provider. Any use not previously authorized by the provider will be considered a serious breach of the author’s intellectual or industrial property rights.</p>
+                                <p>Designs, logos, text and/or graphics not belonging to the provider and which may appear on the website belong to their respective owners, who are themselves responsible for any possible controversy that may arise with respect to them. In any case, the provider has the express and prior authorization of the same.</p>
+                                <p>The provider recognizes in favor of their owners the corresponding industrial and intellectual property rights, and their mere mention or appearance on the website does not imply the existence of any rights or liability on the part of the provider, nor endorsement, sponsorship or recommendation by the provider.</p>
+                                <p>To make any observation regarding possible breaches of intellectual or industrial property rights, as well as any of the contents of the website, you may do so via the following email address: info@mbiabogados.com</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">APPLICABLE LAW AND JURISDICTION</h2>
+                                <p>For the resolution of all disputes or issues related to this website or to the activities carried out therein, Spanish legislation shall apply, to which the parties expressly submit, and the Courts and Tribunals of Madrid shall be competent to resolve all conflicts arising from or related to its use.</p>
+                            </div>
+                        </div>
+                    <?php } else { ?>
                         <div class="space-y-6">
                             <div class="space-y-2">
                                 <p><strong>Denominación Social:</strong> MBI ABOGADOS, S.L.</p>
@@ -83,6 +151,7 @@ get_header();
                                 <p>Para la resolución de todas las controversias o cuestiones relacionadas con el presente sitio web o de las actividades en él desarrolladas, será de aplicación la legislación española, a la que se someten expresamente las partes, siendo competentes para la resolución de todos los conflictos derivados o relacionados con su uso los Juzgados y Tribunales de Madrid.</p>
                             </div>
                         </div>
+                    <?php } ?>
                     <?php } ?>
                 </div>
             </div>

@@ -19,6 +19,8 @@ get_header();
                     if ($page_content) {
                         echo apply_filters('the_content', $page_content);
                     } else {
+                        $is_english = function_exists('nd_translate') && nd_translate('es', 'en') === 'en';
+                        if ($is_english) :
                     ?>
                         <div class="space-y-6">
                             <div class="space-y-4">
@@ -123,11 +125,21 @@ get_header();
                                 <p>En el caso de que las características o fines de uso de las cookies de esta página web sean modificadas, se le informará acerca de esos cambios con el fin de recabar nuevamente su consentimiento en aquellos casos en que fuese necesario.</p>
                             </div>
                         </div>
-                    <?php } ?>
+                    <?php endif; } ?>
                 </div>
             </div>
         <?php endwhile; ?>
+    </section> 
+
+        <section
+        id="cookies"
+        data-section="cookies"
+        class="py-16 lg:py-20 bg-white">
+        <div class="page-shell">
+            <?php echo do_shortcode('[cookie_declaration]'); ?>
+        </div>
     </section>
+
 </main>
 
 <?php get_footer(); ?>

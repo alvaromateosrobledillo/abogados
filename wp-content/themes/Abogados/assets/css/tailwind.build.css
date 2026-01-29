@@ -679,9 +679,6 @@
   .h-\[200px\] {
     height: 200px;
   }
-  .h-\[230px\] {
-    height: 230px;
-  }
   .h-\[250px\] {
     height: 250px;
   }
@@ -700,14 +697,8 @@
   .h-px {
     height: 1px;
   }
-  .max-h-\[35vh\] {
-    max-height: 35vh;
-  }
   .max-h-\[45vh\] {
     max-height: 45vh;
-  }
-  .max-h-\[55vh\] {
-    max-height: 55vh;
   }
   .max-h-\[90vh\] {
     max-height: 90vh;
@@ -1368,9 +1359,6 @@
   }
   .object-cover {
     object-fit: cover;
-  }
-  .object-\[center_20\%\] {
-    object-position: center 20%;
   }
   .object-\[center_25\%\] {
     object-position: center 25%;
@@ -2615,6 +2603,11 @@
       }
     }
   }
+  .min-\[1500px\]\:grid-cols-3 {
+    @media (width >= 1500px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
   .sm\:bottom-10 {
     @media (width >= 40rem) {
       bottom: calc(var(--spacing) * 10);
@@ -3411,6 +3404,11 @@
   .lg\:text-\[68px\] {
     @media (width >= 64rem) {
       font-size: 68px;
+    }
+  }
+  .xl\:grid-cols-3 {
+    @media (width >= 80rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
   .\[\&_img\]\:h-12 {
