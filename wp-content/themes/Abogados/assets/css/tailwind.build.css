@@ -3406,11 +3406,6 @@
       font-size: 68px;
     }
   }
-  .xl\:grid-cols-3 {
-    @media (width >= 80rem) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
   .\[\&_img\]\:h-12 {
     & img {
       height: calc(var(--spacing) * 12);

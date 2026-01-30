@@ -955,7 +955,7 @@
                     class="text-[clamp(26px,2.8vw,52px)]
                        leading-[1.1] tracking-[-0.01em] font-normal italic text-balance text-white
                        opacity-0 translate-y-4 transition-all duration-700">
-                    <?php echo esc_html(nd_translate('Transformamos por Ayudamos a nuestros clientes desde la cercanía, el rigor y la visión estratégica.', 'We transform by helping our clients with closeness, rigor, and strategic vision.')); ?>
+                    <?php echo esc_html(nd_translate('Ayudamos a nuestros clientes desde la cercanía, el rigor y la visión estratégica.', 'We transform by helping our clients with closeness, rigor, and strategic vision.')); ?>
                 </h2>
 
                 <p
