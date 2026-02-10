@@ -553,12 +553,7 @@
                         Soluciones jurídicas <span class="italic text-[#6a7352]">sencillas, sólidas y personalizadas</span>
                     </h2>
                     <span class="block w-10 h-px bg-[#b9bbab]"></span>
-                    <div class="space-y-3">
-                        <p class="text-[17px] sm:text-[18px] leading-relaxed text-[#4c4e47]">
-                            En MBI Abogados convertimos complejidad jurídica en decisiones claras. Priorizamos, aterrizamos escenarios y acompañamos la ejecución con criterio y responsabilidad.
-                            Lo esencial bien hecho. Lo complejo bien pensado. Pensamos como abogados. Actuamos como aliados.
-                        </p>
-                    </div>
+                  
                     <div class="overflow-hidden border border-[#e1dfd5] bg-white shadow-[0_12px_26px_rgba(0,0,0,0.08)]">
                         <img
                             class="h-[200px] w-full object-cover sm:h-[220px] lg:h-[240px]"

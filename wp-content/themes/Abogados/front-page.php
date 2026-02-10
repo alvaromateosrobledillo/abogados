@@ -96,16 +96,22 @@
             <?php endif; ?>
 
 
-            <?php if ($desc = get_field('hero_description')) : ?>
-                <p data-hero-item
-                    class="mt-4 sm:mt-2 max-w-xl sm:max-w-4xl
+            <p data-hero-item
+                class="mt-3 sm:mt-2 max-w-xl sm:max-w-4xl
    text-[clamp(17px,4vw,19px)] sm:text-[clamp(19px,1.6vw,24px)]
    leading-[1.45] sm:leading-[1.3]
    text-white/95
    opacity-0 translate-y-3 transition-all duration-700">
-                    <?php echo esc_html($desc); ?>
-                </p>
-            <?php endif; ?>
+                Una boutique legal con alta especializaci&#243;n.
+            </p>
+            <p data-hero-item
+                class="mt-2 sm:mt-1 max-w-xl sm:max-w-4xl
+   text-[clamp(17px,4vw,19px)] sm:text-[clamp(19px,1.6vw,24px)]
+   leading-[1.45] sm:leading-[1.3]
+   text-white/95
+   opacity-0 translate-y-3 transition-all duration-700">
+                Una visi&#243;n compartida: hacer las cosas bien, con cercan&#237;a, experiencia y compromiso.
+            </p>
 
             <!-- CTAs -->
             <div data-hero-item
@@ -249,7 +255,7 @@
                     </div>
 
                     <?php if ($content = get_field('about_paragraphs')) : ?>
-                        <div class="prose prose-base md:prose-lg lg:prose-xl [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25] prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15] prose-strong:font-semibold prose-strong:text-[#4d5a34] text-[#3d3f36] max-w-2xl">
+                        <div class="prose prose-base md:prose-lg lg:prose-xl [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25] prose-p:my-3 prose-p:leading-[1.25] prose-headings:leading-[1.15] prose-strong:font-semibold prose-strong:text-[#4d5a34] text-[#3d3f36] max-w-2xl text-justify">
                             <?php echo wp_kses_post($content); ?>
                         </div>
                     <?php else : ?>
@@ -269,8 +275,10 @@
                                    text-[clamp(12px,1.2vw,16px)]
                                    uppercase tracking-[0.2em]
                                    text-[#4d5a34] hover:border-[#8a9472]
-                                   hover:bg-white/40 transition">
-                            <?php echo esc_html(nd_translate('Nuestra trayectoria', 'Our journey')); ?>
+                                   hover:bg-white/40 transition trajectory-button">
+                            <span class="trajectory-button-label">
+                                <?php echo esc_html(nd_translate('Nuestra trayectoria', 'Our journey')); ?>
+                            </span>
                         </button>
                     </div>
 
@@ -301,7 +309,9 @@
 
     <div id="partners-profile-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 px-3 sm:px-6 backdrop-blur-sm" data-modal-root data-modal-backdrop>
         <div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#f2f1ec] border border-[#d7d4cb] p-5 sm:p-7 lg:p-10 rounded-2xl shadow-[0_28px_70px_rgba(0,0,0,0.3)]">
-            <button class="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#d7d4cb] bg-white/85 text-[#7a8464] text-lg hover:bg-white transition" data-close>✕</button>
+            <button class="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#d7d4cb] bg-white/85 text-[#7a8464] text-lg hover:bg-white transition modal-close-button" data-close>
+                <span class="relative top-[1px] leading-none modal-close-icon">✕</span>
+            </button>
             <div class="space-y-8 text-[#3d3f36]">
                 <div class="space-y-3">
                     <p class="uppercase tracking-[0.2em] text-[clamp(12px,1.1vw,16px)] text-[#7a8464]">
@@ -313,8 +323,8 @@
                     <span class="block h-px w-16 bg-[#859263]"></span>
                     <p class="text-[clamp(15px,1.4vw,20px)] leading-[1.2]">
                         <?php echo esc_html(nd_translate(
-                            'MBI Abogados está liderado por tres socios con trayectorias complementarias y una sólida reputación en el ejercicio jurídico. Su experiencia combinada en litigación, arbitraje, derecho civil y mercantil, urbanismo y asesoramiento estratégico conforma un despacho orientado a la excelencia técnica y a la obtención de resultados.',
-                            'MBI Abogados is led by three partners with complementary trajectories and a solid reputation in legal practice. Their combined experience in litigation, arbitration, civil and commercial law, urban planning, and strategic advisory services shapes a firm oriented toward technical excellence and results.'
+                            'MBI Abogados está liderado por tres socios con trayectorias complementarias y una sólida reputación en el ejercicio jurídico. Su experiencia combinada en litigación, arbitraje, derecho civil, penal y mercantil, urbanismo y asesoramiento estratégico conforma un despacho orientado a la excelencia técnica y a la obtención de resultados.',
+                            'MBI Abogados is led by three partners with complementary trajectories and a solid reputation in legal practice. Their combined experience in litigation, arbitration, civil, criminal, and commercial law, urban planning, and strategic advisory services shapes a firm oriented toward technical excellence and results.'
                         )); ?>
                     </p>
                 </div>
@@ -327,8 +337,8 @@
                         <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.2] text-[#3d3f36]">
                             <p>
                                 <?php echo esc_html(nd_translate(
-                                    'Jurista de referencia con más de treinta años de experiencia, Fernando Marín Riaño destaca por su solvencia técnica y su capacidad para abordar asuntos de alta complejidad jurídica. Especialista en litigación, arbitraje y asesoramiento estratégico, aporta un profundo conocimiento del derecho civil, mercantil, contencioso‑administrativo e inmobiliario.',
-                                    'A leading jurist with more than thirty years of experience, Fernando Marín Riaño stands out for his technical solvency and his ability to handle matters of high legal complexity. A specialist in litigation, arbitration, and strategic advisory work, he brings deep knowledge of civil, commercial, administrative, and real‑estate law.'
+                                    'Jurista de referencia con más de treinta años de experiencia, Fernando destaca por su solvencia técnica y su capacidad para abordar asuntos de alta complejidad jurídica. Especialista en litigación, arbitraje y asesoramiento estratégico, aporta un profundo conocimiento del derecho civil, mercantil, contencioso‑administrativo e inmobiliario.',
+                                    'A leading jurist with more than thirty years of experience, Fernando stands out for his technical solvency and his ability to handle matters of high legal complexity. A specialist in litigation, arbitration, and strategic advisory work, he brings deep knowledge of civil, commercial, administrative, and real‑estate law.'
                                 )); ?>
                             </p>
                             <p>
@@ -347,13 +357,13 @@
                         <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36]">
                             <p>
                                 <?php echo esc_html(nd_translate(
-                                    'Abogada con más de tres décadas de trayectoria, Mónica Iglesias Sánchez está especializada en litigación civil y mercantil, arbitraje y derecho concursal. Licenciada en Derecho por la Universidad San Pablo CEU y con formación de posgrado en Derecho Comunitario y Tributación, combina un sólido dominio técnico con una gran capacidad estratégica.',
-                                    'A lawyer with more than three decades of experience, Mónica Iglesias Sánchez specializes in civil and commercial litigation, arbitration, and insolvency law. Graduated in Law from Universidad San Pablo CEU and with postgraduate training in EU Law and Taxation, she combines strong technical command with high strategic capacity.'
+                                    'Abogada con más de tres décadas de trayectoria, Mónica está especializada en litigación civil y mercantil, arbitraje y derecho concursal. Licenciada en Derecho por la Universidad San Pablo CEU y con formación de posgrado en Derecho Comunitario y Tributación, combina un sólido dominio técnico con una gran capacidad estratégica.',
+                                    'A lawyer with more than three decades of experience, Mónica specializes in civil and commercial litigation, arbitration, and insolvency law. Graduated in Law from Universidad San Pablo CEU and with postgraduate training in EU Law and Taxation, she combines strong technical command with high strategic capacity.'
                                 )); ?>
                             </p>
                             <p>
                                 <?php echo esc_html(nd_translate(
-                                    'Arbitro del ICAM, ha intervenido en numerosos procedimientos de alta complejidad, incluyendo conflictos societarios, responsabilidad de administradores, litigios contractuales y reestructuraciones empresariales. Su enfoque riguroso y orientado a resultados la convierte en una garantía de excelencia para los clientes del despacho.',
+                                    'Árbitro del ICAM, ha intervenido en numerosos procedimientos de alta complejidad, incluyendo conflictos societarios, responsabilidad de administradores, litigios contractuales y reestructuraciones empresariales. Su enfoque riguroso y orientado a resultados la convierte en una garantía de excelencia para los clientes del despacho.',
                                     'An arbitrator at ICAM, she has intervened in numerous high‑complexity proceedings, including shareholder disputes, directors’ liability, contractual litigation, and corporate restructurings. Her rigorous, results‑driven approach makes her a guarantee of excellence for the firm’s clients.'
                                 )); ?>
                             </p>
@@ -367,8 +377,8 @@
                         <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36]">
                             <p>
                                 <?php echo esc_html(nd_translate(
-                                    'Especializado en Derecho Inmobiliario y Urbanístico, Enrique Besada cuenta con una amplia experiencia tanto en la administración pública como en el sector privado. Su trayectoria incluye la dirección de procedimientos urbanísticos, litigios civiles, mercantiles y contencioso‑administrativos, así como el asesoramiento integral en operaciones inmobiliarias y procesos de desarrollo urbanístico.',
-                                    'Specialized in Real Estate and Urban Planning Law, Enrique Besada has extensive experience in both public administration and the private sector. His trajectory includes leading urban planning procedures, civil, commercial, and administrative litigation, as well as comprehensive advisory work on real‑estate transactions and development processes.'
+                                    'Especializado en litigación, derecho inmobiliario y urbanismo. Enrique cuenta con una amplia experiencia tanto en la administración pública como en el sector privado. Su trayectoria incluye la dirección de procedimientos urbanísticos, litigios civiles, mercantiles y en el ámbito contencioso administrativo, así como el asesoramiento integral en operaciones inmobiliarias y procesos de desarrollo urbanístico.',
+                                    'Specialized in litigation, real estate law, and urban planning. Enrique has extensive experience in both public administration and the private sector. His career includes leading urban planning procedures, civil and commercial litigation, and administrative litigation, as well as comprehensive advice on real‑estate transactions and urban development processes.'
                                 )); ?>
                             </p>
                             <p>
@@ -388,7 +398,7 @@
         id="compromiso"
         data-section="commitment"
         class="relative isolate overflow-hidden bg-[#0c0c0b]
-         py-24 lg:py-28 min-h-screen flex items-center">
+         py-24 lg:py-42 flex items-center">
 
         <!-- FONDO -->
         <div
@@ -427,7 +437,7 @@
             <?php if ($title = get_field('commitment_title')) : ?>
                 <h2
                     data-commitment-item
-                    class="mt-6 text-[clamp(26px,2.8vw,48px)]
+                    class="mt-6 text-[clamp(22px,2.4vw,40px)]
                leading-[1.1] tracking-[-0.01em] font-normal text-white
                opacity-0 translate-y-4 transition-all duration-500">
                     <?php echo esc_html($title); ?>
@@ -508,106 +518,121 @@
         </div>
     </section>
 
-    <section id="equipo" data-section="team" class="py-10 lg:py-12 bg-white">
-        <div class="page-shell space-y-8 sm:space-y-10">
+    <section id="equipo" data-section="team" class="bg-white">
+        <div class="w-full pt-20 pb-16 lg:pt-24 lg:pb-24 space-y-12 sm:space-y-16 px-6 sm:px-10 lg:px-12">
 
             <!-- ===== SOCIOS ===== -->
-            <?php if (have_rows('partners')) : ?>
+            <?php
+            $partners_rows = get_field('partners');
+            $partners_to_show = array();
+            $founder_needles = ['fernando', 'monica', 'enrique'];
+            if (is_array($partners_rows)) {
+                foreach ($partners_rows as $row) {
+                    $name_value = isset($row['name']) ? (string) $row['name'] : '';
+                    $name_slug = $name_value ? sanitize_title($name_value) : '';
+                    foreach ($founder_needles as $needle) {
+                        if ($name_slug && strpos($name_slug, $needle) !== false) {
+                            $partners_to_show[] = $row;
+                            break;
+                        }
+                    }
+                }
 
-                <div data-team-title class="text-center opacity-0 translate-y-6 transition-all duration-500">
-                    <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)] leading-[1.4] font-normal text-[#7a8464]">
-                        <?php echo esc_html(nd_translate('Socios', 'Partners')); ?>
-                    </p>
-                </div>
+                if (empty($partners_to_show)) {
+                    foreach ($partners_rows as $row) {
+                        $role_value = isset($row['role']) ? (string) $row['role'] : '';
+                        $role_normalized = function_exists('mb_strtolower')
+                            ? mb_strtolower($role_value, 'UTF-8')
+                            : strtolower($role_value);
+                        $role_normalized = trim(preg_replace('/\s+/', ' ', $role_normalized));
+                        if ($role_normalized && (strpos($role_normalized, 'fundador') !== false || strpos($role_normalized, 'founding') !== false)) {
+                            $partners_to_show[] = $row;
+                        }
+                    }
+                }
 
-                <div class="grid gap-4 sm:gap-5 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
-                    <?php $i = 0;
-                    while (have_rows('partners')) : the_row();
-                        $i++;
-                        $name = get_sub_field('name');
-                        $role = get_sub_field('role');
-                        $image = get_sub_field('image');
-                        $bio = get_sub_field('bio');
-                        $role_output = function_exists('abogados_translate_role') ? abogados_translate_role($role) : $role;
-                    ?>
+                if (empty($partners_to_show)) {
+                    $partners_to_show = $partners_rows;
+                }
 
-                        <article data-team-card
-                            class="group relative overflow-hidden border border-[#e2dfd5] bg-black
-           opacity-0 translate-y-8 transition-all duration-500 origin-bottom
-           hover:-translate-y-1">
+                if (count($partners_to_show) > 3) {
+                    $partners_to_show = array_slice($partners_to_show, 0, 3);
+                }
+            }
+            if (!empty($partners_to_show)) :
+            ?>
 
-                            <!-- IMAGEN -->
-                            <div class="relative w-full h-[250px] sm:h-[320px] md:aspect-[2/3] md:h-auto overflow-hidden cursor-pointer" data-modal="partner-modal-<?php echo $i; ?>">
-                                <?php if ($image) : ?>
-                                    <img
-                                        class="h-full w-full object-cover transition-transform duration-700 ease-out
-                       group-hover:scale-105
-                       object-[center_25%] sm:object-[center_top]"
-                                        src="<?php echo esc_url($image['url']); ?>"
-                                        alt="<?php echo esc_attr($image['alt']); ?>">
-                                <?php endif; ?>
-                            </div>
+                <div class="grid w-full grid-cols-1 gap-12 lg:gap-16">
+                    <div data-team-title class="max-w-2xl space-y-4 opacity-0 translate-y-6 transition-all duration-500 text-center mx-auto">
+                        <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)] leading-[1.4] font-normal text-[#7a8464]">
+                            <?php echo esc_html(nd_translate('Socios fundadores', 'Founding partners')); ?>
+                        </p>
+                        <h2 class="text-[clamp(26px,2.8vw,48px)] leading-[1.1] tracking-[-0.01em] font-normal text-[#34362f]">
+                            <?php echo esc_html(nd_translate('Dirección estratégica del despacho', 'Strategic leadership of the firm')); ?>
+                        </h2>
+                        <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] text-[#5b5d55]">
+                            <?php echo esc_html(nd_translate('Experiencia, visión y cercanía en cada caso.', 'Experience, vision, and closeness in every case.')); ?>
+                        </p>
+                    </div>
 
-                            <!-- OVERLAY INFERIOR (más oscuro en móvil, más fino en desktop) -->
-                            <div
-                                class="absolute bottom-0 left-0 right-0 h-[42%] sm:h-[45%]
-               bg-gradient-to-t 
-               from-black/95 via-black/70 to-transparent
-               sm:from-black/85 sm:via-black/50
-               pointer-events-none">
-                            </div>
+                    <div class="w-full">
+                        <div class="relative z-0 grid w-full grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-[repeat(3,220px)] md:justify-center lg:grid-cols-[repeat(3,210px)]">
+                            <?php $i = 0;
+                            foreach ($partners_to_show as $row) :
+                                $i++;
+                                $name = $row['name'] ?? '';
+                                $role = $row['role'] ?? '';
+                                $image = $row['image'] ?? null;
+                                $bio = $row['bio'] ?? '';
+                                $role_output = function_exists('abogados_translate_role') ? abogados_translate_role($role) : $role;
+                            ?>
 
-                            <!-- TEXTO -->
-                            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-left partner-card-text">
+                                <article
+                                    data-team-card
+                                    class="group text-left opacity-0 translate-y-8 transition-all duration-500">
+                                    <?php if ($image) : ?>
+                                        <div class="relative mx-auto w-full max-w-[300px] md:max-w-[220px] lg:max-w-[210px] xl:max-w-[300px] overflow-hidden outline outline-1 outline-[#e6e2d8] aspect-[4/5]">
+                                            <img
+                                                data-modal="partner-modal-<?php echo $i; ?>"
+                                                class="absolute inset-0 h-full w-full object-cover shadow-none transition duration-500 group-hover:scale-[1.02] cursor-pointer"
+                                                src="<?php echo esc_url($image['url']); ?>"
+                                                alt="<?php echo esc_attr($image['alt']); ?>">
+                                            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent"></div>
+                                            <div data-team-card-body class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 pb-16">
+                                                <div class="transition-transform duration-300 ease-out sm:group-hover:-translate-y-10">
+                                                    <h3 class="text-[clamp(16px,1.6vw,22px)] leading-[1.2] font-medium text-[#d6dcc2]">
+                                                        <?php echo esc_html($name); ?>
+                                                    </h3>
+                                                    <p class="mt-1 text-[clamp(11px,1vw,14px)] uppercase tracking-[0.2em] text-white/85">
+                                                        <?php echo esc_html($role_output); ?>
+                                                    </p>
+                                                </div>
+                                                <button
+                                                    type="button"
+                                                    data-modal="partner-modal-<?php echo $i; ?>"
+                                                    data-team-button
+                                                    class="absolute left-4 bottom-4 sm:left-5 sm:bottom-5 inline-flex items-center border border-white/50 bg-white/10 px-4 py-1.5 text-[12px] font-normal text-white/90 shadow-none sm:shadow-[0_8px_22px_rgba(0,0,0,0.35)] sm:hover:shadow-none backdrop-blur-sm transition-all duration-300 ease-out hover:bg-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 opacity-0 translate-y-4 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 sm:text-[13px]">
+                                                    <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                </article>
 
-                                <h3 class="text-[15px] sm:text-[clamp(15px,1.5vw,22px)]
-                   leading-[1.15] font-normal text-[#b7be9b]">
-                                    <?php echo esc_html($name); ?>
-                                </h3>
-
-                                <p class="mt-1 text-[11px] sm:text-[clamp(11px,1.1vw,17px)]
-                  uppercase tracking-[0.18em] leading-[1.3]
-                  text-white/90">
-                                    <?php echo esc_html($role_output); ?>
-                                </p>
-
-                                <button
-                                    type="button"
-                                    data-modal="partner-modal-<?php echo $i; ?>"
-                                    class="mt-2 sm:mt-3 inline-flex items-center gap-2 cursor-pointer
-                   text-[12px] sm:text-[clamp(13px,1.3vw,18px)]
-                   leading-[1.5]
-                   font-normal text-[#d1d7bd]
-                   border border-[#9aa27a]
-                   px-3 py-1
-                   opacity-100 sm:opacity-0 sm:translate-y-2
-                   transition-all duration-300 ease-out
-                   sm:group-hover:opacity-100 sm:group-hover:translate-y-0
-                   hover:border-[#b5baa6] hover:bg-white/10 hover:text-white">
-
-                                    <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
-                                </button>
-
-                            </div>
-
-                        </article>
-
-
-
-
-
-                    <?php endwhile; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- MODALES SOCIOS -->
                 <?php $i = 0;
-                while (have_rows('partners')) : the_row();
+                foreach ($partners_to_show as $row) :
                     $i++;
-                    $name = get_sub_field('name');
-                    $role = get_sub_field('role');
-                    $image = get_sub_field('image');
-                    $bio = get_sub_field('bio');
-                    $linkedin = get_sub_field('linkedin');
+                    $name = $row['name'] ?? '';
+                    $role = $row['role'] ?? '';
+                    $image = $row['image'] ?? null;
+                    $bio = $row['bio'] ?? '';
+                    $linkedin = $row['linkedin'] ?? '';
                     $name_slug = $name ? sanitize_title($name) : '';
                     $role_output = function_exists('abogados_translate_role') ? abogados_translate_role($role) : $role;
                     $modal_image_url = '';
@@ -634,11 +659,12 @@
                     if (!$linkedin_url && $name_slug) {
                         $manual_linkedin_map = [
                             'monica' => 'https://www.linkedin.com/in/monica-iglesias-sanchez-14237041/',
-                            'enrique' => 'https://www.linkedin.com/in/enrique-j-besada-ferreiro-71046b43 ',
-                            'fernando' => 'https://www.linkedin.com/company/mbi-abogados',
+                            'enrique' => 'https://www.linkedin.com/in/enrique-j-besada-ferreiro-71046b43/',
+                            'fernando' => 'https://www.linkedin.com/in/fernando-marin-49405725/',
                             'irene' => 'https://www.linkedin.com/in/irene-mu%C3%B1iz-%C3%A1lvarez-0758331a/',
                             'pablo' => 'https://www.linkedin.com/in/pablo-epalza-arnedo/',
                             'cristina' => 'https://www.linkedin.com/in/garciamenendezcristina/',
+                            'rosa' => 'https://www.linkedin.com/in/rosa-munguira-b73479161/',
                         ];
                         foreach ($manual_linkedin_map as $needle => $url) {
                             if (strpos($name_slug, $needle) !== false) {
@@ -648,12 +674,21 @@
                         }
                     }
 
+                    if (is_string($linkedin_url)) {
+                        $linkedin_url = trim($linkedin_url);
+                        if ($linkedin_url !== '' && !preg_match('/^https?:\\/\\//i', $linkedin_url)) {
+                            $linkedin_url = 'https://' . ltrim($linkedin_url, '/');
+                        }
+                    }
+
                     if ($name_slug) {
                         $modal_image_map = [
                             'enrique' => ['Enrique_Modal.png', 'Enrique'],
                             'monica' => ['Monica_modal.jpg', 'Monica'],
                             'fernando' => ['Fernando_Modal.png', 'Fernando'],
+                            'irene' => ['irene_modal.png', 'Irene'],
                             'pablo' => ['Pablo_Modal.jpg', 'Pablo'],
+                            'rosa' => ['Rosa_Modal.jpg', 'Rosa'],
                             'sara' => ['Sara_Modal.jpg', 'Sara'],
                             'cristina' => ['cristina_modal.jpg', 'Cristina'],
                         ];
@@ -667,7 +702,7 @@
                     }
 
                     if (!$modal_image_url) {
-                        $modal_image = get_sub_field('modal_image');
+                        $modal_image = $row['modal_image'] ?? null;
                         if ($modal_image) {
                             $modal_image_url = $modal_image['url'];
                             $modal_image_alt = $modal_image['alt'];
@@ -679,11 +714,11 @@
                 ?>
                     <div id="partner-modal-<?php echo $i; ?>" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-3 sm:px-6" data-modal-root data-modal-backdrop>
                         <div class="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-white p-4 sm:p-6 lg:p-10 rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
-                            <button class="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d7d4cb] bg-white text-[#5b6542] text-[20px] shadow-[0_6px_14px_rgba(0,0,0,0.18)] transition hover:bg-[#f2f1ec] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a9472]/60 focus-visible:ring-offset-2" data-close><span class="relative top-[1px] leading-none">✕</span></button>
+                            <button class="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d7d4cb] bg-white text-[#5b6542] text-[20px] shadow-[0_6px_14px_rgba(0,0,0,0.18)] transition hover:bg-[#f2f1ec] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a9472]/60 focus-visible:ring-offset-2 modal-close-button" data-close><span class="relative top-[1px] leading-none modal-close-icon">✕</span></button>
                             <div class="flex flex-col gap-6 lg:gap-8 md:flex-row">
                                 <?php if ($modal_image_url) : ?>
                                     <div class="md:w-5/12 lg:w-4/12">
-                                        <div class="w-full overflow-hidden rounded-lg bg-[#f2f1ec] aspect-[4/5] sm:aspect-[4/5] max-h-[45vh] sm:max-h-[55vh] md:max-h-none">
+                                        <div class="w-full overflow-hidden rounded-lg bg-white aspect-[4/5] sm:aspect-[4/5] max-h-[45vh] sm:max-h-[55vh] md:max-h-none">
                                             <img class="h-full w-full object-contain sm:object-cover object-[center_top]" src="<?php echo esc_url($modal_image_url); ?>" alt="<?php echo esc_attr($modal_image_alt ?: $name); ?>">
                                         </div>
                                     </div>
@@ -734,60 +769,182 @@
                             </div>
                         </div>
                     </div>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
 
             <?php endif; ?>
 
             <!-- ===== EQUIPO ===== -->
-            <?php if (have_rows('team_members')) : ?>
+            <?php
+            $team_page_id = get_queried_object_id();
+            if (!$team_page_id) {
+                $team_page_id = (int) get_option('page_on_front');
+            }
 
-                <div data-team-title class="pt-4 text-center opacity-0 translate-y-6 transition-all duration-500">
-                    <p class="uppercase tracking-[0.2em] text-[clamp(13px,1.1vw,17px)] leading-[1.4] font-normal text-[#7a8464]">
-                        <?php echo esc_html(nd_translate('Equipo', 'Team')); ?>
-                    </p>
-                </div>
+            $team_top_rows = get_field('team_members', $team_page_id);
+            $team_bottom_rows = get_field('team_members_abajo', $team_page_id);
+            $team_top_rows = is_array($team_top_rows) ? $team_top_rows : array();
+            $team_bottom_rows = is_array($team_bottom_rows) ? $team_bottom_rows : array();
 
-                <div class="grid gap-6 md:grid-cols-3 lg:grid-cols-3 pt-2">
-                    <?php $j = 0;
-                    while (have_rows('team_members')) : the_row();
-                        $j++;
-                        $name = get_sub_field('name');
-                        $role = get_sub_field('role');
-                        $image = get_sub_field('image');
-                        $bio = get_sub_field('bio');
-                        $role_output = function_exists('abogados_translate_role') ? abogados_translate_role($role) : $role;
-                    ?>
+            if (empty($team_bottom_rows)) {
+                $team_bottom_rows = get_field('team_members_abajo', 'option');
+                $team_bottom_rows = is_array($team_bottom_rows) ? $team_bottom_rows : array();
+            }
 
-                        <article data-team-card class="group text-center relative opacity-0 translate-y-8 transition-all duration-500 overflow-hidden">
-                            <?php if ($image) : ?>
-                                <div class="mx-auto h-[110px] w-[110px] overflow-hidden rounded-full -mb-13">
-                                    <img class="h-full w-full object-cover" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
-                                </div>
-                            <?php endif; ?>
+            if (empty($team_bottom_rows) && count($team_top_rows) > 2) {
+                $team_bottom_rows = array_slice($team_top_rows, 2);
+            }
 
-                            <div data-team-card-body class="bg-[#e3e4db] px-6 pt-16 transition-all duration-300 ease-out group-hover:pb-14 group-hover:shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
-                                <h3 class="text-[clamp(15px,1.5vw,22px)] leading-[1.2] font-normal text-[#58683d]"><?php echo esc_html($name); ?></h3>
-                                <p class="mt-1 text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#4f5047]"><?php echo esc_html($role_output); ?></p>
-                                <button type="button" data-modal="team-modal-<?php echo $j; ?>" data-team-button class="mt-5 inline-flex items-center cursor-pointer text-[clamp(13px,1.3vw,18px)] leading-[1.6] text-[#58683d] border border-[#b5baa6] px-4 py-1.5 opacity-0 translate-y-4 transition-all duration-300 ease-out sm:group-hover:opacity-100 sm:group-hover:translate-y-0 hover:border-[#8a9472] hover:bg-[#f2f1ec] hover:text-[#3f4a2a]">
-                                    <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
-                                </button>
+            $team_top_rows = array_slice($team_top_rows, 0, 2);
+
+            $team_groups = [
+                'first' => $team_top_rows,
+                'second' => $team_bottom_rows,
+            ];
+            $team_all = array();
+            $team_modal_counter = 0;
+
+            foreach ($team_groups as $key => $rows) {
+                $updated_rows = array();
+                foreach ($rows as $row) {
+                    $team_modal_counter++;
+                    $row['_modal_id'] = $team_modal_counter;
+                    $updated_rows[] = $row;
+                    $team_all[] = $row;
+                }
+                $team_groups[$key] = $updated_rows;
+            }
+
+            if (!empty($team_all)) :
+            ?>
+
+                <div class="grid w-full grid-cols-1 gap-12 lg:gap-16">
+                    <div data-team-title class="max-w-2xl space-y-4 opacity-0 translate-y-6 transition-all duration-500 text-center mx-auto">
+                        <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)] leading-[1.4] font-normal text-[#7a8464]">
+                            <?php echo esc_html(nd_translate('Equipo', 'Team')); ?>
+                        </p>
+                        <h2 class="text-[clamp(26px,2.8vw,48px)] leading-[1.1] tracking-[-0.01em] font-normal text-[#34362f]">
+                            <?php echo esc_html(nd_translate('Talento que acompaña cada asunto', 'Talent that supports every matter')); ?>
+                        </h2>
+                        <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] text-[#5b5d55]">
+                            <?php echo esc_html(nd_translate('Un equipo multidisciplinar con rigor, cercanía y dedicación.', 'A multidisciplinary team with rigor, closeness, and dedication.')); ?>
+                        </p>
+                    </div>
+
+                    <div class="w-full space-y-10">
+                        <!-- ================= NIVEL SUPERIOR ================= -->
+                        <?php if (!empty($team_groups['first'])) : ?>
+                            <div class="grid w-full grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-[repeat(2,220px)] md:justify-center lg:grid-cols-[repeat(2,210px)]">
+                                <?php foreach ($team_groups['first'] as $row) :
+                                    $name = $row['name'] ?? '';
+                                    $role = $row['role'] ?? '';
+                                    $image = $row['image'] ?? null;
+                                    $modal_id = $row['_modal_id'] ?? 0;
+                                    $role_output = function_exists('abogados_translate_role') ? abogados_translate_role($role) : $role;
+                                ?>
+                                    <article
+                                        data-team-card
+                                        class="group text-left opacity-0 translate-y-8 transition-all duration-500 w-full lg:max-w-[280px] lg:mx-auto">
+                                        <?php if ($image) : ?>
+                                        <div class="relative mx-auto w-full max-w-[300px] md:max-w-[220px] lg:max-w-[210px] xl:max-w-[300px] overflow-hidden outline outline-1 outline-[#e6e2d8] aspect-[4/5]">
+                                            <img
+                                                data-modal="team-modal-<?php echo $modal_id; ?>"
+                                                class="absolute inset-0 h-full w-full object-cover shadow-none transition duration-500 group-hover:scale-[1.02] cursor-pointer"
+                                                src="<?php echo esc_url($image['url']); ?>"
+                                                alt="<?php echo esc_attr($image['alt']); ?>">
+                                            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent"></div>
+                                                <div data-team-card-body class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 pb-16">
+                                                    <div class="transition-transform duration-300 ease-out sm:group-hover:-translate-y-10">
+                                                        <h3 class="text-[clamp(16px,1.6vw,22px)] leading-[1.2] font-medium text-[#d6dcc2]">
+                                                            <?php echo esc_html($name); ?>
+                                                        </h3>
+                                                        <p class="mt-1 text-[clamp(11px,1vw,14px)] uppercase tracking-[0.2em] text-white/85">
+                                                            <?php echo esc_html($role_output); ?>
+                                                        </p>
+                                                    </div>
+                                                    <button
+                                                        type="button"
+                                                        data-modal="team-modal-<?php echo $modal_id; ?>"
+                                                        data-team-button
+                                                    class="absolute left-4 bottom-4 sm:left-5 sm:bottom-5 inline-flex items-center border border-white/50 bg-white/10 px-4 py-1.5 text-[12px] font-normal text-white/90 shadow-none sm:shadow-[0_8px_22px_rgba(0,0,0,0.35)] sm:hover:shadow-none backdrop-blur-sm transition-all duration-300 ease-out hover:bg-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 opacity-0 translate-y-4 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 sm:text-[13px]">
+                                                        <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+                                    </article>
+                                <?php endforeach; ?>
                             </div>
-                        </article>
+                        <?php endif; ?>
 
-                    <?php endwhile; ?>
+                        <!-- ================= RESTO DEL EQUIPO ================= -->
+                        <?php if (!empty($team_groups['second'])) : ?>
+                            <?php
+                            $second_group_count = count($team_groups['second']);
+                            $second_group_grid_class = 'grid gap-x-4 gap-y-8 w-full md:justify-center';
+                            if ($second_group_count <= 1) {
+                                $second_group_grid_class .= ' sm:grid-cols-1 md:grid-cols-[repeat(1,220px)] lg:grid-cols-[repeat(1,210px)]';
+                            } elseif ($second_group_count === 2) {
+                                $second_group_grid_class .= ' sm:grid-cols-2 md:grid-cols-[repeat(2,220px)] lg:grid-cols-[repeat(2,210px)]';
+                            } else {
+                                $second_group_grid_class .= ' sm:grid-cols-2 md:grid-cols-[repeat(3,220px)] lg:grid-cols-[repeat(3,210px)]';
+                            }
+                            ?>
+                            <div class="<?php echo esc_attr($second_group_grid_class); ?>">
+                                <?php foreach ($team_groups['second'] as $row) :
+                                    $name = $row['name'] ?? '';
+                                    $role = $row['role'] ?? '';
+                                    $image = $row['image'] ?? null;
+                                    $modal_id = $row['_modal_id'] ?? 0;
+                                    $role_output = function_exists('abogados_translate_role') ? abogados_translate_role($role) : $role;
+                                ?>
+                                    <article
+                                        data-team-card
+                                        class="group text-left opacity-0 translate-y-8 transition-all duration-500 w-full">
+                                        <?php if ($image) : ?>
+                                        <div class="relative mx-auto w-full max-w-[300px] md:max-w-[220px] lg:max-w-[210px] xl:max-w-[300px] overflow-hidden outline outline-1 outline-[#e6e2d8] aspect-[4/5]">
+                                            <img
+                                                data-modal="team-modal-<?php echo $modal_id; ?>"
+                                                class="absolute inset-0 h-full w-full object-cover shadow-none transition duration-500 group-hover:scale-[1.02] cursor-pointer"
+                                                src="<?php echo esc_url($image['url']); ?>"
+                                                alt="<?php echo esc_attr($image['alt']); ?>">
+                                            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent"></div>
+                                                <div data-team-card-body class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 pb-16">
+                                                    <div class="transition-transform duration-300 ease-out sm:group-hover:-translate-y-10">
+                                                        <h3 class="text-[clamp(16px,1.6vw,22px)] leading-[1.2] font-medium text-[#d6dcc2]">
+                                                            <?php echo esc_html($name); ?>
+                                                        </h3>
+                                                        <p class="mt-1 text-[clamp(11px,1vw,14px)] uppercase tracking-[0.2em] text-white/85">
+                                                            <?php echo esc_html($role_output); ?>
+                                                        </p>
+                                                    </div>
+                                                    <button
+                                                        type="button"
+                                                        data-modal="team-modal-<?php echo $modal_id; ?>"
+                                                        data-team-button
+                                                    class="absolute left-4 bottom-4 sm:left-5 sm:bottom-5 inline-flex items-center border border-white/50 bg-white/10 px-4 py-1.5 text-[12px] font-normal text-white/90 shadow-none sm:shadow-[0_8px_22px_rgba(0,0,0,0.35)] sm:hover:shadow-none backdrop-blur-sm transition-all duration-300 ease-out hover:bg-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 opacity-0 translate-y-4 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 sm:text-[13px]">
+                                                        <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+                                    </article>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </div>
 
                 <!-- MODALES EQUIPO -->
                 <?php $j = 0;
-                while (have_rows('team_members')) : the_row();
+                foreach ($team_all as $row) :
                     $j++;
-                    $name = get_sub_field('name');
-                    $role = get_sub_field('role');
-                    $image = get_sub_field('image');
-                    $bio = get_sub_field('bio');
+                    $name = $row['name'] ?? '';
+                    $role = $row['role'] ?? '';
+                    $image = $row['image'] ?? null;
+                    $bio = $row['bio'] ?? '';
                     $name_slug = $name ? sanitize_title($name) : '';
                     $role_output = function_exists('abogados_translate_role') ? abogados_translate_role($role) : $role;
-                    $linkedin = get_sub_field('linkedin');
+                    $linkedin = $row['linkedin'] ?? '';
                     $linkedin_url = '';
                     $linkedin_label = '';
                     $linkedin_target = '_blank';
@@ -813,10 +970,11 @@
                         $manual_linkedin_map = [
                             'monica' => 'https://www.linkedin.com/in/monica-iglesias-sanchez-14237041/',
                             'enrique' => 'https://www.linkedin.com/in/enrique-j-besada-ferreiro-71046b43/?originalSubdomain=es',
-                            'fernando' => 'https://www.linkedin.com/company/mbi-abogados',
+                            'fernando' => 'https://www.linkedin.com/in/fernando-marin-49405725/',
                             'irene' => 'https://www.linkedin.com/in/irene-mu%C3%B1iz-%C3%A1lvarez-0758331a/',
                             'pablo' => 'https://www.linkedin.com/in/pablo-epalza-arnedo/',
                             'cristina' => 'https://www.linkedin.com/in/garciamenendezcristina/',
+                            'rosa' => 'https://www.linkedin.com/in/rosa-munguira-b73479161/',
                         ];
                         foreach ($manual_linkedin_map as $needle => $url) {
                             if (strpos($name_slug, $needle) !== false) {
@@ -826,12 +984,21 @@
                         }
                     }
 
+                    if (is_string($linkedin_url)) {
+                        $linkedin_url = trim($linkedin_url);
+                        if ($linkedin_url !== '' && !preg_match('/^https?:\\/\\//i', $linkedin_url)) {
+                            $linkedin_url = 'https://' . ltrim($linkedin_url, '/');
+                        }
+                    }
+
                     if ($name_slug) {
                         $modal_image_map = [
                             'enrique' => ['Enrique_Modal.png', 'Enrique'],
                             'monica' => ['Monica_modal.jpg', 'Monica'],
                             'fernando' => ['Fernando_Modal.png', 'Fernando'],
+                            'irene' => ['irene_modal.png', 'Irene'],
                             'pablo' => ['Pablo_Modal.jpg', 'Pablo'],
+                            'rosa' => ['Rosa_Modal.jpg', 'Rosa'],
                             'sara' => ['Sara_Modal.jpg', 'Sara'],
                             'cristina' => ['cristina_modal.jpg', 'Cristina'],
                         ];
@@ -845,7 +1012,7 @@
                     }
 
                     if (!$modal_image_url) {
-                        $modal_image = get_sub_field('modal_image');
+                        $modal_image = $row['modal_image'] ?? null;
                         if ($modal_image) {
                             $modal_image_url = $modal_image['url'];
                             $modal_image_alt = $modal_image['alt'];
@@ -857,7 +1024,7 @@
                 ?>
                     <div id="team-modal-<?php echo $j; ?>" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-3 sm:px-6" data-modal-root data-modal-backdrop>
                         <div class="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-white p-4 sm:p-6 lg:p-10 rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
-                            <button class="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d7d4cb] bg-white text-[#5b6542] text-[20px] shadow-[0_6px_14px_rgba(0,0,0,0.18)] transition hover:bg-[#f2f1ec] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a9472]/60 focus-visible:ring-offset-2" data-close><span class="relative top-[1px] leading-none">✕</span></button>
+                            <button class="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d7d4cb] bg-white text-[#5b6542] text-[20px] shadow-[0_6px_14px_rgba(0,0,0,0.18)] transition hover:bg-[#f2f1ec] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a9472]/60 focus-visible:ring-offset-2 modal-close-button" data-close><span class="relative top-[1px] leading-none modal-close-icon">✕</span></button>
                             <div class="flex flex-col gap-6 lg:gap-8 md:flex-row">
                                 <?php if ($modal_image_url) : ?>
                                     <div class="md:w-5/12 lg:w-4/12">
@@ -912,7 +1079,7 @@
                             </div>
                         </div>
                     </div>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
 
             <?php endif; ?>
 
@@ -952,10 +1119,10 @@
 
                 <h2
                     data-transform-item
-                    class="text-[clamp(26px,2.8vw,52px)]
+                    class="text-[clamp(22px,2.6vw,44px)] lg:text-[clamp(24px,2.6vw,46px)]
                        leading-[1.1] tracking-[-0.01em] font-normal italic text-balance text-white
                        opacity-0 translate-y-4 transition-all duration-700">
-                    <?php echo esc_html(nd_translate('Ayudamos a nuestros clientes desde la cercanía, el rigor y la visión estratégica.', 'We transform by helping our clients with closeness, rigor, and strategic vision.')); ?>
+                    <?php echo esc_html(nd_translate('En MBI Abogados ofrecemos a nuestros clientes asesoramiento jurídico con visión estratégica, rigor, cercanía y dedicación personal.', 'At MBI Abogados we offer our clients legal advice with strategic vision, rigor, closeness, and personal dedication.')); ?>
                 </h2>
 
                 <p
@@ -964,7 +1131,7 @@
                        text-[clamp(17px,1.5vw,22px)] leading-[1.25]
                        text-white/90 font-normal
                        opacity-0 translate-y-4 transition-all duration-700">
-                    <?php echo esc_html(nd_translate('En MBI Abogados ofrecemos asesoramiento jurídico con visión estratégica, claridad constante y dedicación personal. Lo esencial bien hecho. Lo complejo bien pensado.', 'At MBI Abogados we offer legal advice with strategic vision, constant clarity, and personal dedication. The essentials done right. The complex well thought out.')); ?>
+                    <?php echo esc_html(nd_translate('Lo esencial bien hecho. Lo complejo bien pensado.', 'The essentials done right. The complex well thought out.')); ?>
                 </p>
 
                 <a
@@ -984,7 +1151,7 @@
 
     <section id="servicios"
         data-section="services"
-        class="py-16 lg:py-20 bg-white">
+        class="py-16 lg:py-28 bg-white">
 
         <div class="page-shell space-y-10 sm:space-y-12">
 
@@ -1009,12 +1176,12 @@
             ];
             ?>
 
-            <div class="grid gap-10 md:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div class="grid gap-10 md:grid-cols-[1fr_1fr] lg:items-start">
 
                 <!-- COLUMNA IZQUIERDA -->
                 <div
                     data-services-left
-                    class="space-y-4 opacity-0 translate-y-8 transition-all duration-700">
+                    class="space-y-4 opacity-0 translate-y-8 transition-all duration-700 md:pr-4 lg:pr-8">
 
                     <h2 class="text-[clamp(26px,2.8vw,52px)] leading-[1.1] tracking-[-0.01em] font-normal text-[#34362f]">
                         <?php echo esc_html(nd_translate('Soluciones jurídicas', 'Legal solutions')); ?>
@@ -1023,23 +1190,17 @@
                         </span>
                     </h2>
 
-                    <span class="block w-10 h-px bg-[#b9bbab]"></span>
 
-                    <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] text-[#4c4e47]">
-                        <?php echo esc_html(nd_translate('En MBI Abogados convertimos complejidad jurídica en decisiones claras. Priorizamos, aterrizamos escenarios y acompañamos la ejecución con criterio y responsabilidad.', 'At MBI Abogados we turn legal complexity into clear decisions. We prioritize, ground scenarios, and support execution with judgment and responsibility.')); ?>
-                        <br>
-                        <?php echo esc_html(nd_translate('Lo esencial bien hecho. Lo complejo bien pensado. Pensamos como abogados. Actuamos como aliados.', 'The essentials done right. The complex well thought out. We think like lawyers. We act as allies.')); ?>
 
-                    </p>
 
                     <div
-                        class="overflow-hidden border border-[#e1dfd5] bg-white
+                        class="mt-8 overflow-hidden border border-[#e1dfd5] bg-white
                            shadow-[0_12px_26px_rgba(0,0,0,0.08)]
                            opacity-0 scale-[0.96] transition-all duration-700"
                         data-services-image>
 
                         <img
-                            class="h-[200px] w-full object-cover sm:h-[220px] lg:h-[240px]"
+                            class="h-[240px] w-full object-cover sm:h-[300px] lg:h-[360px]"
                             src="<?php echo get_template_directory_uri(); ?>/assets/img/madrid.png"
                             alt="<?php echo esc_attr(nd_translate('Vista urbana de Madrid', 'Madrid city skyline')); ?>">
                     </div>
@@ -1134,6 +1295,121 @@
         class="py-16 lg:py-20 bg-white">
 
         <div class="page-shell">
+
+            <?php
+            $success_cases = [];
+            $success_cases_label = nd_translate('Casos de éxito', 'Success cases');
+
+            if (function_exists('get_field')) {
+                $success_cases_label = get_field('success_cases_label') ?: $success_cases_label;
+                $success_cases = get_field('success_cases');
+            }
+
+            if (!empty($success_cases) && is_array($success_cases)) :
+            ?>
+                <div class="mb-14">
+                    <div class="mb-8 text-center">
+                        <p class="text-[11px] sm:text-[12px] uppercase tracking-[0.35em] text-[#7a806b]">
+                            <?php echo esc_html($success_cases_label); ?>
+                        </p>
+                        <span class="mt-3 inline-block h-px w-16 bg-[#b8bdab]"></span>
+                    </div>
+
+                    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                        <?php
+                        $case_index = 0;
+                        foreach ($success_cases as $case) :
+                            $case_index++;
+                            $case_title = $case['title'] ?? '';
+                            $case_subtitle = $case['subtitle'] ?? '';
+                            $case_meta = $case['meta'] ?? '';
+                            $case_cta = $case['cta_label'] ?? '';
+                            $case_cta = $case_cta ?: nd_translate('Ver más', 'See more');
+                        ?>
+                            <article data-contact-item class="group relative border border-[#d5d7c8] bg-[#d9dccf] p-6 sm:p-7 min-h-[190px] flex flex-col justify-between opacity-0 translate-y-8 transition-all duration-500">
+                                <div class="space-y-2">
+                                    <?php if ($case_subtitle) : ?>
+                                        <p class="text-[11px] sm:text-[12px] uppercase tracking-[0.18em] text-[#6f7562]">
+                                            <?php echo esc_html($case_subtitle); ?>
+                                        </p>
+                                    <?php endif; ?>
+
+                                    <?php if ($case_meta) : ?>
+                                        <p class="text-[11px] sm:text-[12px] text-[#8a907b]">
+                                            <?php echo esc_html($case_meta); ?>
+                                        </p>
+                                    <?php endif; ?>
+
+                                    <?php if ($case_title) : ?>
+                                        <h3 class="pt-2 text-[clamp(16px,1.6vw,22px)] leading-[1.25] font-normal text-[#3f4436]">
+                                            <?php echo esc_html($case_title); ?>
+                                        </h3>
+                                    <?php endif; ?>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    data-modal="success-case-modal-<?php echo $case_index; ?>"
+                                    class="mt-6 inline-flex items-center gap-2 self-start border border-[#8a9078] px-3 py-1 text-[11px] sm:text-[12px] uppercase tracking-[0.2em] text-[#4c533f] transition hover:bg-white/50 hover:border-[#6f775f] hover:text-[#2f3326]">
+                                    <span><?php echo esc_html($case_cta); ?></span>
+                                    <span aria-hidden="true" class="text-[14px]">→</span>
+                                </button>
+                            </article>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <?php
+                $case_index = 0;
+                foreach ($success_cases as $case) :
+                    $case_index++;
+                    $case_title = $case['title'] ?? '';
+                    $case_subtitle = $case['subtitle'] ?? '';
+                    $case_modal_image = $case['modal_image'] ?? null;
+                    $case_content = $case['content'] ?? '';
+                    $case_excerpt = $case['excerpt'] ?? '';
+                    $modal_image = $case_modal_image;
+                ?>
+                    <div id="success-case-modal-<?php echo $case_index; ?>" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-3 sm:px-6" data-modal-root data-modal-backdrop>
+                        <div class="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-white p-4 sm:p-6 lg:p-10 rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
+                            <button class="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d7d4cb] bg-white text-[#5b6542] text-[20px] shadow-[0_6px_14px_rgba(0,0,0,0.18)] transition hover:bg-[#f2f1ec] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8a9472]/60 focus-visible:ring-offset-2 modal-close-button" data-close><span class="relative top-[1px] leading-none modal-close-icon">✕</span></button>
+                            <div class="flex flex-col gap-6 lg:gap-8 md:flex-row">
+                                <?php if ($modal_image) : ?>
+                                    <div class="md:w-5/12 lg:w-4/12">
+                                        <div class="w-full overflow-hidden rounded-lg bg-[#f2f1ec] aspect-[4/5] sm:aspect-[4/5] max-h-[45vh] sm:max-h-[55vh] md:max-h-none">
+                                            <img class="h-full w-full object-contain sm:object-cover object-[center_top]" src="<?php echo esc_url($modal_image['url']); ?>" alt="<?php echo esc_attr($modal_image['alt'] ?: $case_title); ?>">
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="<?php echo $modal_image ? 'md:w-7/12 lg:w-8/12' : 'w-full'; ?>">
+                                    <div class="space-y-2 text-left">
+                                        <?php if ($case_subtitle) : ?>
+                                            <p class="text-[clamp(14px,1.3vw,20px)] uppercase tracking-[0.18em] leading-[1.2] text-[#7a8464]">
+                                                <?php echo esc_html($case_subtitle); ?>
+                                            </p>
+                                        <?php endif; ?>
+                                        <?php if ($case_title) : ?>
+                                            <h3 class="text-[clamp(19px,1.9vw,28px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#58683d]">
+                                                <?php echo esc_html($case_title); ?>
+                                            </h3>
+                                        <?php endif; ?>
+                                    </div>
+
+                                    <?php if ($case_content) : ?>
+                                        <div class="mt-4 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36] space-y-4">
+                                            <?php echo wp_kses_post($case_content); ?>
+                                        </div>
+                                    <?php elseif ($case_excerpt) : ?>
+                                        <p class="mt-4 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36]">
+                                            <?php echo esc_html($case_excerpt); ?>
+                                        </p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
 
             <!-- CABECERA -->
             <div
@@ -1241,7 +1517,7 @@
                             </div>
                         </div>
 
-                   
+
 
                         <!-- HORARIO -->
                         <div
@@ -1274,7 +1550,7 @@
                             </div>
                         </div>
 
-                             <!-- DIRECCIÓN -->
+                        <!-- DIRECCIÓN -->
                         <div
                             data-contact-item
                             class="flex items-start gap-4 sm:gap-5 opacity-0 translate-y-6 transition-all duration-700">

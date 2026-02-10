@@ -35,14 +35,26 @@ $cookies_url = $cookies_page ? get_permalink($cookies_page) : '#';
                     )); ?>
                 </p>
 
-                <a
-                    class="mx-auto sm:mx-0 inline-flex items-center justify-center
-                           w-10 h-10 border border-[#6a754f] text-white
-                           hover:border-[#8a9472] transition"
-                    href="https://www.linkedin.com/company/mbi-abogados/"
-                    aria-label="LinkedIn">
-                    in
-                </a>
+                <div class="flex items-center justify-center sm:justify-start gap-4">
+                    <a
+                        class="inline-flex items-center justify-center
+                               w-10 h-10 border border-[#6a754f] text-white
+                               hover:border-[#8a9472] transition"
+                        href="https://www.linkedin.com/company/mbi-abogados/"
+                        aria-label="LinkedIn">
+                        in
+                    </a>
+                    <button type="button"
+                            data-modal="work-modal"
+                            class="inline-flex items-center justify-center
+                                   border border-[#6a754f] px-4 py-2
+                                   text-[clamp(11px,1.1vw,15px)]
+                                   uppercase tracking-[0.2em]
+                                   text-white hover:border-[#8a9472]
+                                   hover:bg-white/10 transition">
+                        <?php echo esc_html(nd_translate('Trabaja con nosotros', 'Work with us')); ?>
+                    </button>
+                </div>
             </div>
 
             <!-- ENLACES -->
@@ -124,18 +136,6 @@ $cookies_url = $cookies_page ? get_permalink($cookies_page) : '#';
                     </li>
                 </ul>
 
-                <div class="pt-5">
-                    <button type="button"
-                            data-modal="work-modal"
-                            class="inline-flex items-center justify-center
-                                   border border-[#6a754f] px-4 py-2
-                                   text-[clamp(12px,1.2vw,16px)]
-                                   uppercase tracking-[0.2em]
-                                   text-white hover:border-[#8a9472]
-                                   hover:bg-white/10 transition">
-                        <?php echo esc_html(nd_translate('Trabaja con nosotros', 'Work with us')); ?>
-                    </button>
-                </div>
             </div>
         </div>
 
@@ -151,21 +151,21 @@ $cookies_url = $cookies_page ? get_permalink($cookies_page) : '#';
                    opacity-0 translate-y-4 transition-all duration-700">
 
             <div class="flex flex-wrap justify-center sm:justify-start gap-6">
-                <a class="hover:text-white transition-colors duration-300" href="<?php echo esc_url($legal_url); ?>">
+                <a class="text-white/70 hover:text-white hover:underline underline-offset-4 transition-colors duration-300" href="<?php echo esc_url($legal_url); ?>">
                     <?php echo esc_html(nd_translate('Aviso Legal', 'Legal Notice')); ?>
                 </a>
-                <a class="hover:text-white transition-colors duration-300" href="<?php echo esc_url($privacy_url); ?>">
+                <a class="text-white/70 hover:text-white hover:underline underline-offset-4 transition-colors duration-300" href="<?php echo esc_url($privacy_url); ?>">
                     <?php echo esc_html(nd_translate('Política de Privacidad', 'Privacy Policy')); ?>
                 </a>
-                <a class="hover:text-white transition-colors duration-300" href="<?php echo esc_url($cookies_url); ?>">
+                <a class="text-white/70 hover:text-white hover:underline underline-offset-4 transition-colors duration-300" href="<?php echo esc_url($cookies_url); ?>">
                     <?php echo esc_html(nd_translate('Política de Cookies', 'Cookie Policy')); ?>
                 </a>
             </div>
 
             <span>
                 <?php echo esc_html(nd_translate(
-                    '© 2025 MBI Abogados. Todos los derechos reservados.',
-                    '© 2025 MBI Abogados. All rights reserved.'
+                    '© ' . date_i18n('Y') . ' MBI Abogados. Todos los derechos reservados.',
+                    '© ' . date_i18n('Y') . ' MBI Abogados. All rights reserved.'
                 )); ?>
             </span>
         </div>

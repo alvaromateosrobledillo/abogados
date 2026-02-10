@@ -7,7 +7,7 @@ get_header();
 ?>
 
 <main class="bg-[#f7f6f2]">
-    <section class="page-shell py-10 sm:py-12">
+    <section class="page-shell pt-10 sm:pt-12">
         <?php while (have_posts()) : the_post(); ?>
             <div class="space-y-6">
                 <h1 class="text-[clamp(26px,2.8vw,48px)] leading-[1.1] tracking-[-0.01em] font-normal text-[#3f3f39]">
@@ -18,10 +18,44 @@ get_header();
                     $page_content = trim(get_the_content());
                     if ($page_content) {
                         echo apply_filters('the_content', $page_content);
-                    } else {
-                        $is_english = function_exists('nd_translate') && nd_translate('es', 'en') === 'en';
-                        if ($is_english) :
+                    }
+                    $is_english = function_exists('nd_translate') && nd_translate('es', 'en') === 'en';
+                    if ($is_english) :
                     ?>
+                        <div class="space-y-6">
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">What is a cookie?</h2>
+                                <p>A cookie is a small text file that is stored on your device when you visit a website. Its purpose is to allow the website to remember your visit when you browse that page again. Cookies often store technical information, personal preferences, content personalization, usage statistics, links to social networks, access to user accounts, etc. The goal of the cookie is to adapt the website content to your profile and needs; without cookies the services offered by any website would be significantly impaired.</p>
+                                <p>Cookies can only be read by the service or application that created them and are not executable files, cannot spread, and cannot contain a virus.</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">What types of cookies are there?</h2>
+                                <p>Depending on who manages them:</p>
+                                <p>• Own cookies: cookies sent to the user's device from a computer or domain managed by the organization and from which the requested service is provided.</p>
+                                <p>• Third-party cookies: cookies sent to the user's device from a computer or domain managed (or not) by the organization, where a third party processes the data obtained through the cookies.</p>
+                                <p>Depending on their duration, cookies can be:</p>
+                                <p>• Session cookies. These are cookies designed to collect and store data while the user accesses a website. These cookies are not stored on the user's computer when the session expires or the browser is closed.</p>
+                                <p>• Persistent cookies. These are cookies in which the data remain stored on the user's computer and can be accessed and processed when the user leaves the website and when they connect again. These cookies can be deleted at any time by the user.</p>
+                                <p>Depending on the purpose for which the data obtained through the cookies are processed:</p>
+                                <p>i. Technical (necessary) cookies. These cookies are necessary for the website and its basic functions to operate correctly. Without these cookies it is not possible to provide certain services, such as secure browsing, user identification, or registration/participation in an event.</p>
+                                <p>ii. Analytical (statistics) cookies. These cookies collect information about the use of the website, which pages are visited most often, how frequently, or whether errors occur. This allows us to measure the activity of our website, for example to identify the most popular sections. These cookies do not collect information that identifies the user; they are only used to improve the functioning of a website.</p>
+                                <p>iii. Personalization (preferences) cookies. These cookies make it possible for the website to remember preferences, such as username, language, or geographic location, with the aim of offering enhanced and personalized features. For example, our website could display information available only in a geographic location, using a cookie to store the province in which the web user is located. Please note that if you disable these cookies, you may not be able to use all interactive features of our website.</p>
+                                <p>iv. Advertising (marketing) cookies. These are cookies that allow the management of advertising spaces on a website. These cookies are used to display the most relevant ads according to the user's interests. They are also used to limit the number of times a user sees an ad and to help measure the effectiveness of an advertising campaign.</p>
+                                <p>v. Behavioral advertising (marketing) cookies. These cookies store information about user behavior obtained through the observation of their browsing habits, which allows the creation of profiles based on those habits in order to display advertising accordingly.</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">What type of cookies does MBI ABOGADOS, S.L. use?</h2>
+                                <p><strong>Necessary</strong></p>
+                                <p>These cookies are necessary for the website to function, so they cannot be disabled. They are generally only set in response to actions taken by you to request services, such as setting your privacy preferences, logging in, or completing forms. The latter does not occur at MBI ABOGADOS, S.L. because we do not have user registration, therefore there is no user login, and we do not use data collection forms.</p>
+                                <p><strong>Preferences</strong></p>
+                                <p>Preference cookies allow the website to remember information that changes the way the website behaves or looks, such as your preferred language or the region where you are located.</p>
+                                <p><strong>Statistics</strong></p>
+                                <p>Statistics cookies help website owners understand how visitors interact with websites by collecting and reporting information anonymously.</p>
+                            </div>
+                        </div>
+                    <?php else : ?>
                         <div class="space-y-6">
                             <div class="space-y-4">
                                 <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">¿Qué es una cookie?</h2>
@@ -48,84 +82,14 @@ get_header();
                             <div class="space-y-4">
                                 <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">¿Qué tipo de cookies utiliza MBI ABOGADOS, S.L.?</h2>
                                 <p><strong>Necesarias</strong></p>
-                                <p>Estas cookies son necesarias para que la página Web funcione, por lo que no se pueden desactivar. Por lo general, solo se configuran en respuesta a sus acciones realizadas al solicitar servicios, como establecer sus preferencias de privacidad, iniciar sesión o completar formularios, esto último no ocurre en MBI ABOGADOS, S.L. porque no tenemos registro de usuarios, por lo tanto tampoco hay inicio de sesión de usuario, ni usamos formularios de recogida de datos).</p>
+                                <p>Estas cookies son necesarias para que la página Web funcione, por lo que no se pueden desactivar. Por lo general, solo se configuran en respuesta a sus acciones realizadas al solicitar servicios, como establecer sus preferencias de privacidad, iniciar sesión o completar formularios, esto último no ocurre en MBI ABOGADOS, S.L. porque no tenemos registro de usuarios, por lo tanto tampoco hay inicio de sesión de usuario, ni usamos formularios de recogida de datos)</p>
                                 <p><strong>Preferencias</strong></p>
                                 <p>Las cookies de preferencias permiten a la página Web recordar información que cambia la forma en que la página se comporta o el aspecto que tiene, como su idioma preferido o la región en la que usted se encuentra.</p>
                                 <p><strong>Estadística</strong></p>
                                 <p>Las cookies estadísticas ayudan a los propietarios de páginas Web a comprender cómo interactúan los visitantes con las páginas Web reuniendo y proporcionando información de forma anónima.</p>
                             </div>
-
-                            <div class="space-y-4">
-                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">¿Qué cookies utiliza MBI ABOGADOS, S.L.?</h2>
-                            </div>
-
-                            <div class="space-y-4">
-                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">Información detallada del tratamiento de los Datos Personales</h2>
-                                <p>Se recogen Datos Personales para las siguientes finalidades y utilizando los siguientes servicios:</p>
-                            </div>
-
-                            <div class="space-y-4">
-                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">Estadísticas</h2>
-                                <p>Los servicios contenidos en esta sección permiten al Titular monitorizar y analizar el tráfico web y pueden ser utilizados para rastrear el comportamiento del Usuario.</p>
-                                <p><strong>Google Analytics (Google Inc.)</strong></p>
-                                <p>Google Analytics es un servicio de análisis web prestado por Google Inc. (“Google”). Google utiliza los Datos recogidos para rastrear y examinar el uso de esta Página Web, para preparar informes de sus actividades y compartirlos con otros servicios de Google. Google puede utilizar los Datos recogidos para contextualizar y personalizar los anuncios de su propia red de publicidad.</p>
-                                <p>Datos Personales recogidos: Cookie y Datos de Uso.</p>
-                                <p>Lugar de tratamiento: EE.UU. – Política de privacidad (https://policies.google.com/privacy?hl=es) – Opt Out (https://tools.google.com/dlpage/gaoptout?hl=es)</p>
-                            </div>
-
-                            <div class="space-y-4">
-                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">Interacción con redes sociales y plataformas externas</h2>
-                                <p>Este tipo de servicios permiten interactuar con redes sociales u otras plataformas externas directamente desde las páginas de esta Página Web. Las interacciones y la información obtenida por esta Página Web siempre estarán sometidas a la configuración de privacidad del Usuario en cada red social. En caso de que se instale un servicio que permita interactuar con redes sociales, es posible que aunque los Usuarios no utilicen el servicio, éste recoja datos de tráfico web relativos a las páginas en las que estén instalados.</p>
-                                <p><strong>Botón Tweet y widgets sociales de X (X, Inc.)</strong></p>
-                                <p>El botón Tweet y los widgets sociales de Twitter son servicios de interacción con la red social X, prestados por X, Inc.</p>
-                                <p>Datos Personales recogidos: Cookie y Datos de uso.</p>
-                                <p>Lugar de tratamiento: EE.UU. – https://X.com/es/privacy</p>
-                                <p><strong>Botón y widgets sociales de Linkedin (LinkedIn Corporation)</strong></p>
-                                <p>El botón y los widgets sociales de LinkedIn son servicios de interacción con la red social Linkedin, prestados por LinkedIn Corporation.</p>
-                                <p>Datos Personales recogidos: Cookie y Datos de uso.</p>
-                                <p>Lugar de tratamiento: EE.UU. – https://www.linkedin.com/legal/privacy-policy</p>
-                            </div>
-
-                            <div class="space-y-4">
-                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">Visualizar contenidos de plataformas externas</h2>
-                                <p>Este tipo de servicios permiten visualizar contenidos alojados en plataformas externas directamente desde las páginas de esta Página Web e interactuar con estos. En caso de que se instale uno de estos servicios, es posible que aunque los Usuarios no utilicen el servicio, éste recoja datos de tráfico web relativos a las páginas en las que estén instalados.</p>
-                                <p><strong>Widget Vídeo YouTube (Google Inc.)</strong></p>
-                                <p>YouTube es un servicio de visualización de vídeo prestado por Google Inc. que permite a esta Página Web incorporar tales contenidos en las propias páginas.</p>
-                                <p>Datos Personales recogidos: Cookie y Datos de Uso.</p>
-                                <p>Lugar de tratamiento: EE.UU. – https://www.youtube.com/intl/ALL_es/howyoutubeworks/user-settings/privacy/</p>
-                                <p><strong>Whatsapp (Whatsapp, LLC)</strong></p>
-                                <p>Whatsapp es una aplicación de mensajería instantánea para teléfonos inteligentes.</p>
-                                <p>Datos Personales recogidos: se recaba el número de teléfono móvil, nombre de perfil y de forma opcional, foto de perfil y alguna información personal.</p>
-                                <p>Lugar del tratamiento: Estados Unidos – https://www.whatsapp.com/legal/privacy-policy/?lang=es</p>
-                                <p><strong>Widget Google Maps (Google Inc.)</strong></p>
-                                <p>Google Maps es un servicio de visualización de mapas prestado por Google Inc. que permite a esta Página Web incorporar tales contenidos en las propias páginas.</p>
-                                <p>Datos Personales recogidos: Cookie y Datos de Uso.</p>
-                                <p>Lugar de tratamiento: EE.UU. – https://policies.google.com/technologies/location-data?hl=en-US</p>
-                                <p><strong>Video Vimeo (Vimeo, LLC)</strong></p>
-                                <p>Vimeo es un servicio de visualización de contenido de vídeo operado por Vimeo, LLC que permite a esta aplicación integrar este contenido en sus propias páginas.</p>
-                                <p>Datos Personales recogidos: Cookies y Datos de uso.</p>
-                                <p>Lugar del tratamiento: Estados Unidos – https://vimeo.com/privacy</p>
-                            </div>
-
-                            <div class="space-y-4">
-                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">¿Cómo administrar las cookies?</h2>
-                                <p>El usuario tiene la opción de permitir, bloquear o eliminar las cookies instaladas en su dispositivo a través del panel de configuración.</p>
-                                <p>Además, el usuario tiene la opción de permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador instalado en su terminal. Para obtener más información, consulte las instrucciones y manuales de su navegador para ampliar esta información:</p>
-                                <p>Google Chrome: https://support.google.com/chrome/answer/95647?hl=es</p>
-                                <p>Mozilla Firefox: https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias?redirectslug=habilitar-y-deshabilitar-cookies-que-los-sitios-we&redirectlocale=es</p>
-                                <p>Internet Explorer: https://support.microsoft.com/es-es/topic/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d</p>
-                                <p>Safari: https://support.apple.com/es-es/guide/safari/sfri11471/mac</p>
-                                <p>Safari para IOS (iPhone y iPad): https://support.apple.com/es-es/HT201265</p>
-                                <p>Chrome para Android: https://support.google.com/chrome/answer/114662?hl=es&visit_id=637400243735165235-3593560368&rd=1</p>
-                                <p>No obstante, la inhabilitación de las cookies podría modificar el funcionamiento del sitio web. En caso de bloquear el uso de cookies en su navegador es posible que algunos servicios o funcionalidades del sitio web no estén disponibles.</p>
-                            </div>
-
-                            <div class="space-y-4">
-                                <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">Actualización de la política de cookies</h2>
-                                <p>En el caso de que las características o fines de uso de las cookies de esta página web sean modificadas, se le informará acerca de esos cambios con el fin de recabar nuevamente su consentimiento en aquellos casos en que fuese necesario.</p>
-                            </div>
                         </div>
-                    <?php endif; } ?>
+                    <?php endif; ?>
                 </div>
             </div>
         <?php endwhile; ?>
@@ -134,7 +98,7 @@ get_header();
         <section
         id="cookies"
         data-section="cookies"
-        class="py-16 lg:py-20 bg-white">
+        class="pb-16 lg:pb-20 bg-white">
         <div class="page-shell">
             <?php echo do_shortcode('[cookie_declaration]'); ?>
         </div>

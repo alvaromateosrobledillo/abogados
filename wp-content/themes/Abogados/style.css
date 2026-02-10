@@ -25,3 +25,132 @@ Text Domain: abogados
     color: #f6f5f0;
   }
 }
+
+@media (min-width: 1024px) {
+  .team-first-two {
+    flex-wrap: nowrap;
+  }
+
+  .team-first-two > article {
+    width: calc((100% - 2.5rem * 2) / 3);
+  }
+}
+
+body.page-template-page-politica-de-cookies main {
+  background-color: #ffffff;
+}
+
+body.page-template-page-politica-de-cookies main p,
+body.page-template-page-politica-de-cookies #CookieDeclaration,
+body.page-template-page-politica-de-cookies #CookieDeclaration p {
+  font-size: 18px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+@media (min-width: 640px) {
+  body.page-template-page-politica-de-cookies main p,
+  body.page-template-page-politica-de-cookies #CookieDeclaration,
+  body.page-template-page-politica-de-cookies #CookieDeclaration p {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 1024px) {
+  body.page-template-page-politica-de-cookies main p,
+  body.page-template-page-politica-de-cookies #CookieDeclaration,
+  body.page-template-page-politica-de-cookies #CookieDeclaration p {
+    font-size: 20px;
+  }
+}
+
+
+button.trajectory-button {
+  position: relative;
+  overflow: hidden;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 200ms ease,
+    background-color 200ms ease, color 200ms ease;
+}
+
+button.trajectory-button::after {
+  content: "";
+  position: absolute;
+  inset: -40% -30%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.55) 45%,
+    rgba(255, 255, 255, 0) 90%
+  );
+  transform: translateX(-60%);
+  opacity: 0;
+  transition: transform 360ms ease, opacity 200ms ease;
+  pointer-events: none;
+}
+
+button.trajectory-button .trajectory-button-label {
+  position: relative;
+  z-index: 1;
+}
+
+button.trajectory-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(20, 20, 20, 0.18);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-color: #8a9472;
+  color: #3f4a2a;
+}
+
+button.trajectory-button:hover::after {
+  transform: translateX(60%);
+  opacity: 0.9;
+}
+
+button.trajectory-button:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 8px 16px rgba(20, 20, 20, 0.2);
+}
+
+button.trajectory-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(138, 148, 114, 0.35), 0 14px 28px rgba(20, 20, 20, 0.18);
+}
+
+button.modal-close-button {
+  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease,
+    border-color 200ms ease, color 200ms ease;
+}
+
+button.modal-close-button .modal-close-icon {
+  display: inline-block;
+  transition: transform 220ms ease, color 200ms ease;
+}
+
+button.modal-close-button:hover {
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+  border-color: #b5baa6;
+}
+
+button.modal-close-button:hover .modal-close-icon {
+  transform: rotate(90deg);
+}
+
+button.modal-close-button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+button.modal-close-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(138, 148, 114, 0.35), 0 12px 26px rgba(0, 0, 0, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button.trajectory-button,
+  button.trajectory-button::after,
+  button.modal-close-button,
+  button.modal-close-button .modal-close-icon {
+    transition: none;
+    transform: none;
+  }
+}

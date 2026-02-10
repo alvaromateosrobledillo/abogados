@@ -35,6 +35,12 @@ add_filter('get_custom_logo', 'abogados_custom_logo_html');
 /**
  * Tracking scripts and external compliance tools.
  */
+if (!function_exists('abogados_get_cookiebot_id')) {
+    function abogados_get_cookiebot_id() {
+        return 'e53609b9-3b4b-400f-89e3-3089efb742ed';
+    }
+}
+
 function abogados_tracking_scripts() {
     $gtag_id = 'G-K7S4G4HM66';
 
@@ -51,40 +57,50 @@ function abogados_tracking_scripts() {
         "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{$gtag_id}');"
     );
 
-   /* wp_enqueue_script(
-        'abogados-usercentrics-ppg',
-        'https://policygenerator.usercentrics.eu/api/privacy-policy',
-        array(),
-        null,
-        false
-    );
-
-    wp_enqueue_script(
-        'abogados-cookiebot',
-        'https://consent.cookiebot.com/uc.js',
-        array(),
-        null,
-        false
-    );*/
+    $cookiebot_id = abogados_get_cookiebot_id();
+    if (!empty($cookiebot_id)) {
+        wp_enqueue_script(
+            'abogados-cookiebot',
+            'https://consent.cookiebot.com/uc.js',
+            array(),
+            null,
+            false
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'abogados_tracking_scripts', 5);
 
 /**
  * Add the required attributes for external scripts.
  */
-/* 
 function abogados_script_loader_tag($tag, $handle, $src) {
-    if ('abogados-usercentrics-ppg' === $handle) {
-        return '<script id="usercentrics-ppg" privacy-policy-id="ec1abe1b-17de-4a19-9b9a-98e6f1c952da" src="' . esc_url($src) . '"></script>';
+    if ('abogados-cookiebot' === $handle) {
+        $cookiebot_id = abogados_get_cookiebot_id();
+        if (!empty($cookiebot_id)) {
+            return '<script id="Cookiebot" src="' . esc_url($src) . '" data-cbid="' . esc_attr($cookiebot_id) . '" data-blockingmode="auto" type="text/javascript"></script>';
+        }
     }
 
-   if ('abogados-cookiebot' === $handle) {
-        return '<script id="Cookiebot" src="' . esc_url($src) . '" data-cbid="e53609b9-3b4b-400f-89e3-3089efb742ed" data-blockingmode="auto" type="text/javascript"></script>';
-    }
-
-    return $tag; 
+    return $tag;
 }
-add_filter('script_loader_tag', 'abogados_script_loader_tag', 10, 3); */
+add_filter('script_loader_tag', 'abogados_script_loader_tag', 10, 3);
+
+if (!function_exists('abogados_cookie_declaration_shortcode')) {
+    function abogados_cookie_declaration_shortcode() {
+        $cookiebot_id = abogados_get_cookiebot_id();
+        if (empty($cookiebot_id)) {
+            return '';
+        }
+
+        $src = 'https://consent.cookiebot.com/' . rawurlencode($cookiebot_id) . '/cd.js';
+
+        return '<script id="CookieDeclaration" src="' . esc_url($src) . '" type="text/javascript" async></script>';
+    }
+}
+
+if (function_exists('shortcode_exists') && !shortcode_exists('cookie_declaration')) {
+    add_shortcode('cookie_declaration', 'abogados_cookie_declaration_shortcode');
+}
 
 function abogados_assets() {
     wp_enqueue_style(
@@ -191,7 +207,8 @@ function abogados_nav_link_class($atts, $item, $args) {
         $atts['class'] = trim($existing . $args->link_class);
     }
 
-    if (isset($args->link_active_class) && in_array('current-menu-item', (array) $item->classes, true)) {
+    $has_hash = isset($item->url) && is_string($item->url) && strpos($item->url, '#') !== false;
+    if (isset($args->link_active_class) && in_array('current-menu-item', (array) $item->classes, true) && !$has_hash) {
         $atts['class'] = isset($atts['class']) ? $atts['class'] . ' ' . $args->link_active_class : $args->link_active_class;
     }
 

@@ -26,7 +26,9 @@
 
       <div class="page-shell">
         <div class="flex flex-wrap min-[1200px]:flex-nowrap items-center justify-between
-                  gap-4 md:gap-5 lg:gap-6 py-5">
+                  gap-4 md:gap-5 lg:gap-6 py-5
+                  [@media(min-width:1000px)_and_(max-width:1199px)]:gap-3
+                  [@media(min-width:1000px)_and_(max-width:1199px)]:py-4">
 
           <!-- LOGO -->
           <a href="<?php echo esc_url(home_url('/')); ?>"
@@ -34,12 +36,14 @@
             class="flex items-center gap-3 md:gap-4 flex-shrink-0
          -mx-4 sm:mx-0
          mt-0 sm:-mt-2
-         opacity-0 translate-y-2 transition-all duration-500">
+         opacity-0 translate-y-2 transition-all duration-500
+         [@media(min-width:1000px)_and_(max-width:1199px)]:gap-2">
 
 
             <?php if (has_custom_logo()) : ?>
               <span class="inline-flex items-center
                          [&_img]:h-12 md:[&_img]:h-[52px] lg:[&_img]:h-16
+                         [@media(min-width:1000px)_and_(max-width:1199px)]:[&_img]:h-[44px]
                          [&_img]:w-auto [&_img]:max-w-none">
                 <?php the_custom_logo(); ?>
               </span>
@@ -47,12 +51,17 @@
             <?php else : ?>
               <span class="leading-tight">
                 <span class="block text-[20px] sm:text-[21px] lg:text-[24px]
+                           [@media(min-width:1000px)_and_(max-width:1199px)]:text-[18px]
                            font-semibold tracking-[0.16em] sm:tracking-[0.18em]
+                           [@media(min-width:1000px)_and_(max-width:1199px)]:tracking-[0.14em]
                            uppercase text-[#58683d]">
                   MBI Abogados
                 </span>
                 <span class="block text-[13px] sm:text-[14px] lg:text-[15px]
-                           uppercase tracking-[0.22em] text-[#5d5f55]">
+                           [@media(min-width:1000px)_and_(max-width:1199px)]:text-[12px]
+                           uppercase tracking-[0.22em]
+                           [@media(min-width:1000px)_and_(max-width:1199px)]:tracking-[0.18em]
+                           text-[#5d5f55]">
                   Marín | Besada | Iglesias
                 </span>
               </span>
@@ -60,13 +69,16 @@
           </a>
 
           <!-- DERECHA -->
-          <div class="inline-flex items-center gap-3 md:gap-5 lg:gap-6 order-2">
+          <div class="inline-flex items-center gap-3 md:gap-5 lg:gap-6 order-2
+                      [@media(min-width:1000px)_and_(max-width:1199px)]:gap-3">
 
             <!-- Idiomas desktop -->
             <div data-header-item
               class="flex items-center gap-2
                       text-[14px] sm:text-[16px] min-[1200px]:text-[16px]
+                      [@media(min-width:1000px)_and_(max-width:1199px)]:text-[14px]
                       tracking-[0.18em] sm:tracking-[0.18em] min-[1200px]:tracking-[0.2em]
+                      [@media(min-width:1000px)_and_(max-width:1199px)]:tracking-[0.16em]
                       uppercase text-[#6b6e64]
                       opacity-0 translate-y-2 transition-all duration-500">
               <?php if (function_exists('pll_the_languages')) : ?>
@@ -125,6 +137,7 @@
               data-header-item
               class="menu-toggle inline-flex items-center justify-center w-11 h-11
                    min-[1200px]:hidden
+                   [@media(min-width:1000px)_and_(max-width:1199px)]:hidden
                    bg-white shadow-sm
                    hover:bg-[#f2f1ec]
                    focus:outline-none focus:ring-2 focus:ring-[#c7c1b1]
@@ -149,7 +162,14 @@
          min-[1200px]:order-1 min-[1200px]:flex-1
          min-[1200px]:justify-center
          opacity-0 translate-y-2 transition-all duration-500
-         min-[1200px]:opacity-100 min-[1200px]:translate-y-0">
+         min-[1200px]:opacity-100 min-[1200px]:translate-y-0
+         [@media(min-width:1000px)_and_(max-width:1199px)]:flex
+         [@media(min-width:1000px)_and_(max-width:1199px)]:w-auto
+         [@media(min-width:1000px)_and_(max-width:1199px)]:order-1
+         [@media(min-width:1000px)_and_(max-width:1199px)]:flex-1
+         [@media(min-width:1000px)_and_(max-width:1199px)]:justify-center
+         [@media(min-width:1000px)_and_(max-width:1199px)]:opacity-100
+         [@media(min-width:1000px)_and_(max-width:1199px)]:translate-y-0">
 
             <?php
             wp_nav_menu([
@@ -158,6 +178,14 @@
               'fallback_cb'    => false,
               'menu_class'     => 'font-light flex flex-col p-4 mt-4 
                                  border-t border-[#e2dfd5] text-[18px] tracking-[0.12em]
+                                 [@media(min-width:1000px)_and_(max-width:1199px)]:mt-0
+                                 [@media(min-width:1000px)_and_(max-width:1199px)]:flex-row
+                                 [@media(min-width:1000px)_and_(max-width:1199px)]:items-center
+                                 [@media(min-width:1000px)_and_(max-width:1199px)]:space-x-6
+                                 [@media(min-width:1000px)_and_(max-width:1199px)]:p-0
+                                 [@media(min-width:1000px)_and_(max-width:1199px)]:border-0
+                                 [@media(min-width:1000px)_and_(max-width:1199px)]:tracking-[0.06em]
+                                 [@media(min-width:1000px)_and_(max-width:1199px)]:text-[16px]
                                  min-[1200px]:mt-0 min-[1200px]:flex-row
                                  min-[1200px]:items-center min-[1200px]:space-x-10
                                  min-[1200px]:p-0 min-[1200px]:border-0
@@ -170,6 +198,10 @@
                                  after:-bottom-1 after:h-px after:bg-[#58683d]
                                  after:opacity-0 after:transition-opacity
                                  hover:after:opacity-100
+                                 [@media(min-width:1000px)_and_(max-width:1199px)]:px-2
+                                 [@media(min-width:1000px)_and_(max-width:1199px)]:py-0
+                                 [@media(min-width:1000px)_and_(max-width:1199px)]:after:left-0
+                                 [@media(min-width:1000px)_and_(max-width:1199px)]:after:right-0
                                  min-[1200px]:px-4 min-[1200px]:py-0
                                  min-[1200px]:after:left-0 min-[1200px]:after:right-0',
               'link_active_class' => 'text-[#58683d] after:opacity-100',
