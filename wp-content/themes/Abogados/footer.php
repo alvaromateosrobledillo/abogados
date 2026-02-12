@@ -117,15 +117,15 @@ $cookies_url = $cookies_page ? get_permalink($cookies_page) : '#';
                     <?php echo esc_html(nd_translate('Contacto', 'Contact')); ?>
                 </h4>
 
-                <ul class="space-y-3 text-[clamp(13px,1.3vw,18px)]
+                <ul class="space-y-1 text-[clamp(13px,1.3vw,18px)]
                            leading-[1.2] text-[#989a9c]">
                     <li><?php echo esc_html(nd_translate('Calle Recoletos 19', 'Calle Recoletos 19')); ?></li>
                     <li><?php echo esc_html(nd_translate('1º planta', '1st floor')); ?></li>
                     <li><?php echo esc_html(nd_translate('28001 Madrid, España', '28001 Madrid, Spain')); ?></li>
                     <li>
                         <a class="hover:text-white transition-colors duration-300"
-                           href="tel:+34912345678">
-                            +34 91 840 37 79
+                           href="tel:+34918403979">
+                            +34 91 840 39 79
                         </a>
                     </li>
                     <li>

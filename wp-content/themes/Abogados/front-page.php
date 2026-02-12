@@ -62,7 +62,7 @@
             <?php if ($pretitle = get_field('hero_pretitle')) : ?>
                 <p data-hero-item
                     class="uppercase tracking-[0.2em]
-                text-[clamp(14px,3.2vw,16px)] sm:text-[clamp(14px,1.4vw,38px)]
+                sm:text-[clamp(18px,2.4vw,38px)]  text-[clamp(14px,3.2vw,16px)]
                 leading-[1.1]
                 font-medium text-white/95
                 opacity-0 translate-y-3 transition-all duration-700">
@@ -99,7 +99,7 @@
             <p data-hero-item
                 class="mt-3 sm:mt-2 max-w-xl sm:max-w-4xl
    text-[clamp(17px,4vw,19px)] sm:text-[clamp(19px,1.6vw,24px)]
-   leading-[1.45] sm:leading-[1.3]
+   leading-[1.25] sm:leading-[1.3]
    text-white/95
    opacity-0 translate-y-3 transition-all duration-700">
                 Una boutique legal con alta especializaci&#243;n.
@@ -107,7 +107,7 @@
             <p data-hero-item
                 class="mt-2 sm:mt-1 max-w-xl sm:max-w-4xl
    text-[clamp(17px,4vw,19px)] sm:text-[clamp(19px,1.6vw,24px)]
-   leading-[1.45] sm:leading-[1.3]
+   leading-[1.25] sm:leading-[1.3]
    text-white/95
    opacity-0 translate-y-3 transition-all duration-700">
                 Una visi&#243;n compartida: hacer las cosas bien, con cercan&#237;a, experiencia y compromiso.
@@ -321,7 +321,7 @@
                         <?php echo esc_html(nd_translate('Perfil de los Socios de MBI Abogados', 'MBI Abogados Partner Profiles')); ?>
                     </h2>
                     <span class="block h-px w-16 bg-[#859263]"></span>
-                    <p class="text-[clamp(15px,1.4vw,20px)] leading-[1.2]">
+                    <p class="text-[clamp(15px,1.4vw,20px)] leading-[1.2] text-justify">
                         <?php echo esc_html(nd_translate(
                             'MBI Abogados está liderado por tres socios con trayectorias complementarias y una sólida reputación en el ejercicio jurídico. Su experiencia combinada en litigación, arbitraje, derecho civil, penal y mercantil, urbanismo y asesoramiento estratégico conforma un despacho orientado a la excelencia técnica y a la obtención de resultados.',
                             'MBI Abogados is led by three partners with complementary trajectories and a solid reputation in legal practice. Their combined experience in litigation, arbitration, civil, criminal, and commercial law, urban planning, and strategic advisory services shapes a firm oriented toward technical excellence and results.'
@@ -334,7 +334,7 @@
                         <h3 class="text-[clamp(18px,1.8vw,26px)] leading-[1.25] font-normal text-[#58683d]">
                             <?php echo esc_html(nd_translate('Fernando Marín Riaño – Socio Fundador', 'Fernando Marín Riaño – Founding Partner')); ?>
                         </h3>
-                        <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.2] text-[#3d3f36]">
+                        <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.2] text-[#3d3f36] text-justify">
                             <p>
                                 <?php echo esc_html(nd_translate(
                                     'Jurista de referencia con más de treinta años de experiencia, Fernando destaca por su solvencia técnica y su capacidad para abordar asuntos de alta complejidad jurídica. Especialista en litigación, arbitraje y asesoramiento estratégico, aporta un profundo conocimiento del derecho civil, mercantil, contencioso‑administrativo e inmobiliario.',
@@ -354,7 +354,7 @@
                         <h3 class="text-[clamp(18px,1.8vw,26px)] leading-[1.25] font-normal text-[#58683d]">
                             <?php echo esc_html(nd_translate('Mónica Iglesias Sánchez – Socia Fundadora', 'Mónica Iglesias Sánchez – Founding Partner')); ?>
                         </h3>
-                        <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36]">
+                        <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36] text-justify">
                             <p>
                                 <?php echo esc_html(nd_translate(
                                     'Abogada con más de tres décadas de trayectoria, Mónica está especializada en litigación civil y mercantil, arbitraje y derecho concursal. Licenciada en Derecho por la Universidad San Pablo CEU y con formación de posgrado en Derecho Comunitario y Tributación, combina un sólido dominio técnico con una gran capacidad estratégica.',
@@ -374,7 +374,7 @@
                         <h3 class="text-[clamp(18px,1.8vw,26px)] leading-[1.25] font-normal text-[#58683d]">
                             <?php echo esc_html(nd_translate('Enrique J. Besada Ferreiro – Socio Fundador', 'Enrique J. Besada Ferreiro – Founding Partner')); ?>
                         </h3>
-                        <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36]">
+                        <div class="mt-3 space-y-3 text-[clamp(15px,1.4vw,20px)] leading-[1.6] text-[#3d3f36] text-justify">
                             <p>
                                 <?php echo esc_html(nd_translate(
                                     'Especializado en litigación, derecho inmobiliario y urbanismo. Enrique cuenta con una amplia experiencia tanto en la administración pública como en el sector privado. Su trayectoria incluye la dirección de procedimientos urbanísticos, litigios civiles, mercantiles y en el ámbito contencioso administrativo, así como el asesoramiento integral en operaciones inmobiliarias y procesos de desarrollo urbanístico.',
@@ -519,7 +519,7 @@
     </section>
 
     <section id="equipo" data-section="team" class="bg-white">
-        <div class="w-full pt-20 pb-16 lg:pt-24 lg:pb-24 space-y-12 sm:space-y-16 px-6 sm:px-10 lg:px-12">
+        <div class="w-full pt-20 pb-16 lg:pt-24 lg:pb-24 space-y-8 sm:space-y-10 px-6 sm:px-10 lg:px-12">
 
             <!-- ===== SOCIOS ===== -->
             <?php
@@ -562,21 +562,21 @@
             if (!empty($partners_to_show)) :
             ?>
 
-                <div class="grid w-full grid-cols-1 gap-12 lg:gap-16">
+                <div class="grid w-full grid-cols-1 gap-6 lg:gap-8">
                     <div data-team-title class="max-w-2xl space-y-4 opacity-0 translate-y-6 transition-all duration-500 text-center mx-auto">
-                        <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)] leading-[1.4] font-normal text-[#7a8464]">
-                            <?php echo esc_html(nd_translate('Socios fundadores', 'Founding partners')); ?>
+                        <p class="uppercase tracking-[0.16em] text-[clamp(15px,1.5vw,22px)] leading-[1.4] font-normal text-[#7a8464]">
+                            <?php echo esc_html(nd_translate('Equipo', 'Team')); ?>
                         </p>
                         <h2 class="text-[clamp(26px,2.8vw,48px)] leading-[1.1] tracking-[-0.01em] font-normal text-[#34362f]">
-                            <?php echo esc_html(nd_translate('Dirección estratégica del despacho', 'Strategic leadership of the firm')); ?>
+                            <?php echo esc_html(nd_translate('Talento que acompaña cada asunto', 'Talent that supports every matter')); ?>
                         </h2>
                         <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] text-[#5b5d55]">
-                            <?php echo esc_html(nd_translate('Experiencia, visión y cercanía en cada caso.', 'Experience, vision, and closeness in every case.')); ?>
+                            <?php echo esc_html(nd_translate('Un equipo multidisciplinar con rigor, cercanía y dedicación.', 'A multidisciplinary team with rigor, closeness, and dedication.')); ?>
                         </p>
                     </div>
 
                     <div class="w-full">
-                        <div class="relative z-0 grid w-full grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-[repeat(3,220px)] md:justify-center lg:grid-cols-[repeat(3,210px)]">
+                        <div class="relative z-0 grid w-full grid-cols-1 gap-x-7 gap-y-5 sm:grid-cols-2 md:grid-cols-[repeat(3,250px)] md:justify-center lg:grid-cols-[repeat(3,260px)]">
                             <?php $i = 0;
                             foreach ($partners_to_show as $row) :
                                 $i++;
@@ -591,7 +591,7 @@
                                     data-team-card
                                     class="group text-left opacity-0 translate-y-8 transition-all duration-500">
                                     <?php if ($image) : ?>
-                                        <div class="relative mx-auto w-full max-w-[300px] md:max-w-[220px] lg:max-w-[210px] xl:max-w-[300px] overflow-hidden outline outline-1 outline-[#e6e2d8] aspect-[4/5]">
+                                        <div class="relative mx-auto w-full max-w-[310px] md:max-w-[250px] lg:max-w-[260px] xl:max-w-[340px] overflow-hidden outline outline-1 outline-[#e6e2d8] aspect-[3/4]">
                                             <img
                                                 data-modal="partner-modal-<?php echo $i; ?>"
                                                 class="absolute inset-0 h-full w-full object-cover shadow-none transition duration-500 group-hover:scale-[1.02] cursor-pointer"
@@ -600,10 +600,10 @@
                                             <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent"></div>
                                             <div data-team-card-body class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 pb-16">
                                                 <div class="transition-transform duration-300 ease-out sm:group-hover:-translate-y-10">
-                                                    <h3 class="text-[clamp(16px,1.6vw,22px)] leading-[1.2] font-medium text-[#d6dcc2]">
+                                <h3 class="text-[clamp(13px,1.4vw,20px)] leading-[1.15] font-medium text-[#d6dcc2]">
                                                         <?php echo esc_html($name); ?>
                                                     </h3>
-                                                    <p class="mt-1 text-[clamp(11px,1vw,14px)] uppercase tracking-[0.2em] text-white/85">
+                                <p class="mt-1 text-[clamp(9px,0.85vw,12px)] uppercase tracking-[0.18em] text-white/85">
                                                         <?php echo esc_html($role_output); ?>
                                                     </p>
                                                 </div>
@@ -665,6 +665,7 @@
                             'pablo' => 'https://www.linkedin.com/in/pablo-epalza-arnedo/',
                             'cristina' => 'https://www.linkedin.com/in/garciamenendezcristina/',
                             'rosa' => 'https://www.linkedin.com/in/rosa-munguira-b73479161/',
+                            'sara' => 'https://www.linkedin.com/in/sara-valero-mariscal-b0440b1b7',
                         ];
                         foreach ($manual_linkedin_map as $needle => $url) {
                             if (strpos($name_slug, $needle) !== false) {
@@ -817,23 +818,12 @@
             if (!empty($team_all)) :
             ?>
 
-                <div class="grid w-full grid-cols-1 gap-12 lg:gap-16">
-                    <div data-team-title class="max-w-2xl space-y-4 opacity-0 translate-y-6 transition-all duration-500 text-center mx-auto">
-                        <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)] leading-[1.4] font-normal text-[#7a8464]">
-                            <?php echo esc_html(nd_translate('Equipo', 'Team')); ?>
-                        </p>
-                        <h2 class="text-[clamp(26px,2.8vw,48px)] leading-[1.1] tracking-[-0.01em] font-normal text-[#34362f]">
-                            <?php echo esc_html(nd_translate('Talento que acompaña cada asunto', 'Talent that supports every matter')); ?>
-                        </h2>
-                        <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] text-[#5b5d55]">
-                            <?php echo esc_html(nd_translate('Un equipo multidisciplinar con rigor, cercanía y dedicación.', 'A multidisciplinary team with rigor, closeness, and dedication.')); ?>
-                        </p>
-                    </div>
+                <div class="grid w-full grid-cols-1 gap-6 lg:gap-8">
 
                     <div class="w-full space-y-10">
                         <!-- ================= NIVEL SUPERIOR ================= -->
                         <?php if (!empty($team_groups['first'])) : ?>
-                            <div class="grid w-full grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-[repeat(2,220px)] md:justify-center lg:grid-cols-[repeat(2,210px)]">
+                            <div class="grid w-full grid-cols-1 gap-x-7 gap-y-5 sm:grid-cols-2 md:grid-cols-[repeat(2,250px)] md:justify-center lg:grid-cols-[repeat(2,260px)]">
                                 <?php foreach ($team_groups['first'] as $row) :
                                     $name = $row['name'] ?? '';
                                     $role = $row['role'] ?? '';
@@ -845,7 +835,7 @@
                                         data-team-card
                                         class="group text-left opacity-0 translate-y-8 transition-all duration-500 w-full lg:max-w-[280px] lg:mx-auto">
                                         <?php if ($image) : ?>
-                                        <div class="relative mx-auto w-full max-w-[300px] md:max-w-[220px] lg:max-w-[210px] xl:max-w-[300px] overflow-hidden outline outline-1 outline-[#e6e2d8] aspect-[4/5]">
+                                        <div class="relative mx-auto w-full max-w-[310px] md:max-w-[250px] lg:max-w-[260px] xl:max-w-[340px] overflow-hidden outline outline-1 outline-[#e6e2d8] aspect-[3/4]">
                                             <img
                                                 data-modal="team-modal-<?php echo $modal_id; ?>"
                                                 class="absolute inset-0 h-full w-full object-cover shadow-none transition duration-500 group-hover:scale-[1.02] cursor-pointer"
@@ -854,10 +844,10 @@
                                             <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent"></div>
                                                 <div data-team-card-body class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 pb-16">
                                                     <div class="transition-transform duration-300 ease-out sm:group-hover:-translate-y-10">
-                                                        <h3 class="text-[clamp(16px,1.6vw,22px)] leading-[1.2] font-medium text-[#d6dcc2]">
+                                                        <h3 class="text-[clamp(13px,1.4vw,20px)] leading-[1.15] font-medium text-[#d6dcc2]">
                                                             <?php echo esc_html($name); ?>
                                                         </h3>
-                                                        <p class="mt-1 text-[clamp(11px,1vw,14px)] uppercase tracking-[0.2em] text-white/85">
+                                                        <p class="mt-1 text-[clamp(9px,0.85vw,12px)] uppercase tracking-[0.18em] text-white/85">
                                                             <?php echo esc_html($role_output); ?>
                                                         </p>
                                                     </div>
@@ -880,13 +870,13 @@
                         <?php if (!empty($team_groups['second'])) : ?>
                             <?php
                             $second_group_count = count($team_groups['second']);
-                            $second_group_grid_class = 'grid gap-x-4 gap-y-8 w-full md:justify-center';
+                            $second_group_grid_class = 'grid gap-x-7 gap-y-5 w-full md:justify-center';
                             if ($second_group_count <= 1) {
-                                $second_group_grid_class .= ' sm:grid-cols-1 md:grid-cols-[repeat(1,220px)] lg:grid-cols-[repeat(1,210px)]';
+                                $second_group_grid_class .= ' sm:grid-cols-1 md:grid-cols-[repeat(1,250px)] lg:grid-cols-[repeat(1,260px)]';
                             } elseif ($second_group_count === 2) {
-                                $second_group_grid_class .= ' sm:grid-cols-2 md:grid-cols-[repeat(2,220px)] lg:grid-cols-[repeat(2,210px)]';
+                                $second_group_grid_class .= ' sm:grid-cols-2 md:grid-cols-[repeat(2,250px)] lg:grid-cols-[repeat(2,260px)]';
                             } else {
-                                $second_group_grid_class .= ' sm:grid-cols-2 md:grid-cols-[repeat(3,220px)] lg:grid-cols-[repeat(3,210px)]';
+                                $second_group_grid_class .= ' sm:grid-cols-2 md:grid-cols-[repeat(3,250px)] lg:grid-cols-[repeat(3,260px)]';
                             }
                             ?>
                             <div class="<?php echo esc_attr($second_group_grid_class); ?>">
@@ -901,7 +891,7 @@
                                         data-team-card
                                         class="group text-left opacity-0 translate-y-8 transition-all duration-500 w-full">
                                         <?php if ($image) : ?>
-                                        <div class="relative mx-auto w-full max-w-[300px] md:max-w-[220px] lg:max-w-[210px] xl:max-w-[300px] overflow-hidden outline outline-1 outline-[#e6e2d8] aspect-[4/5]">
+                                        <div class="relative mx-auto w-full max-w-[310px] md:max-w-[250px] lg:max-w-[260px] xl:max-w-[340px] overflow-hidden outline outline-1 outline-[#e6e2d8] aspect-[3/4]">
                                             <img
                                                 data-modal="team-modal-<?php echo $modal_id; ?>"
                                                 class="absolute inset-0 h-full w-full object-cover shadow-none transition duration-500 group-hover:scale-[1.02] cursor-pointer"
@@ -910,10 +900,10 @@
                                             <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent"></div>
                                                 <div data-team-card-body class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 pb-16">
                                                     <div class="transition-transform duration-300 ease-out sm:group-hover:-translate-y-10">
-                                                        <h3 class="text-[clamp(16px,1.6vw,22px)] leading-[1.2] font-medium text-[#d6dcc2]">
+                                                        <h3 class="text-[clamp(13px,1.4vw,20px)] leading-[1.15] font-medium text-[#d6dcc2]">
                                                             <?php echo esc_html($name); ?>
                                                         </h3>
-                                                        <p class="mt-1 text-[clamp(11px,1vw,14px)] uppercase tracking-[0.2em] text-white/85">
+                                                        <p class="mt-1 text-[clamp(9px,0.85vw,12px)] uppercase tracking-[0.18em] text-white/85">
                                                             <?php echo esc_html($role_output); ?>
                                                         </p>
                                                     </div>
@@ -975,6 +965,7 @@
                             'pablo' => 'https://www.linkedin.com/in/pablo-epalza-arnedo/',
                             'cristina' => 'https://www.linkedin.com/in/garciamenendezcristina/',
                             'rosa' => 'https://www.linkedin.com/in/rosa-munguira-b73479161/',
+                            'sara' => 'https://www.linkedin.com/in/sara-valero-mariscal-b0440b1b7',
                         ];
                         foreach ($manual_linkedin_map as $needle => $url) {
                             if (strpos($name_slug, $needle) !== false) {
@@ -1194,14 +1185,14 @@
 
 
                     <div
-                        class="mt-8 overflow-hidden border border-[#e1dfd5] bg-white
+                        class="mt-12 overflow-hidden border border-[#e1dfd5] bg-white
                            shadow-[0_12px_26px_rgba(0,0,0,0.08)]
                            opacity-0 scale-[0.96] transition-all duration-700"
                         data-services-image>
 
                         <img
                             class="h-[240px] w-full object-cover sm:h-[300px] lg:h-[360px]"
-                            src="<?php echo get_template_directory_uri(); ?>/assets/img/madrid.png"
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png"
                             alt="<?php echo esc_attr(nd_translate('Vista urbana de Madrid', 'Madrid city skyline')); ?>">
                     </div>
                 </div>
@@ -1421,14 +1412,6 @@
                     <?php echo esc_html(nd_translate('Estamos cerca', 'We are nearby')); ?>
                 </h2>
 
-                <span
-                    data-contact-line
-                    class="inline-block h-px w-16 bg-[#859263]
-               opacity-0 scale-x-0 origin-center transition-all duration-700"></span>
-
-                <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] font-light">
-                    <?php echo esc_html(nd_translate('Cada cliente importa. Cada caso merece una respuesta a su medida.', 'Every client matters. Every case deserves a tailored response.')); ?>
-                </p>
             </div>
 
             <div class="grid md:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-start">
@@ -1470,9 +1453,9 @@
                             <div class="space-y-2">
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Teléfono', 'Phone')); ?></p>
                                 <a
-                                    href="tel:+34918403779"
+                                    href="tel:+34918403979"
                                     class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] hover:text-[#58683d] transition">
-                                    +34 91 840 37 79
+                                    +34 91 840 39 79
                                 </a>
                             </div>
                         </div>
