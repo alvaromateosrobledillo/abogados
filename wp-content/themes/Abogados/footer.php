@@ -31,7 +31,7 @@ $cookies_url = $cookies_page ? get_permalink($cookies_page) : '#';
                 <p class="text-[clamp(13px,1.5vw,20px)] leading-[1.25] text-[#d4d4c9]">
                     <?php echo esc_html(nd_translate(
                         'La experiencia que orienta. El criterio que inspira confianza.',
-                        'Experience that guides. The judgment that inspires trust.'
+                        'Know how that guides and inspires. Judgement and standards that inspire confidence.'
                     )); ?>
                 </p>
 
@@ -66,7 +66,7 @@ $cookies_url = $cookies_page ? get_permalink($cookies_page) : '#';
                 <h4 class="text-[clamp(14px,1.4vw,18px)]
                            uppercase tracking-[0.2em] leading-[1.4]
                            text-white mb-4">
-                    <?php echo esc_html(nd_translate('Enlaces', 'Links')); ?>
+                    <?php echo esc_html(nd_translate('Enlaces', 'LINKS')); ?>
                 </h4>
 
                 <!-- 2 COLUMNAS SOLO EN MÓVIL -->
@@ -78,28 +78,28 @@ $cookies_url = $cookies_page ? get_permalink($cookies_page) : '#';
                     <li>
                         <a class="hover:text-white transition-colors duration-300"
                            href="<?php echo esc_url(home_url('/#hero')); ?>">
-                            <?php echo esc_html(nd_translate('Inicio', 'Home')); ?>
+                            <?php echo esc_html(nd_translate('Inicio', 'START')); ?>
                         </a>
                     </li>
 
                     <li>
                         <a class="hover:text-white transition-colors duration-300"
                            href="<?php echo esc_url(home_url('/#quienes-somos')); ?>">
-                            <?php echo esc_html(nd_translate('Quiénes Somos', 'About Us')); ?>
+                            <?php echo esc_html(nd_translate('Quiénes Somos', 'WHO WE ARE')); ?>
                         </a>
                     </li>
 
                     <li>
                         <a class="hover:text-white transition-colors duration-300"
                            href="<?php echo esc_url(home_url('/#servicios')); ?>">
-                            <?php echo esc_html(nd_translate('Servicios', 'Services')); ?>
+                            <?php echo esc_html(nd_translate('Servicios', 'SERVICES')); ?>
                         </a>
                     </li>
 
                     <li>
                         <a class="hover:text-white transition-colors duration-300"
                            href="<?php echo esc_url(home_url('/#contacto')); ?>">
-                            <?php echo esc_html(nd_translate('Contacto', 'Contact')); ?>
+                            <?php echo esc_html(nd_translate('Contacto', 'CONTACT')); ?>
                         </a>
                     </li>
                 </ul>
@@ -114,7 +114,7 @@ $cookies_url = $cookies_page ? get_permalink($cookies_page) : '#';
                 <h4 class="text-[clamp(11px,1.1vw,17px)]
                            uppercase tracking-[0.2em] leading-[1.2]
                            text-white mb-4">
-                    <?php echo esc_html(nd_translate('Contacto', 'Contact')); ?>
+                    <?php echo esc_html(nd_translate('Contacto', 'CONTACT')); ?>
                 </h4>
 
                 <ul class="space-y-1 text-[clamp(13px,1.3vw,18px)]

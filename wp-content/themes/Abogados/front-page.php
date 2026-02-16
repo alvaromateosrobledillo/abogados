@@ -102,15 +102,21 @@
    leading-[1.25] sm:leading-[1.3]
    text-white/95
    opacity-0 translate-y-3 transition-all duration-700">
-                Una boutique legal con alta especializaci&#243;n.
+                <?php echo esc_html(nd_translate(
+                    'Una boutique legal con alta especialización.',
+                    'A highly specialised boutique law firm.'
+                )); ?>
             </p>
             <p data-hero-item
-                class="mt-2 sm:mt-1 max-w-xl sm:max-w-4xl
+                class=" sm:mt-1 max-w-xl sm:max-w-4xl
    text-[clamp(17px,4vw,19px)] sm:text-[clamp(19px,1.6vw,24px)]
    leading-[1.25] sm:leading-[1.3]
    text-white/95
    opacity-0 translate-y-3 transition-all duration-700">
-                Una visi&#243;n compartida: hacer las cosas bien, con cercan&#237;a, experiencia y compromiso.
+                <?php echo esc_html(nd_translate(
+                    'Una visión compartida: hacer las cosas bien, con cercanía, experiencia y compromiso.',
+                    'A shared vision: to carry out our work commitments properly, liaising with our clients, using and relying on our experience and determination to full effect.'
+                )); ?>
             </p>
 
             <!-- CTAs -->
@@ -430,7 +436,7 @@
                     class="uppercase tracking-[0.2em]  text-[clamp(15px,1.5vw,22px)] leading-[1.4]
                font-normal text-white
                opacity-0 translate-y-4 transition-all duration-500">
-                    <?php echo esc_html($pre); ?>
+                    <?php echo esc_html(nd_translate($pre, 'OUR COMMITMENT TO YOU')); ?>
                 </p>
             <?php endif; ?>
 
@@ -440,7 +446,7 @@
                     class="mt-6 text-[clamp(22px,2.4vw,40px)]
                leading-[1.1] tracking-[-0.01em] font-normal text-white
                opacity-0 translate-y-4 transition-all duration-500">
-                    <?php echo esc_html($title); ?>
+                    <?php echo esc_html(nd_translate($title, 'The ability to listen before reaching a conclusion.')); ?>
                 </h2>
             <?php endif; ?>
 
@@ -450,7 +456,7 @@
                     class="text-[clamp(24px,2.6vw,46px)]
                leading-[1.2] tracking-[-0.01em] italic font-normal text-[#859263]
                opacity-0 translate-y-4 transition-all duration-500">
-                    <?php echo esc_html($subtitle); ?>
+                    <?php echo esc_html(nd_translate($subtitle, "Our aim to enhance and maximise our client's options.")); ?>
                 </h3>
             <?php endif; ?>
 
@@ -467,7 +473,10 @@
                text-[clamp(17px,1.8vw,26px)] leading-[1.25] [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25]
                [&_p]:mb-6
                opacity-0 translate-y-6 transition-all duration-500">
-                    <?php echo wp_kses_post($text1); ?>
+                    <?php echo wp_kses_post(nd_translate(
+                        $text1,
+                        '<p>As a boutique firm with a global outlook, we (always) strive for results that will serve our clients not only now but in the long term.</p>'
+                    )); ?>
                 </div>
             <?php endif; ?>
 
@@ -489,25 +498,25 @@
 
                 <?php
                 $boxes = [
-                    ['user.svg', nd_translate('Trato directo con socios', 'Direct access to the partners'), 'lg:col-span-2'],
-                    ['lenguaje.svg', nd_translate('Lenguaje claro y accesible', 'Clear, accessible language'), 'lg:col-span-2'],
-                    ['especiali.svg', nd_translate('Alta especialización', 'High specialization'), 'lg:col-span-2'],
-                    ['compromiso.svg', nd_translate('Compromiso firme con cada cliente', 'Firm commitment to each client'), 'lg:col-span-3'],
-                    ['agilidad.svg', nd_translate('Agilidad y estrategia', 'Agility and strategy'), 'lg:col-span-3'],
+                    ['user.svg', nd_translate('Trato directo con socios', 'Dealing directly with equity partners'), 'lg:col-span-2'],
+                    ['lenguaje.svg', nd_translate('Lenguaje claro y accesible', 'Clear easy to understand language'), 'lg:col-span-2'],
+                    ['especiali.svg', nd_translate('Alta especialización', 'High level of expertise'), 'lg:col-span-2'],
+                    ['compromiso.svg', nd_translate('Compromiso firme con cada cliente', 'Firm commitment to each and every client'), 'lg:col-span-3'],
+                    ['agilidad.svg', nd_translate('Agilidad y estrategia', 'Agility/Flexibility and the ability to adopt the right strategy'), 'lg:col-span-3'],
                 ];
                 ?>
 
                 <?php foreach ($boxes as $i => [$icon, $text, $span]) : ?>
                     <div
                         data-commitment-box
-                        class="flex items-center justify-center gap-2 border border-[#D1D4D6]
+                        class="flex items-center justify-center gap-3 border border-[#D1D4D6]
                  px-4 sm:px-6 lg:px-8
                  py-3 sm:py-4 text-[clamp(15px,1.75vw,24px)] leading-[1.25]
                  font-normal text-white text-center min-h-[64px]
                  <?php echo $span; ?>
                  opacity-0 translate-y-6 transition-all duration-500">
 
-                        <img class="h-4 w-4 shrink-0"
+                        <img class="h-5 w-5 sm:h-6 sm:w-6 shrink-0 opacity-90 -translate-y-px"
                             src="<?php echo get_template_directory_uri(); ?>/assets/img/<?php echo $icon; ?>"
                             alt="" aria-hidden="true">
                         <?php echo $text; ?>
@@ -612,7 +621,7 @@
                                                     data-modal="partner-modal-<?php echo $i; ?>"
                                                     data-team-button
                                                     class="absolute left-4 bottom-4 sm:left-5 sm:bottom-5 inline-flex items-center border border-white/50 bg-white/10 px-4 py-1.5 text-[12px] font-normal text-white/90 shadow-none sm:shadow-[0_8px_22px_rgba(0,0,0,0.35)] sm:hover:shadow-none backdrop-blur-sm transition-all duration-300 ease-out hover:bg-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 opacity-0 translate-y-4 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 sm:text-[13px]">
-                                                    <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
+                                                    <?php echo esc_html(nd_translate('Conoce más', 'More information')); ?>
                                                 </button>
                                             </div>
                                         </div>
@@ -856,7 +865,7 @@
                                                         data-modal="team-modal-<?php echo $modal_id; ?>"
                                                         data-team-button
                                                     class="absolute left-4 bottom-4 sm:left-5 sm:bottom-5 inline-flex items-center border border-white/50 bg-white/10 px-4 py-1.5 text-[12px] font-normal text-white/90 shadow-none sm:shadow-[0_8px_22px_rgba(0,0,0,0.35)] sm:hover:shadow-none backdrop-blur-sm transition-all duration-300 ease-out hover:bg-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 opacity-0 translate-y-4 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 sm:text-[13px]">
-                                                        <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
+                                                        <?php echo esc_html(nd_translate('Conoce más', 'More information')); ?>
                                                     </button>
                                                 </div>
                                             </div>
@@ -912,7 +921,7 @@
                                                         data-modal="team-modal-<?php echo $modal_id; ?>"
                                                         data-team-button
                                                     class="absolute left-4 bottom-4 sm:left-5 sm:bottom-5 inline-flex items-center border border-white/50 bg-white/10 px-4 py-1.5 text-[12px] font-normal text-white/90 shadow-none sm:shadow-[0_8px_22px_rgba(0,0,0,0.35)] sm:hover:shadow-none backdrop-blur-sm transition-all duration-300 ease-out hover:bg-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 opacity-0 translate-y-4 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 sm:text-[13px]">
-                                                        <?php echo esc_html(nd_translate('Conoce más', 'Learn more')); ?>
+                                                        <?php echo esc_html(nd_translate('Conoce más', 'More information')); ?>
                                                     </button>
                                                 </div>
                                             </div>
@@ -1122,7 +1131,7 @@
                        text-[clamp(17px,1.5vw,22px)] leading-[1.25]
                        text-white/90 font-normal
                        opacity-0 translate-y-4 transition-all duration-700">
-                    <?php echo esc_html(nd_translate('Lo esencial bien hecho. Lo complejo bien pensado.', 'The essentials done right. The complex well thought out.')); ?>
+                    <?php echo esc_html(nd_translate('Lo esencial bien hecho. Lo complejo bien pensado.', ' With the essential done properly and professionally we will reach the right solution, however complex.')); ?>
                 </p>
 
                 <a
@@ -1134,7 +1143,7 @@
                        shadow-[0_16px_36px_rgba(0,0,0,0.38)]
                        hover:bg-[#6f7a56] transition
                        opacity-0 translate-y-4">
-                    <?php echo esc_html(nd_translate('Contacta', 'Contact')); ?>
+                    <?php echo esc_html(nd_translate('Contacta', 'Please contact')); ?>
                 </a>
             </div>
         </div>
@@ -1152,7 +1161,7 @@
                 class="text-center opacity-0 translate-y-6 transition-all duration-700">
                 <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)] leading-[1.4]
                       font-normal text-[#7a8464]">
-                    <?php echo esc_html(nd_translate('Servicios', 'Services')); ?>
+                    <?php echo esc_html(nd_translate('Servicios', 'SERVICES')); ?>
                 </p>
             </div>
 
@@ -1175,9 +1184,9 @@
                     class="space-y-4 opacity-0 translate-y-8 transition-all duration-700 md:pr-4 lg:pr-8">
 
                     <h2 class="text-[clamp(26px,2.8vw,52px)] leading-[1.1] tracking-[-0.01em] font-normal text-[#34362f]">
-                        <?php echo esc_html(nd_translate('Soluciones jurídicas', 'Legal solutions')); ?>
+                        <?php echo esc_html(nd_translate('Soluciones jurídicas', 'Legal Solutions')); ?>
                         <span class="italic text-[#6a7352]">
-                            <?php echo esc_html(nd_translate('sencillas, sólidas y personalizadas', 'straightforward, solid, and personalized')); ?>
+                            <?php echo esc_html(nd_translate('sencillas, sólidas y personalizadas', "simple, solid and tailored to the client's needs")); ?>
                         </span>
                     </h2>
 
@@ -1409,7 +1418,7 @@
              opacity-0 translate-y-6 transition-all duration-700">
 
                 <h2 class="text-[clamp(26px,2.8vw,52px)] leading-[1.1] tracking-[-0.01em] font-normal">
-                    <?php echo esc_html(nd_translate('Estamos cerca', 'We are nearby')); ?>
+                    <?php echo esc_html(nd_translate('Estamos cerca', 'We are close by')); ?>
                 </h2>
 
             </div>
@@ -1451,7 +1460,7 @@
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-2">
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Teléfono', 'Phone')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Teléfono', 'Telephone Number')); ?></p>
                                 <a
                                     href="tel:+34918403979"
                                     class="text-[clamp(13px,1.3vw,18px)] leading-[1.6] hover:text-[#58683d] transition">
@@ -1513,10 +1522,10 @@
                                 alt="" aria-hidden="true">
 
                             <div class="space-y-2">
-                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.4] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Horario', 'Hours')); ?></p>
+                                <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.4] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Horario', 'Office hours')); ?></p>
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.4] text-[#3f413a]">
                                     <span class="grid grid-cols-[auto_1fr] items-baseline gap-x-3 font-medium">
-                                        <span><?php echo esc_html(nd_translate('Lun–Jue', 'Mon–Thu')); ?></span>
+                                        <span><?php echo esc_html(nd_translate('Lun–Jue', 'Monday – Thursday')); ?></span>
                                         <span class="justify-self-end whitespace-nowrap">
                                             9:30<span class="text-[#6a754f]">–</span>19:30
                                         </span>
@@ -1561,7 +1570,7 @@
 
                     <div class="space-y-2">
                         <h3 class="text-[clamp(20px,2.2vw,38px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#3f3f39]"><?php echo esc_html(nd_translate('Escríbenos', 'Write to us')); ?></h3>
-                        <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] text-[#4a4b44]"><?php echo esc_html(nd_translate('Estamos aquí para escucharte.', 'We are here to listen to you.')); ?></p>
+                        <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] text-[#4a4b44]"><?php echo esc_html(nd_translate('Estamos aquí para escucharte.', 'We are here to listen to you')); ?></p>
                     </div>
                     <!-- FORMULARIO -->
                     <?php
