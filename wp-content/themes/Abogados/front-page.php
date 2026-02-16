@@ -84,11 +84,11 @@
 
             <?php if ($subtitle = get_field('hero_subtitle')) : ?>
                 <h2 data-hero-item
-                    class="mt-2 sm:mt-[-0.3em] w-full
-      text-[clamp(28px,6.5vw,38px)] sm:text-[clamp(46px,4.5vw,92px)]
-      leading-[1.1] sm:leading-[1.2]
+                    class="mt-2 sm:mt-[-0.3em] w-full max-w-[94vw] sm:max-w-[1400px]
+      text-[clamp(24px,6vw,34px)] sm:text-[clamp(40px,4.2vw,86px)]
+      leading-[1.15] sm:leading-[1.12]
       tracking-[-0.02em]
-      text-balance
+      text-balance sm:[text-wrap:nowrap]
       text-[#9faa6f] sm:text-[#7f8762]
       opacity-0 translate-y-4 transition-all duration-700">
                     <?php echo esc_html($subtitle); ?>
@@ -324,13 +324,13 @@
                         MBI Abogados
                     </p>
                     <h2 class="text-[clamp(22px,2.4vw,36px)] leading-[1.2] tracking-[-0.01em] font-normal text-[#141414]">
-                        <?php echo esc_html(nd_translate('Perfil de los Socios de MBI Abogados', 'MBI Abogados Partner Profiles')); ?>
+                        <?php echo esc_html(nd_translate('Perfil de los Socios de MBI Abogados', 'Partners’ Profile')); ?>
                     </h2>
                     <span class="block h-px w-16 bg-[#859263]"></span>
                     <p class="text-[clamp(15px,1.4vw,20px)] leading-[1.2] text-justify">
                         <?php echo esc_html(nd_translate(
                             'MBI Abogados está liderado por tres socios con trayectorias complementarias y una sólida reputación en el ejercicio jurídico. Su experiencia combinada en litigación, arbitraje, derecho civil, penal y mercantil, urbanismo y asesoramiento estratégico conforma un despacho orientado a la excelencia técnica y a la obtención de resultados.',
-                            'MBI Abogados is led by three partners with complementary trajectories and a solid reputation in legal practice. Their combined experience in litigation, arbitration, civil, criminal, and commercial law, urban planning, and strategic advisory services shapes a firm oriented toward technical excellence and results.'
+                            'MBI Abogados is led by three founding partners whose complementary careers and established reputations define the firm’s identity. Their combined experience in litigation, arbitration, civil and criminal law, company law, urban planning and strategic advisory work underpins a practice committed to technical excellence and results-driven focus.'
                         )); ?>
                     </p>
                 </div>
@@ -344,13 +344,13 @@
                             <p>
                                 <?php echo esc_html(nd_translate(
                                     'Jurista de referencia con más de treinta años de experiencia, Fernando destaca por su solvencia técnica y su capacidad para abordar asuntos de alta complejidad jurídica. Especialista en litigación, arbitraje y asesoramiento estratégico, aporta un profundo conocimiento del derecho civil, mercantil, contencioso‑administrativo e inmobiliario.',
-                                    'A leading jurist with more than thirty years of experience, Fernando stands out for his technical solvency and his ability to handle matters of high legal complexity. A specialist in litigation, arbitration, and strategic advisory work, he brings deep knowledge of civil, commercial, administrative, and real‑estate law.'
+                                    'A highly regarded lawyer with more than thirty years of experience, Fernando stands out for his technical expertise and his ability to handle matters of real legal complexity. He specialises in litigation, arbitration and strategic advisory work, with extensive knowledge of civil, commercial, administrative and real estate law.'
                                 )); ?>
                             </p>
                             <p>
                                 <?php echo esc_html(nd_translate(
                                     'Licenciado en Derecho por la Universidad Complutense de Madrid e integrante del Cuerpo de Letrados de las Cortes Generales, desarrolló durante más de dos décadas una intensa labor de asesoramiento a diversas Comisiones del Senado, lo que le otorga una perspectiva institucional única. Su enfoque estratégico, su rigor y su fiabilidad lo convierten en un pilar esencial del despacho.',
-                                    'Graduated in Law from the Complutense University of Madrid and a member of the Corps of Lawyers of the Spanish Parliament, he spent more than two decades advising several Senate Committees, giving him a unique institutional perspective. His strategic approach, rigor, and reliability make him a key pillar of the firm.'
+                                    'He holds a Law Degree from the Complutense University of Madrid and is a member of the Corps of Legal Advisers to the Spanish Parliament (“Cuerpo de Letrados de las Cortes Generales”). For over two decades, he provided legal counsel to various Committees of the Senate, gaining a unique institutional perspective. His strategic judgment, rigour and reliability make him a cornerstone of the firm.'
                                 )); ?>
                             </p>
                         </div>
@@ -364,13 +364,13 @@
                             <p>
                                 <?php echo esc_html(nd_translate(
                                     'Abogada con más de tres décadas de trayectoria, Mónica está especializada en litigación civil y mercantil, arbitraje y derecho concursal. Licenciada en Derecho por la Universidad San Pablo CEU y con formación de posgrado en Derecho Comunitario y Tributación, combina un sólido dominio técnico con una gran capacidad estratégica.',
-                                    'A lawyer with more than three decades of experience, Mónica specializes in civil and commercial litigation, arbitration, and insolvency law. Graduated in Law from Universidad San Pablo CEU and with postgraduate training in EU Law and Taxation, she combines strong technical command with high strategic capacity.'
+                                    'With more than three decades of professional experience, Mónica specialises in civil and commercial litigation, arbitration and insolvency law. She holds a Law Degree from CEU San Pablo University and has completed postgraduate studies in European Union Law and Taxation. She combines outstanding technical expertise with sharp strategic judgment.'
                                 )); ?>
                             </p>
                             <p>
                                 <?php echo esc_html(nd_translate(
                                     'Árbitro del ICAM, ha intervenido en numerosos procedimientos de alta complejidad, incluyendo conflictos societarios, responsabilidad de administradores, litigios contractuales y reestructuraciones empresariales. Su enfoque riguroso y orientado a resultados la convierte en una garantía de excelencia para los clientes del despacho.',
-                                    'An arbitrator at ICAM, she has intervened in numerous high‑complexity proceedings, including shareholder disputes, directors’ liability, contractual litigation, and corporate restructurings. Her rigorous, results‑driven approach makes her a guarantee of excellence for the firm’s clients.'
+                                    'An arbitrator at the Madrid Bar Association (ICAM), she has been involved in numerous high-complexity proceedings, including shareholder disputes, directors’ liability claims, contractual litigation and corporate restructuring processes. Her rigorous and results-oriented approach ensures the highest standards in professional excellence for the firm’s clients.'
                                 )); ?>
                             </p>
                         </div>
@@ -384,13 +384,13 @@
                             <p>
                                 <?php echo esc_html(nd_translate(
                                     'Especializado en litigación, derecho inmobiliario y urbanismo. Enrique cuenta con una amplia experiencia tanto en la administración pública como en el sector privado. Su trayectoria incluye la dirección de procedimientos urbanísticos, litigios civiles, mercantiles y en el ámbito contencioso administrativo, así como el asesoramiento integral en operaciones inmobiliarias y procesos de desarrollo urbanístico.',
-                                    'Specialized in litigation, real estate law, and urban planning. Enrique has extensive experience in both public administration and the private sector. His career includes leading urban planning procedures, civil and commercial litigation, and administrative litigation, as well as comprehensive advice on real‑estate transactions and urban development processes.'
+                                    'Enrique specialises in litigation, real estate law and urban planning. He has extensive experience in both the public administration and the private sector. His practice includes the management of urban planning procedures, civil and commercial litigation, administrative court proceedings, and comprehensive advisory services in complex real estate transactions and development projects.'
                                 )); ?>
                             </p>
                             <p>
                                 <?php echo esc_html(nd_translate(
                                     'Ha participado en expedientes de disciplina urbanística, procedimientos judiciales complejos y operaciones de compraventa y due diligence de activos inmobiliarios. Su profundo conocimiento del planeamiento y la gestión urbanística lo convierte en un referente en la materia y en un valor clave para los clientes que buscan asesoramiento especializado.',
-                                    'He has participated in urban discipline cases, complex judicial proceedings, and purchase/sale operations and due diligence of real‑estate assets. His deep knowledge of planning and urban management makes him a reference in the field and a key value for clients seeking specialized advice.'
+                                    'He has been involved in urban planning enforcement proceedings, complex judicial cases, and real estate acquisitions and due diligence processes. His in-depth knowledge of land management and planning law positions him as a leading practitioner in the field. He is a key asset for clients seeking specialised counsel.'
                                 )); ?>
                             </p>
                         </div>
@@ -404,7 +404,7 @@
         id="compromiso"
         data-section="commitment"
         class="relative isolate overflow-hidden bg-[#0c0c0b]
-         py-24 lg:py-42 flex items-center">
+         pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
 
         <!-- FONDO -->
         <div
@@ -433,7 +433,7 @@
             <?php if ($pre = get_field('commitment_pretitle')) : ?>
                 <p
                     data-commitment-item
-                    class="uppercase tracking-[0.2em]  text-[clamp(15px,1.5vw,22px)] leading-[1.4]
+                    class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)] leading-[1.15]
                font-normal text-white
                opacity-0 translate-y-4 transition-all duration-500">
                     <?php echo esc_html(nd_translate($pre, 'OUR COMMITMENT TO YOU')); ?>
@@ -443,10 +443,10 @@
             <?php if ($title = get_field('commitment_title')) : ?>
                 <h2
                     data-commitment-item
-                    class="mt-6 text-[clamp(22px,2.4vw,40px)]
+                    class="mt-1 sm:mt-2 text-[clamp(22px,2.4vw,40px)]
                leading-[1.1] tracking-[-0.01em] font-normal text-white
                opacity-0 translate-y-4 transition-all duration-500">
-                    <?php echo esc_html(nd_translate($title, 'The ability to listen before reaching a conclusion.')); ?>
+                    <?php echo esc_html(nd_translate($title, 'We listen before giving advice.')); ?>
                 </h2>
             <?php endif; ?>
 
@@ -456,26 +456,26 @@
                     class="text-[clamp(24px,2.6vw,46px)]
                leading-[1.2] tracking-[-0.01em] italic font-normal text-[#859263]
                opacity-0 translate-y-4 transition-all duration-500">
-                    <?php echo esc_html(nd_translate($subtitle, "Our aim to enhance and maximise our client's options.")); ?>
+                    <?php echo esc_html(nd_translate($subtitle, 'How we are transformational.')); ?>
                 </h3>
             <?php endif; ?>
 
             <span
                 data-commitment-line
-                class="mt-7 inline-block h-px w-[120px] bg-[#859263]
+                class="mt-4 inline-block h-px w-[120px] bg-[#fff]
              opacity-0 scale-x-0 origin-center
              transition-all duration-500"></span>
 
             <?php if ($text1 = get_field('commitment_text_1')) : ?>
                 <div
                     data-commitment-item
-                    class="mt-8 mx-auto max-w-6xl text-white
+                    class="mt-6 mx-auto max-w-6xl text-white
                text-[clamp(17px,1.8vw,26px)] leading-[1.25] [&_p]:text-[clamp(17px,1.5vw,22px)] [&_p]:leading-[1.25]
                [&_p]:mb-6
                opacity-0 translate-y-6 transition-all duration-500">
                     <?php echo wp_kses_post(nd_translate(
                         $text1,
-                        '<p>As a boutique firm with a global outlook, we (always) strive for results that will serve our clients not only now but in the long term.</p>'
+                        '<p>We are a closely-knit firm with an expansive outlook. We measure our achievements in tangible results.</p>'
                     )); ?>
                 </div>
             <?php endif; ?>
@@ -483,7 +483,7 @@
             <?php if ($text2 = get_field('commitment_text_2')) : ?>
                 <div
                     data-commitment-item
-                    class="mt-7 mx-auto max-w-6xl text-[#859263]
+                    class="mt-5 mx-auto max-w-6xl text-[#859263]
               [&_p]:text-[clamp(17px,1.5vw,22px)] leading-[1.25] [&_p]:text-[clamp(17px,1.8vw,26px)] [&_p]:leading-[1.25]
                [&_p]:mb-6
                opacity-0 translate-y-6 transition-all duration-500">
@@ -494,15 +494,15 @@
             <!-- CAJAS -->
             <div
                 data-commitment-boxes
-                class="mt-16 grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-6">
+                class="mt-12 grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-6">
 
                 <?php
                 $boxes = [
-                    ['user.svg', nd_translate('Trato directo con socios', 'Dealing directly with equity partners'), 'lg:col-span-2'],
-                    ['lenguaje.svg', nd_translate('Lenguaje claro y accesible', 'Clear easy to understand language'), 'lg:col-span-2'],
-                    ['especiali.svg', nd_translate('Alta especialización', 'High level of expertise'), 'lg:col-span-2'],
-                    ['compromiso.svg', nd_translate('Compromiso firme con cada cliente', 'Firm commitment to each and every client'), 'lg:col-span-3'],
-                    ['agilidad.svg', nd_translate('Agilidad y estrategia', 'Agility/Flexibility and the ability to adopt the right strategy'), 'lg:col-span-3'],
+                    ['user.svg', nd_translate('Trato directo con socios', 'Direct access to equity partners'), 'lg:col-span-2'],
+                    ['lenguaje.svg', nd_translate('Lenguaje claro y accesible', 'Clear and accessible language'), 'lg:col-span-2'],
+                    ['especiali.svg', nd_translate('Alta especialización', 'Highly specialised'), 'lg:col-span-2'],
+                    ['compromiso.svg', nd_translate('Compromiso firme con cada cliente', 'Firm commitment to meet the exact needs of each and every client'), 'lg:col-span-3'],
+                    ['agilidad.svg', nd_translate('Agilidad y estrategia', 'Agile and strategic'), 'lg:col-span-3'],
                 ];
                 ?>
 
@@ -577,10 +577,10 @@
                             <?php echo esc_html(nd_translate('Equipo', 'Team')); ?>
                         </p>
                         <h2 class="text-[clamp(26px,2.8vw,48px)] leading-[1.1] tracking-[-0.01em] font-normal text-[#34362f]">
-                            <?php echo esc_html(nd_translate('Talento que acompaña cada asunto', 'Talent that supports every matter')); ?>
+                            <?php echo esc_html(nd_translate('Talento que acompaña cada asunto', 'Skills required for each matter')); ?>
                         </h2>
                         <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] text-[#5b5d55]">
-                            <?php echo esc_html(nd_translate('Un equipo multidisciplinar con rigor, cercanía y dedicación.', 'A multidisciplinary team with rigor, closeness, and dedication.')); ?>
+                            <?php echo esc_html(nd_translate('Un equipo multidisciplinar con rigor, cercanía y dedicación.', 'A multidisciplinary team that is determined and dedicated without losing the personal touch.')); ?>
                         </p>
                     </div>
 
@@ -1122,7 +1122,7 @@
                     class="text-[clamp(22px,2.6vw,44px)] lg:text-[clamp(24px,2.6vw,46px)]
                        leading-[1.1] tracking-[-0.01em] font-normal italic text-balance text-white
                        opacity-0 translate-y-4 transition-all duration-700">
-                    <?php echo esc_html(nd_translate('En MBI Abogados ofrecemos a nuestros clientes asesoramiento jurídico con visión estratégica, rigor, cercanía y dedicación personal.', 'At MBI Abogados we offer our clients legal advice with strategic vision, rigor, closeness, and personal dedication.')); ?>
+                    <?php echo esc_html(nd_translate('En MBI Abogados ofrecemos a nuestros clientes asesoramiento jurídico con visión estratégica, rigor, cercanía y dedicación personal.', 'At MBI Abogados, we deliver strategic legal advice rooted in precision, built on close client relationships, and driven by personal commitment.')); ?>
                 </h2>
 
                 <p
@@ -1131,7 +1131,7 @@
                        text-[clamp(17px,1.5vw,22px)] leading-[1.25]
                        text-white/90 font-normal
                        opacity-0 translate-y-4 transition-all duration-700">
-                    <?php echo esc_html(nd_translate('Lo esencial bien hecho. Lo complejo bien pensado.', ' With the essential done properly and professionally we will reach the right solution, however complex.')); ?>
+                    <?php echo esc_html(nd_translate('Lo esencial bien hecho. Lo complejo bien pensado.', 'Excellence in the essentials. Insight in the complex.')); ?>
                 </p>
 
                 <a
@@ -1161,7 +1161,7 @@
                 class="text-center opacity-0 translate-y-6 transition-all duration-700">
                 <p class="uppercase tracking-[0.2em] text-[clamp(15px,1.5vw,22px)] leading-[1.4]
                       font-normal text-[#7a8464]">
-                    <?php echo esc_html(nd_translate('Servicios', 'SERVICES')); ?>
+                    <?php echo esc_html(nd_translate('Servicios', 'SERVICES OFFERED')); ?>
                 </p>
             </div>
 
@@ -1212,7 +1212,7 @@
                     class="space-y-4 lg:pt-1 opacity-0 translate-y-8 transition-all duration-700">
 
                     <p class="text-[clamp(17px,1.5vw,22px)] leading-[1.25] text-[#5b5d55] pb-5">
-                        <?php echo esc_html(nd_translate('Nos especializamos en áreas donde la experiencia marca la diferencia:', 'We specialize in areas where experience makes the difference:')); ?>
+                        <?php echo esc_html(nd_translate('Nos especializamos en áreas donde la experiencia marca la diferencia:', 'We specialize in areas where experience and know-how make all the difference:')); ?>
                     </p>
 
                     <?php if (have_rows('services')) : ?>
@@ -1525,14 +1525,14 @@
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.4] font-medium text-[#6a754f]"><?php echo esc_html(nd_translate('Horario', 'Office hours')); ?></p>
                                 <p class="text-[clamp(13px,1.3vw,18px)] leading-[1.4] text-[#3f413a]">
                                     <span class="grid grid-cols-[auto_1fr] items-baseline gap-x-3 font-medium">
-                                        <span><?php echo esc_html(nd_translate('Lun–Jue', 'Monday – Thursday')); ?></span>
+                                        <span class="lg:whitespace-nowrap"><?php echo esc_html(nd_translate('Lun–Jue', 'Mon–Thu')); ?></span>
                                         <span class="justify-self-end whitespace-nowrap">
                                             9:30<span class="text-[#6a754f]">–</span>19:30
                                         </span>
                                     </span>
 
                                     <span class="mt-2 grid grid-cols-[auto_1fr] items-baseline gap-x-3 font-medium">
-                                        <span><?php echo esc_html(nd_translate('Viernes', 'Friday')); ?></span>
+                                        <span class="lg:whitespace-nowrap"><?php echo esc_html(nd_translate('Viernes', 'Friday')); ?></span>
                                         <span class="justify-self-end whitespace-nowrap">
                                             9:30<span class="text-[#6a754f]">–</span>14:00
                                         </span>

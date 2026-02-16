@@ -31,7 +31,7 @@ $cookies_url = $cookies_page ? get_permalink($cookies_page) : '#';
                 <p class="text-[clamp(13px,1.5vw,20px)] leading-[1.25] text-[#d4d4c9]">
                     <?php echo esc_html(nd_translate(
                         'La experiencia que orienta. El criterio que inspira confianza.',
-                        'Know how that guides and inspires. Judgement and standards that inspire confidence.'
+                        'Experience that sets the course. Judgment that builds trust.'
                     )); ?>
                 </p>
 
